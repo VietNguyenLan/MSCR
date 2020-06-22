@@ -24,7 +24,12 @@ namespace Project.Controllers
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
                 if(userDetails == null)
                 {
-                    user.
+                    user.LoginErrorMsg = "Invalid Username or password";
+                    return View("Index", user);
+                }
+                else
+                {
+                    Session["id"]
                 }
             }
 

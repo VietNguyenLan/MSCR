@@ -32,6 +32,7 @@ namespace Project.EF
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "This Field is Required")]
         public string password { get; set; }
+        public string LoginErrorMsg { get; set; }
         public int role { get; set; }
         public string name { get; set; }
         public string address { get; set; }
