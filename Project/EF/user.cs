@@ -26,18 +26,34 @@ namespace Project.EF
         }
     
         public string id { get; set; }
-        [DisplayName("User Name")]
+        [DisplayName("User Name : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string username { get; set; }
+
+        [DisplayName("Password : ")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "This Field is Required")]
         public string password { get; set; }
         public string LoginErrorMsg { get; set; }
         public int role { get; set; }
+
+        [DisplayName("Name : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public string name { get; set; }
+
+        [DisplayName("Address : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public string address { get; set; }
+
+        [DisplayName("Phone Number : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public string phone_num { get; set; }
+
+        [DisplayName("Email : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public string email { get; set; }
+
+
         public string avt_img { get; set; }
         public bool is_active { get; set; }
     
