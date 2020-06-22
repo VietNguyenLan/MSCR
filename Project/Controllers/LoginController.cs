@@ -28,8 +28,8 @@ namespace Project.Controllers
                 }
                 else
                 {
-                    Session["id"] = user.id;
-                    Session["username"] = user.username;
+                    Session["id"] = userDetails.id;
+                    Session["username"] = userDetails.username;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -37,7 +37,7 @@ namespace Project.Controllers
 
         public ActionResult LogOut()
         {
-            int userID = (int)Session["id"];
+            string userID = (string)Session["id"];
             Session.Abandon();
             return RedirectToAction("Index, Login");
         }
