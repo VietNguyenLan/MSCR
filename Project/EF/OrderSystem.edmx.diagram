@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c71b7b3cea64f6982dc139376780772" Name="Diagram1">
+        <EntityTypeShape EntityType="OrderSystemModel.balance" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.combo" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.index_table" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.ingredient" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.menu" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.menu_detail" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.order" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.order_detail" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.otp_table" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.product_ingresients" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.service_time" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.time_menu" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.transaction" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.user" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="OrderSystemModel.FK_UserBalance" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_FoodCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_Ingredients_ProductIng" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_breakfast_mid" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_dinner_mid" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_lunch_mid" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_menu_creator" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_menu_detail" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_order_product" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_OrderTransaction" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_StaffOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_TakeTimeOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_UserOder" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_user_otp" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_Product_ProductIng" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderSystemModel.FK_UserTransaction" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
