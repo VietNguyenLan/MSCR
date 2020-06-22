@@ -1,4 +1,4 @@
-﻿@model Project.EF.user;
+﻿@model Project.EF.user
 @{
     Layout = null;
 }
@@ -12,11 +12,17 @@
 </head>
 <body>
     <div class="login">
-        @using (Html.BeginForm("Authorise","Login",FormMethod.Post)
+        @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
+        { 
         <h1>Login to Web App</h1>
         <form method="post" action="">
-            <p><input type="text" name="login" value="" placeholder="Username or Email" required=""></p>
-            <p><input type="password" name="password" value="" placeholder="Password" required=""></p>
+            <p>@Html.LabelFor(Model => Model.username)</p>
+            <p>@Html.EditorFor(Model => Model.username)</p>
+            <p>@Html.ValidationMessageFor(Model => Model.username)</p>
+            <p>@Html.LabelFor(Model => Model.password)</p>
+            <p>@Html.EditorFor(Model => Model.password)</p>
+            <p>@Html.ValidationMessageFor(Model => Model.password)</p>
+            <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
             <p class="remember_me">
                 <label>
                     <input type="checkbox" name="remember_me" id="remember_me">
@@ -25,6 +31,7 @@
             </p>
             <p class="submit"><input type="submit" name="commit" value="Login"></p>
         </form>
+        }
     </div>
 
     <div class="login-help">

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using
 using Project.EF;
 
 namespace Project.Controllers
@@ -29,12 +28,18 @@ namespace Project.Controllers
                 }
                 else
                 {
-                    Session["id"]
+                    Session["id"] = user.id;
+                    Session["username"] = user.username;
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
-            return;
         }
 
+        public ActionResult LogOut()
+        {
+            int userID = (int)Session["id"];
+            Session.Abandon();
+            return RedirectToAction("Index, Login");
+        }
     }
 }
