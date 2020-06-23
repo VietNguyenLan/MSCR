@@ -13,30 +13,32 @@
 <body>
     <div class="login">
         @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
-        { 
-        <h1>Login to Web App</h1>
-        <form method="post" action="">
-            <p>@Html.LabelFor(Model => Model.username)</p>
-            <p>@Html.EditorFor(Model => Model.username)</p>
-            <p>@Html.ValidationMessageFor(Model => Model.username)</p>
-            <p>@Html.LabelFor(Model => Model.password)</p>
-            <p>@Html.EditorFor(Model => Model.password)</p>
-            <p>@Html.ValidationMessageFor(Model => Model.password)</p>
-            <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
-            <p class="remember_me">
-                <label>
-                    <input type="checkbox" name="remember_me" id="remember_me">
-                    Remember me
-                </label>
-            </p>
-            <p class="submit"><input type="submit" name="commit" value="Login"></p>
+        {
+            <h1>Login to Web App</h1>
+            <form method="post" action="">
+                <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
+                <p>@Html.LabelFor(Model => Model.username)</p>
+                <p>@Html.EditorFor(Model => Model.username)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.username)</p>
+                <p>@Html.LabelFor(Model => Model.password)</p>
+                <p>@Html.EditorFor(Model => Model.password)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.password)</p>
+                <div class="bg">
+                <p class="remember_me">
+                    <label>
+                        <input type="checkbox" name="remember_me" id="remember_me">
+                        Remember me
+                    </label>
+                </p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+                </div>
         </form>
-        }
-    </div>
+    }
+        </div>
 
-    <div class="login-help">
-        <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
-    </div>
+        <div class="login-help">
+            <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
+        </div>
 
-</body>
+    </body>
 </html>

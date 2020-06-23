@@ -27,10 +27,10 @@ namespace Project.EF
     
         public string id { get; set; }
         [DisplayName("User Name")]
-        [Required(ErrorMessage = "This Field is Required")]
+        [Required(ErrorMessage = "This field is required")]
         public string username { get; set; }
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "This Field is Required")]
+        [Required(ErrorMessage = "This field is required")]
         public string password { get; set; }
         public string LoginErrorMsg { get; set; }
         public int role { get; set; }
