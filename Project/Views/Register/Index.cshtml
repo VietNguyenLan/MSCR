@@ -1,16 +1,49 @@
-﻿
+﻿@model Project.EF.user
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en" dir="ltr">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link href="~/Style/Login.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Hello</h1>
+    <div class="login">
+        @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
+        {
+            <h1>Register</h1>
+            <form method="post" action="">
+                <p>@Html.LabelFor(Model => Model.name)</p>
+                <p>@Html.EditorFor(Model => Model.name)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.name)</p>
+                <p>@Html.LabelFor(Model => Model.username)</p>
+                <p>@Html.EditorFor(Model => Model.username)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.username)</p>
+                <p>@Html.LabelFor(Model => Model.password)</p>
+                <p>@Html.EditorFor(Model => Model.password)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.password)</p>
+                <p>@Html.LabelFor(Model => Model.address)</p>
+                <p>@Html.EditorFor(Model => Model.address)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.address)</p>
+                <p>@Html.LabelFor(Model => Model.phone_num)</p>
+                <p>@Html.EditorFor(Model => Model.phone_num)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.phone_num)</p>
+                <p>@Html.LabelFor(Model => Model.email)</p>
+                <p>@Html.EditorFor(Model => Model.email)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.email)</p>
+                <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
+               
+                <p class="submit"><input type="submit" name="commit" value="Register"></p>
+            </form>
+        }
+    </div>
+
+    <div class="login-help">
+        <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
+    </div>
+
 </body>
 </html>
