@@ -21,9 +21,13 @@ namespace Project.Controllers
             using (OrderSystemEntities od = new OrderSystemEntities())
             {
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
-                if(userDetails == null)
+                if(user.username == "" || user.password == "")
                 {
-                    user.LoginErrorMsg = "Invalid Username or password";
+                    return View("index", user);
+                }              
+                else if(userDetails == null)
+                {
+                    user.LoginErrorMsg = "Invalid username or password";
                     return View("Index", user);
                 }
                 else
@@ -39,7 +43,7 @@ namespace Project.Controllers
         {
             string userID = (string)Session["id"];
             Session.Abandon();
-            return RedirectToAction("Index, Login");
+            return RedirectToAction("Index", "Login");
         }
     }
 }
