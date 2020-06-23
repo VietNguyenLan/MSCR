@@ -39,7 +39,7 @@ namespace Project.Controllers
         {
             string userID = (string)Session["id"];
             Session.Abandon();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index, Login");
         }
     }
 }
