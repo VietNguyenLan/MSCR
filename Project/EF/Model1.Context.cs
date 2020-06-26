@@ -15,10 +15,10 @@ namespace Project.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class OrderSystemEntities : DbContext
+    public partial class OrderSystemEntities1 : DbContext
     {
-        public OrderSystemEntities()
-            : base("name=OrderSystemEntities")
+        public OrderSystemEntities1()
+            : base("name=OrderSystemEntities1")
         {
         }
     
@@ -45,6 +45,15 @@ namespace Project.EF
         public virtual DbSet<transaction> transactions { get; set; }
         public virtual DbSet<user> users { get; set; }
     
+        public virtual int sp_add_record_balance(string userID)
+        {
+            var userIDParameter = userID != null ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_add_record_balance", userIDParameter);
+        }
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?
@@ -64,6 +73,28 @@ namespace Project.EF
                 new ObjectParameter("definition", typeof(byte[]));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_check_login(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_check_login", usernameParameter, passwordParameter);
+        }
+    
+        public virtual int sp_check_user(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_check_user", usernameParameter);
         }
     
         public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -98,6 +129,15 @@ namespace Project.EF
                 new ObjectParameter("owner_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_get_last_index(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_get_last_index", idParameter);
         }
     
         public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
@@ -141,6 +181,48 @@ namespace Project.EF
                 new ObjectParameter("new_diagramname", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_sign_up(string username, string password, string phone, string email, string name, Nullable<int> role)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("phone", phone) :
+                new ObjectParameter("phone", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var roleParameter = role.HasValue ?
+                new ObjectParameter("role", role) :
+                new ObjectParameter("role", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_sign_up", usernameParameter, passwordParameter, phoneParameter, emailParameter, nameParameter, roleParameter);
+        }
+    
+        public virtual int sp_update_balance(string userID, Nullable<double> amount)
+        {
+            var userIDParameter = userID != null ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(string));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("amount", amount) :
+                new ObjectParameter("amount", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_balance", userIDParameter, amountParameter);
         }
     
         public virtual int sp_upgraddiagrams()

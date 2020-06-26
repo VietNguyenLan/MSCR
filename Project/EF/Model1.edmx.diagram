@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c71b7b3cea64f6982dc139376780772" Name="Diagram1">
+      <Diagram DiagramId="e919f8ea5dc949109ab8b609a54ecf89" Name="Diagram1">
         <EntityTypeShape EntityType="OrderSystemModel.balance" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderSystemModel.category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderSystemModel.combo" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />

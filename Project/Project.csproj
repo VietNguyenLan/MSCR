@@ -132,76 +132,76 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="EF\balance.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\category.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\combo.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\index_table.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\ingredient.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\menu.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\menu_detail.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\order.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\OrderSystem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderSystem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\OrderSystem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\OrderSystem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderSystem.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\order_detail.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\otp_table.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\product.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\product_ingresients.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\service_time.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagrams_Result.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\time_menu.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\transaction.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\user.cs">
-      <DependentUpon>OrderSystem.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,28 +213,29 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="EF\OrderSystem.Context.tt">
+    <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OrderSystem.Context.cs</LastGenOutput>
-      <DependentUpon>OrderSystem.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\OrderSystem.tt">
+    <Content Include="EF\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OrderSystem.edmx</DependentUpon>
-      <LastGenOutput>OrderSystem.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\dai-hoc-fpt-1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="EF\OrderSystem.edmx">
+    <EntityDeploy Include="EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OrderSystem.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="EF\OrderSystem.edmx.diagram">
-      <DependentUpon>OrderSystem.edmx</DependentUpon>
+    <Content Include="EF\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

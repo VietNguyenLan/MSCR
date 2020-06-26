@@ -18,7 +18,7 @@ namespace Project.Controllers
         [HttpPost]
         public ActionResult Authourise(user user)
         {
-            using (OrderSystemEntities od = new OrderSystemEntities())
+            using (OrderSystemEntities1 od = new OrderSystemEntities1())
             {
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
                 if(user.username == "" || user.password == "")
@@ -45,5 +45,6 @@ namespace Project.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
+    
     }
 }

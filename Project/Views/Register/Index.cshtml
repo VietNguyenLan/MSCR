@@ -7,15 +7,20 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Register</title>
     <link href="~/Style/Login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="login">
-        @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Register", "Register", FormMethod.Post))
         {
             <h1>Register</h1>
             <form method="post" action="">
+                <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
+                <p>@Html.AntiForgeryToken()</p>
+                <p>@Html.LabelFor(Model => Model.id)</p>
+                <p>@Html.EditorFor(Model => Model.id)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.id)</p>
                 <p>@Html.LabelFor(Model => Model.name)</p>
                 <p>@Html.EditorFor(Model => Model.name)</p>
                 <p>@Html.ValidationMessageFor(Model => Model.name)</p>
@@ -34,8 +39,16 @@
                 <p>@Html.LabelFor(Model => Model.email)</p>
                 <p>@Html.EditorFor(Model => Model.email)</p>
                 <p>@Html.ValidationMessageFor(Model => Model.email)</p>
-                <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
-               
+                <p>@Html.LabelFor(Model => Model.role)</p>
+                <p>@Html.EditorFor(Model => Model.role)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.role)</p>
+                <p>@Html.LabelFor(Model => Model.avt_img)</p>
+                <p>@Html.EditorFor(Model => Model.avt_img)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.avt_img)</p>
+                <p>@Html.LabelFor(Model => Model.is_active)</p>
+                <p>@Html.EditorFor(Model => Model.is_active)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.is_active)</p>
+
                 <p class="submit"><input type="submit" name="commit" value="Register"></p>
             </form>
         }

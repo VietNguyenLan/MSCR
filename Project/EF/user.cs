@@ -13,7 +13,7 @@ namespace Project.EF
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    
+
     public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,37 +24,36 @@ namespace Project.EF
             this.orders1 = new HashSet<order>();
             this.transactions = new HashSet<transaction>();
         }
-    
+        
         public string id { get; set; }
         [DisplayName("User Name : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string username { get; set; }
-
         [DisplayName("Password : ")]
-        [DataType(DataType.Password)]
         [Required(ErrorMessage = "This Field is Required")]
+        [DataType(DataType.Password)]
         public string password { get; set; }
         public string LoginErrorMsg { get; set; }
+        [DisplayName("Role : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public int role { get; set; }
-
         [DisplayName("Name : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string name { get; set; }
-
         [DisplayName("Address : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string address { get; set; }
-
-        [DisplayName("Phone Number : ")]
+        [DisplayName("Phone : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string phone_num { get; set; }
-
         [DisplayName("Email : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string email { get; set; }
-
-
+        [DisplayName("Avatar : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public string avt_img { get; set; }
+        [DisplayName("Active : ")]
+        [Required(ErrorMessage = "This Field is Required")]
         public bool is_active { get; set; }
     
         public virtual balance balance { get; set; }
