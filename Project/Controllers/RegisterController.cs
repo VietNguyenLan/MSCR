@@ -20,11 +20,14 @@ namespace Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(user user)
         {
-            if (ModelState.IsValid)
+            var userdetail = db.users.Select(x => x).FirstOrDefault();
+
+            if (ModelState.IsValid && userdetail.username == user.username)
             {
-                db.users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index","Login");
+                user.LoginErrorMsg = "user is alreday exist";
+                //db.users.Add(user);
+                //db.SaveChanges();
+                return View("Index", user);
 
             }
             return View("Index",user);
