@@ -23,7 +23,7 @@ namespace Project.Controllers
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
                 if(user.username == "" || user.password == "")
                 {
-                    return View("index", user);
+                    return View("Index", user);
                 }              
                 else if(userDetails == null)
                 {

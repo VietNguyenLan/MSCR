@@ -16,6 +16,7 @@
     <div>
         <h1>DashBoard</h1>
         <h3>User Name : @Session["username"].ToString()</h3>
+        <a href="@Url.Action("Index","ChangePassword")">Change Password</a>
         <a href="@Url.Action("LogOut","Login")">Logout</a>
     </div>
 </body>
