@@ -25,6 +25,7 @@ namespace Project.EF
             this.transactions = new HashSet<transaction>();
         }
         
+
         public string id { get; set; }
         [DisplayName("User Name : ")]
         [Required(ErrorMessage = "This Field is Required")]
