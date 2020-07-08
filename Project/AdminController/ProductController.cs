@@ -27,7 +27,7 @@ namespace Project.AdminController
        
 
         // GET: Product/Create
-        public ActionResult Create(product product)
+        public ActionResult Create()
         {
             try
             {
@@ -37,15 +37,14 @@ namespace Project.AdminController
                     SetViewBag();
 
 
-                    db.products.Add(product);
-                    db.SaveChanges();
+                
                 }
             }
             catch
             {
 
             }
-            return View(product);
+            return View();
         }
 
         public void SetViewBag(long? categoryID = null )
@@ -59,12 +58,13 @@ namespace Project.AdminController
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(product product)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                db.products.Add(product);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
