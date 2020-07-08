@@ -11,16 +11,16 @@
     <link href="~/Style/Login.css" rel="stylesheet" />
 </head>
 <body>
+    <h1>
+      @ViewBag.msg
+    </h1>
     <div class="login">
-        @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+        @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <h1>Register</h1>
             <form method="post" action="">
                 <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
                 <p>@Html.AntiForgeryToken()</p>
-                <p>@Html.LabelFor(Model => Model.id)</p>
-                <p>@Html.EditorFor(Model => Model.id)</p>
-                <p>@Html.ValidationMessageFor(Model => Model.id)</p>
                 <p>@Html.LabelFor(Model => Model.name)</p>
                 <p>@Html.EditorFor(Model => Model.name)</p>
                 <p>@Html.ValidationMessageFor(Model => Model.name)</p>
@@ -43,8 +43,9 @@
                 <p>@Html.EditorFor(Model => Model.role)</p>
                 <p>@Html.ValidationMessageFor(Model => Model.role)</p>
                 <p>@Html.LabelFor(Model => Model.avt_img)</p>
-                <p>@Html.EditorFor(Model => Model.avt_img)</p>
-                <p>@Html.ValidationMessageFor(Model => Model.avt_img)</p>
+                
+                    <input type="file" id="picture" name="picture" class="btn-info"  />
+               
                 <p>@Html.LabelFor(Model => Model.is_active)</p>
                 <p>@Html.EditorFor(Model => Model.is_active)</p>
                 <p>@Html.ValidationMessageFor(Model => Model.is_active)</p>

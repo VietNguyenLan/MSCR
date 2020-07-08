@@ -25,7 +25,7 @@ namespace Project.EF
     
         public int id { get; set; }
         public System.DateTime date_create { get; set; }
-        public string creator { get; set; }
+        public Nullable<int> creator { get; set; }
         public string menu_name { get; set; }
         public bool disable { get; set; }
     

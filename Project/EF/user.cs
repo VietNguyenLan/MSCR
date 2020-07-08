@@ -22,11 +22,11 @@ namespace Project.EF
             this.menus = new HashSet<menu>();
             this.orders = new HashSet<order>();
             this.orders1 = new HashSet<order>();
+            this.topup_card = new HashSet<topup_card>();
             this.transactions = new HashSet<transaction>();
         }
-        
 
-        public string id { get; set; }
+        public int id { get; set; }
         [DisplayName("User Name : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public string username { get; set; }
@@ -56,7 +56,8 @@ namespace Project.EF
         [DisplayName("Active : ")]
         [Required(ErrorMessage = "This Field is Required")]
         public bool is_active { get; set; }
-    
+        public bool email_verified { get; set; }
+
         public virtual balance balance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<menu> menus { get; set; }
@@ -65,6 +66,8 @@ namespace Project.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders1 { get; set; }
         public virtual otp_table otp_table { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<topup_card> topup_card { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<transaction> transactions { get; set; }
     }

@@ -14,11 +14,11 @@ namespace Project.EF
     
     public partial class transaction
     {
-        public string id { get; set; }
-        public string userID { get; set; }
+        public int id { get; set; }
+        public int userID { get; set; }
         public string type { get; set; }
         public double amount { get; set; }
-        public string orderID { get; set; }
+        public Nullable<int> orderID { get; set; }
         public string description { get; set; }
         public System.DateTime time { get; set; }
     

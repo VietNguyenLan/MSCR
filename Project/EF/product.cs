@@ -11,24 +11,41 @@ namespace Project.EF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public product()
         {
+            this.menu_detail = new HashSet<menu_detail>();
+            this.order_detail = new HashSet<order_detail>();
             this.product_ingresients = new HashSet<product_ingresients>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
         public int categoryID { get; set; }
+        [DisplayName("Food")]
+        public string name { get; set; }
+        public int id { get; set; }
+        [DisplayName("Description")]
         public string description { get; set; }
+        [DisplayName("Price")]
         public double price { get; set; }
-        public bool isInCombo { get; set; }
+        [DisplayName("Image")]
+        public string img { get; set; }
+        [DisplayName("Is Combo")]
+        public bool isCombo { get; set; }
+        [DisplayName("Disable")]
         public bool disable { get; set; }
-    
+        
+
+ 
         public virtual category category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<menu_detail> menu_detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<order_detail> order_detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<product_ingresients> product_ingresients { get; set; }
     }

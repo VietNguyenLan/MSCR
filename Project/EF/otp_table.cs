@@ -14,7 +14,7 @@ namespace Project.EF
     
     public partial class otp_table
     {
-        public string uId { get; set; }
+        public int uId { get; set; }
         public int otp { get; set; }
         public System.DateTime create_time { get; set; }
     

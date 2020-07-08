@@ -14,13 +14,14 @@ namespace Project.EF
     
     public partial class order_detail
     {
-        public string id { get; set; }
-        public string orderID { get; set; }
-        public string productID { get; set; }
+        public int id { get; set; }
+        public int orderID { get; set; }
+        public int productID { get; set; }
         public double price { get; set; }
         public int quantity { get; set; }
         public double total_price { get; set; }
     
         public virtual order order { get; set; }
+        public virtual product product { get; set; }
     }
 }

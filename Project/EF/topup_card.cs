@@ -12,12 +12,16 @@ namespace Project.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class topup_card
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string serial_number { get; set; }
+        public string code { get; set; }
+        public int value { get; set; }
+        public System.DateTime create_time { get; set; }
+        public int creator { get; set; }
+        public Nullable<int> used_by { get; set; }
+        public Nullable<System.DateTime> used_time { get; set; }
+    
+        public virtual user user { get; set; }
     }
 }

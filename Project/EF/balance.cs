@@ -14,7 +14,7 @@ namespace Project.EF
     
     public partial class balance
     {
-        public string userID { get; set; }
+        public int userID { get; set; }
         public double balance1 { get; set; }
     
         public virtual user user { get; set; }

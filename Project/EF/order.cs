@@ -21,13 +21,13 @@ namespace Project.EF
             this.transactions = new HashSet<transaction>();
         }
     
-        public string id { get; set; }
-        public string userID { get; set; }
+        public int id { get; set; }
+        public int userID { get; set; }
         public System.DateTime create_time { get; set; }
         public System.DateTime take_date { get; set; }
         public int take_time { get; set; }
         public Nullable<System.DateTime> actual_time { get; set; }
-        public string staffID { get; set; }
+        public Nullable<int> staffID { get; set; }
         public bool is_cancle { get; set; }
         public double total_price { get; set; }
     

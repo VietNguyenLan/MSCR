@@ -15,10 +15,11 @@ namespace Project.EF
     public partial class menu_detail
     {
         public int menuId { get; set; }
-        public string productID { get; set; }
+        public int productID { get; set; }
         public double price { get; set; }
         public bool disable { get; set; }
     
         public virtual menu menu { get; set; }
+        public virtual product product { get; set; }
     }
 }
