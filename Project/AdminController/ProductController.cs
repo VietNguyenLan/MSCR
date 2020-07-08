@@ -33,8 +33,8 @@ namespace Project.AdminController
             {
                 using(OrderSystemEntities1 db = new OrderSystemEntities1())
                 {
-                  
-                    ViewBag.categoryID = new SelectList(db.categories, "ID", "Name");
+
+                    SetViewBag();
 
 
                     db.products.Add(product);
@@ -46,6 +46,15 @@ namespace Project.AdminController
 
             }
             return View(product);
+        }
+
+        public void SetViewBag(long? categoryID = null )
+        {
+            ViewBag.categoryID = new SelectList(ListAll(), "id", "name" , categoryID);
+        }
+        public List<category> ListAll()
+        {
+            return db.categories.Where(x => x.disable == true).ToList();
         }
 
         // POST: Product/Create
