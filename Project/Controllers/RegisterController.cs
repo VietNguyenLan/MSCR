@@ -32,7 +32,7 @@ namespace Project.Controllers
 
             }
 
-            //string path = UpLoadImage(picture);
+            
              
            else
             {
