@@ -1,6 +1,8 @@
 ﻿using Project.EF;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,7 +24,11 @@ namespace Project.AdminController
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                return View(db.products.Where(x => x.id == id).FirstOrDefault());
+            }
+           
         }
        
 
@@ -35,9 +41,6 @@ namespace Project.AdminController
                 {
 
                     SetViewBag();
-
-
-                
                 }
             }
             catch
@@ -47,6 +50,8 @@ namespace Project.AdminController
             return View();
         }
 
+
+        //get list category
         public void SetViewBag(long? categoryID = null )
         {
             ViewBag.categoryID = new SelectList(ListAll(), "id", "name" , categoryID);
@@ -55,15 +60,67 @@ namespace Project.AdminController
         {
             return db.categories.Where(x => x.disable == true).ToList();
         }
+        //get list category
+
+
+        //Upload Image////////////////////////
+        public string UpLoadImage(HttpPostedFileBase picture)
+        {
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+
+            if (picture != null && picture.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(picture.FileName);
+                if (extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("~/Style/productImage"), random + Path.GetFileName(picture.FileName));
+                        picture.SaveAs(path);
+                        path = "~/Style/productImage/" + random + Path.GetFileName(picture.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-2";
+                    }
+
+                }
+                else
+                {
+                    Response.Write("<script>arlert('Only jpg , jpeg or png formats are acceptable.....');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>arlert('Please select a file');</script>");
+                path = "-3";
+            }
+
+            return path;
+        }
+        //Upload Image//////////////////
+
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(product product)
+        public ActionResult Create(product product , HttpPostedFileBase picture)
         {
             try
             {
-                // TODO: Add insert logic here
-                db.products.Add(product);
+                product pro = new product();
+                string path = UpLoadImage(picture);
+
+                pro.name = product.name;
+                pro.categoryID = product.categoryID;
+                pro.description = product.description;
+                pro.price = product.price;
+                pro.img = path;
+                pro.isCombo = product.isCombo;
+                pro.disable = product.disable;
+
+                db.products.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -76,17 +133,25 @@ namespace Project.AdminController
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                SetViewBag();
+                return View(db.products.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, product product, HttpPostedFileBase picture)
         {
             try
             {
-                // TODO: Add update logic here
-
+                    string path = UpLoadImage(picture);
+                    product.img = path;
+                    
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -98,7 +163,11 @@ namespace Project.AdminController
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+              
+                return View(db.products.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Product/Delete/5
@@ -107,9 +176,16 @@ namespace Project.AdminController
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
 
-                return RedirectToAction("Index");
+                    product product = db.products.Where(x => x.id == id).FirstOrDefault();
+                    db.products.Remove(product);
+                    db.SaveChanges();
+
+                }
+
+                    return RedirectToAction("Index");
             }
             catch
             {
