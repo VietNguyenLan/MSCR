@@ -22,7 +22,7 @@ namespace Project.Controllers
         [HttpPost]
         public ActionResult ResetPassword(ChangePasswordViewModels changePasswordViewModels)
         {
-            string uid = (string)(Session["id"]);
+            int uid = (Int32)(Session["id"]);
             var userid = od.users.Find(uid);
             if (userid.password == changePasswordViewModels.OldPassword)
             {
