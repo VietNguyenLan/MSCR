@@ -41,6 +41,7 @@ namespace Project.AdminController
                 {
 
                     SetViewBag();
+                    SetViewBagIngredient();
                 }
             }
             catch
@@ -58,11 +59,19 @@ namespace Project.AdminController
         }
         public List<category> ListAll()
         {
-            return db.categories.Where(x => x.disable == true).ToList();
+            return db.categories.Where(x => x.disable == false).ToList();
         }
+
+
         //get list category
-
-
+        public void SetViewBagIngredient(long? Ingresients_id = null)
+        {
+            ViewBag.Ingresients_id = new SelectList(ListAllIngredients(), "id", "name" , Ingresients_id);
+        }
+        public List<ingredient> ListAllIngredients()
+        {
+            return db.ingredients.Where(x => x.disable == false).ToList();
+        }
         //Upload Image////////////////////////
         public string UpLoadImage(HttpPostedFileBase picture)
         {
@@ -95,7 +104,7 @@ namespace Project.AdminController
             else
             {
                 Response.Write("<script>arlert('Please select a file');</script>");
-                path = "-3";
+                path = "~/Style/productImage/2054211503bun-dau-mam-tom-thap-cam.jpg";
             }
 
             return path;
@@ -105,11 +114,14 @@ namespace Project.AdminController
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(product product , HttpPostedFileBase picture)
+        public ActionResult Create(product product , HttpPostedFileBase picture ,product_ingresients product_Ingresients)
         {
+            OrderSystemEntities1 db1 = new OrderSystemEntities1();
             try
             {
                 product pro = new product();
+                product_ingresients pro_in = new product_ingresients();
+
                 string path = UpLoadImage(picture);
 
                 pro.name = product.name;
@@ -121,7 +133,23 @@ namespace Project.AdminController
                 pro.disable = product.disable;
 
                 db.products.Add(pro);
+
                 db.SaveChanges();
+
+
+
+                //int lastProductId = db.products.Max(item => item.id);
+                ////int lastProductId1 = pro.id;
+
+                //pro_in.productID = lastProductId;
+                //pro_in.ingID = product_Ingresients.ingID;
+                //pro_in.amount = product.amount;
+
+
+                //db1.product_ingresients.Add(pro_in);
+
+                //db1.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch

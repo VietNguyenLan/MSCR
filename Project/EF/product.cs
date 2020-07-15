@@ -23,7 +23,7 @@ namespace Project.EF
             this.order_detail = new HashSet<order_detail>();
             this.product_ingresients = new HashSet<product_ingresients>();
         }
-    
+
         public int categoryID { get; set; }
         [DisplayName("Food")]
         public string name { get; set; }
@@ -38,9 +38,12 @@ namespace Project.EF
         public bool isCombo { get; set; }
         [DisplayName("Disable")]
         public bool disable { get; set; }
-        
 
- 
+        public int amount { get; set; }
+        public int Product_id { get; set; }
+        public int Ingresients_id { get; set; }
+        
+        
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<menu_detail> menu_detail { get; set; }
