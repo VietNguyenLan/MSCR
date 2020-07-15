@@ -43,7 +43,7 @@ namespace Project.Controllers
 
         public ActionResult LogOut()
         {
-            string userID = (string)Session["id"];
+            int userID = (Int32)Session["id"];
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
