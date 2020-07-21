@@ -1,0 +1,48 @@
+﻿@model Project.EF.user
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Update</title>
+    <link href="~/Style/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login">
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post , new { enctype = "multipart/form-data" }))
+        {
+            <h1>Update Information</h1>
+            <form method="post" action="">
+                <p>@Html.AntiForgeryToken()</p>
+                <p>@Html.LabelFor(Model => Model.name)</p>
+                <p>@Html.EditorFor(Model => Model.name)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.name)</p>
+                <p>@Html.LabelFor(Model => Model.username)</p>
+                <p>@Html.EditorFor(Model => Model.username, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })</p>
+                <p>@Html.ValidationMessageFor(Model => Model.username)</p>
+                <p>@Html.LabelFor(Model => Model.address)</p>
+                <p>@Html.EditorFor(Model => Model.address)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.address)</p>
+                <p>@Html.LabelFor(Model => Model.phone_num)</p>
+                <p>@Html.EditorFor(Model => Model.phone_num)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.phone_num)</p>
+                <p>@Html.LabelFor(Model => Model.email)</p>
+                <p>@Html.EditorFor(Model => Model.email)</p>
+                <p>@Html.ValidationMessageFor(Model => Model.email)</p>
+                <img src="@Url.Content(Model.avt_img)" alt="Sample Image" width="300px" />
+
+                <input type="file" id="picture" name="picture" class="btn-info" />
+
+
+                <p class="submit"><input type="submit" name="commit" value="Update"></p>
+            </form>
+        }
+    </div>
+
+
+
+</body>
+</html>

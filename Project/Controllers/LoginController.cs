@@ -34,16 +34,23 @@ namespace Project.Controllers
                 }
                 else
                 {
-                    Session["id"] = userDetails.id;
-                    Session["username"] = userDetails.username;
-                    return RedirectToAction("Index", "Home");
+                    if (userDetails.role.Equals(2))
+                    {
+                        return RedirectToAction("Index", "Product");
+                    }
+                    else
+                    {
+                        Session["id"] = userDetails.id;
+                        Session["username"] = userDetails.username;
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
         }
 
         public ActionResult LogOut()
         {
-            string userID = (string)Session["id"];
+            int userID = (int)Session["id"];
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
