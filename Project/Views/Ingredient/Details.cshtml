@@ -1,0 +1,44 @@
+﻿@model Project.EF.ingredient
+
+<div>
+    <h4>ingredient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disable)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

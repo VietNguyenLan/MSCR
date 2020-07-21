@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Project.EF.menu>
+
+<button>
+    @Html.ActionLink("Create New", "Create")
+</button>
+<br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table" id="t01">
+   
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date_create)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.disable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creator)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_create)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.disable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.name)
+        </td>
+        <td>
+            <button>@Html.ActionLink("Sửa", "Edit", new { id=item.id })</button>
+            <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
+            <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
+        </td>
+    </tr>
+}
+
+</table>
