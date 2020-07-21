@@ -75,7 +75,7 @@ namespace Project.Controllers
             else
             {
                 Response.Write("<script>arlert('Please select a file');</script>");
-                path = "~/Style/avatar/1196258564default-avatar.png";
+                path = "-3";
             }
 
             return path;
@@ -95,8 +95,10 @@ namespace Project.Controllers
                     user.name = user1.name;
                     user.address = user1.address;
                     user.phone_num = user1.phone_num;
+                    user.role = user1.role;
                     user.email = user1.email;
                     user.avt_img = path;
+                    user.is_active = user1.is_active;
                     od.SaveChanges();
                     return RedirectToAction("Index", "Home");
                 }
