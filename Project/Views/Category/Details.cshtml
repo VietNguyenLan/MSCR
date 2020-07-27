@@ -1,25 +1,26 @@
 ﻿@model Project.EF.category
 
 <div>
-    <h4>category</h4>
+    <h4>Phân Loại Món Ăn</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+            Loại Món Ăn
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.name)
         </dd>
-
+        <br>
         <dt>
             @Html.DisplayNameFor(model => model.description)
         </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.description)
+            Mô Tả
         </dd>
 
+        <br>
         <dt>
             @Html.DisplayNameFor(model => model.disable)
         </dt>
@@ -30,7 +31,9 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<button>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.id }) 
+</button>
+<button>  
+  @Html.ActionLink("Quay Lại", "Index")
+</button>

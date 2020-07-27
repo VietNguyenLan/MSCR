@@ -4,24 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4a4d7fcae3f64c2085f1d8d35ddbc172" Name="Diagram1">
-        <EntityTypeShape EntityType="OrderSystemModel.balance" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.category" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.index_table" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.ingredient" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.menu" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.menu_detail" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.order" Width="1.5" PointX="8" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.order_detail" Width="1.5" PointX="10.25" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.otp_table" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.product" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.product_ingresients" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.service_time" Width="1.5" PointX="5.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.time_menu" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.topup_card" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.transaction" Width="1.5" PointX="13.25" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderSystemModel.user" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <AssociationConnector Association="OrderSystemModel.FK_UserBalance" ManuallyRouted="false" />
+      <Diagram DiagramId="e31eabb3a4744369b8312e950dfa3247" Name="Diagram1">
+        <EntityTypeShape EntityType="OrderSystemModel.category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.ingredient" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.menu" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.menu_detail" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.order" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.order_detail" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.otp_table" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.product_ingresients" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.service_time" Width="1.5" PointX="3.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.time_menu" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.topup_card" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.transaction" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderSystemModel.user" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <AssociationConnector Association="OrderSystemModel.FK_FoodCategory" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_Ingredients_ProductIng" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_breakfast_mid" ManuallyRouted="false" />
@@ -31,7 +29,6 @@
         <AssociationConnector Association="OrderSystemModel.FK_menu_detail" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_menu_product" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_order_detail" ManuallyRouted="false" />
-        <AssociationConnector Association="OrderSystemModel.FK_OrderTransaction" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_StaffOrder" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_TakeTimeOrder" ManuallyRouted="false" />
         <AssociationConnector Association="OrderSystemModel.FK_UserOder" ManuallyRouted="false" />

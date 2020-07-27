@@ -11,9 +11,7 @@ namespace Project.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,27 +21,20 @@ namespace Project.EF
             this.order_detail = new HashSet<order_detail>();
             this.product_ingresients = new HashSet<product_ingresients>();
         }
-
-        public int categoryID { get; set; }
-        [DisplayName("Food")]
-        public string name { get; set; }
+    
         public int id { get; set; }
-        [DisplayName("Description")]
+        public string name { get; set; }
+        public int categoryID { get; set; }
         public string description { get; set; }
-        [DisplayName("Price")]
         public double price { get; set; }
-        [DisplayName("Image")]
         public string img { get; set; }
-        [DisplayName("Is Combo")]
         public bool isCombo { get; set; }
-        [DisplayName("Disable")]
         public bool disable { get; set; }
 
         public int amount { get; set; }
         public int Product_id { get; set; }
         public int Ingresients_id { get; set; }
-        
-        
+
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<menu_detail> menu_detail { get; set; }

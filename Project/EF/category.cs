@@ -11,8 +11,7 @@ namespace Project.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +21,8 @@ namespace Project.EF
         }
     
         public int id { get; set; }
-        [DisplayName("Name : ")]
         public string name { get; set; }
-        [DisplayName("Description : ")]
         public string description { get; set; }
-        [DisplayName("Disable : ")]
         public bool disable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -10,17 +10,13 @@
 namespace Project.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class transaction
+    public partial class sp_helpdiagrams_Result
     {
-        public int id { get; set; }
-        public int userID { get; set; }
-        public string type { get; set; }
-        public double amount { get; set; }
-        public string description { get; set; }
-        public System.DateTime time { get; set; }
-    
-        public virtual user user { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

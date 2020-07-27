@@ -1,50 +1,50 @@
 ﻿@model Project.EF.product
 
 <div>
-    <h4>product</h4>
+    <h4>Món Ăn</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+            Tên
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.name)
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+          Mô Tả
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.price)
+            Giá (Đồng)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.price)
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.img)
+            Ảnh
         </dt>
 
         <dd>
-          
+
             <img src="@Url.Content(Model.img)" alt="Sample Image" width="300px" />
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.isCombo)
+           Combo
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.isCombo)
         </dd>
-
+        <br>
         <dt>
             @Html.DisplayNameFor(model => model.disable)
         </dt>
@@ -64,6 +64,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button>@Html.ActionLink("Sửa", "Edit", new { id = Model.id }) </button>
+   <button> @Html.ActionLink("Quay Lại", "Index")</button>
 </p>

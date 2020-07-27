@@ -10,11 +10,10 @@
 namespace Project.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class index_table
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int id { get; set; }
-        public int value { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

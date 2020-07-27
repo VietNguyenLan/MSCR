@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Project.EF.topup_card>
+<h4>Thẻ Thanh Toán</h4>
+<button>
+    @Html.ActionLink("Tạo Mới Thẻ Thanh Toán", "Create")
+</button>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<br><br>
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Số Seri 
+        </th>
+        <th>
+            Code
+        </th>
+        <th>
+            Số Tiền
+        </th>
+        <th>
+            Thời Gian Tạo
+        </th>
+        <th>
+            Người Tạo
+        </th>
+        <th>
+            Thời Gian Dùng
+        </th>
+        <th>
+            Người Dùng 
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.serial_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.used_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.used_by)
+            </td>
+            
+            
+
+           
+        </tr>
+    }
+
+</table>

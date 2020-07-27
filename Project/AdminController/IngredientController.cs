@@ -24,7 +24,6 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-
                 return View(db.ingredients.Where(x => x.id == id).FirstOrDefault());
             }
         }
