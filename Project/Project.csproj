@@ -134,9 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AllOrdersController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="EF\category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -771,10 +773,12 @@
     <Folder Include="Models\" />
     <Folder Include="Style\avatar\" />
     <Folder Include="Style\productImage\" />
+    <Folder Include="Views\AllOrders\" />
     <Folder Include="Views\MenuDetail\" />
     <Folder Include="Views\MSCR\.git\objects\info\" />
     <Folder Include="Views\MSCR\.git\refs\tags\" />
     <Folder Include="Views\MSCR\.vs\Project\v15\Server\sqlite3\" />
+    <Folder Include="Views\OrderDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
