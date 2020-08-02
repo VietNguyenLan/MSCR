@@ -30,9 +30,9 @@ namespace Project.Controllers
                           where row.username == user.username
                           select row).ToList();
 
-            //var custemail = (from row in db.users
-            //                 where row.email == user.email
-            //                 select row).ToList();
+            var custemail = (from row in db.users
+                             where row.email == user.email
+                             select row).ToList();
 
             user.email_verified = false;
 
@@ -41,12 +41,12 @@ namespace Project.Controllers
                  user.LoginErrorMsg = "Username Is Already In Use";
 
             }
-            //if (custemail.Count() != 0)
-            //{
-            //    user.LoginErrorMsg = "Email is already in use";
-            //}
+            if (custemail.Count() != 0)
+            {
+                user.LoginErrorMsg = "Email is already in use";
+            }
 
-           else
+            else
            {
                
                 var u = new user();
@@ -65,7 +65,7 @@ namespace Project.Controllers
                     db.users.Add(u);
                     db.SaveChanges();
                     SendActivationEmail(u);
-                    user.LoginErrorMsg = "data added";
+                    user.LoginErrorMsg = "Please check your email !";
                
                 
             }
