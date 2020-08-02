@@ -1,0 +1,37 @@
+﻿@model Project.ViewModels.ForgotEmailViewModels
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Activation</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            @using (Html.BeginForm("Activation", "Register", FormMethod.Post))
+             {
+                <form method="post" action="">
+                    <p class="field-validation-error">@Html.DisplayFor(Model => Model.ErrorMgs)</p>
+                    <p>@Html.LabelFor(Model => Model.otp)</p>
+                    <p>@Html.EditorFor(Model => Model.otp)</p>
+                    <div class="bg">
+                        <p class="submit"><input type="submit" name="commit" value="Confirm"></p>
+                    </div>
+                </form>
+            }
+        </div>
+
+    </div>
+</body>
+</html>
