@@ -17,7 +17,7 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                return View(db.products.ToList());
+                return View(db.products.Include(c => c.category).ToList());
             }
         }
 

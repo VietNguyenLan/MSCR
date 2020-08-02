@@ -17,7 +17,7 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                return View(db.time_menu.Include(c => c.menu).ToList());
+                return View(db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList());
             }
         }
 
@@ -26,7 +26,7 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                return View(db.time_menu.Include(c => c.menu).Where(x => x.date_service == date_service).FirstOrDefault());
+                return View(db.time_menu.SqlQuery("select * from time_menu where date_service ='"  +date_service + "'").FirstOrDefault());
             }
         }
 
@@ -34,6 +34,8 @@ namespace Project.AdminController
         public ActionResult Create()
         {
             SetViewBag();
+            SetViewBag2();
+            SetViewBag3();
             return View();
         }
 
@@ -45,7 +47,14 @@ namespace Project.AdminController
             {
                 using (OrderSystemEntities1 db = new OrderSystemEntities1())
                 {
-                    db.time_menu.Add(time_Menu);
+                    time_menu tM = new time_menu();
+
+                    tM.date_service = time_Menu.date_service;
+                    tM.breakfast_mId = time_Menu.breakfast_mId;
+                    tM.lunch_mId = time_Menu.lunch_mId;
+                    tM.dinner_mId = time_Menu.dinner_mId;
+                    
+                    db.time_menu.Add(tM);
                     db.SaveChanges();
                 }
 
@@ -61,13 +70,21 @@ namespace Project.AdminController
         {
             ViewBag.breakfast_mId = new SelectList(ListAll(), "id", "menu_name", breakfast_mId);
         }
+        public void SetViewBag2(long? lunch_mId = null)
+        {
+            ViewBag.lunch_mId = new SelectList(ListAll(), "id", "menu_name", lunch_mId);
+        }
+        public void SetViewBag3(long? dinner_mId = null)
+        {
+            ViewBag.dinner_mId = new SelectList(ListAll(), "id", "menu_name", dinner_mId);
+        }
         public List<menu> ListAll()
         {
             return db.menus.Where(x => x.disable == false).ToList();
         }
 
         // GET: MenuDaily/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
             return View();
         }

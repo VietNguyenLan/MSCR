@@ -32,6 +32,11 @@ namespace Project.AdminController
             }
         }
 
+        public ActionResult CreateMenuDetail()
+        {
+            return View();
+        }
+
         public void SetViewBag(long? productID = null)
         {
             ViewBag.productID = new SelectList(ListAll(), "id", "name", productID);
@@ -56,6 +61,7 @@ namespace Project.AdminController
             {
                 using (OrderSystemEntities1 db = new OrderSystemEntities1())
                 {
+                    menu.date_create = DateTime.Now;
                     db.menus.Add(menu);
                     db.SaveChanges();
                 }

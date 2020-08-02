@@ -1,31 +1,29 @@
 ﻿@model IEnumerable<Project.EF.ingredient>
-
+<h4>Thành Phần</h4>
 <button>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo Mới", "Create")
 </button>
 <link href="~/Style/Style.css" rel="stylesheet" />
-<br>
-<table class="table" id="t01">
+<br><br>
+<table class="table table-striped"  id="t01">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            Tên Thành Phần
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.description)
+            Mô Tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.unit)
+            Đơn Vị
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.disable)
-        </th>
-        <th>
-            Action
+            
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+       
         <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
@@ -34,9 +32,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.unit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.disable)
         </td>
         <td>
             <button>@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button>

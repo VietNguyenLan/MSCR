@@ -18,7 +18,6 @@ namespace Project.EF
         public order()
         {
             this.order_detail = new HashSet<order_detail>();
-            this.transactions = new HashSet<transaction>();
         }
     
         public int id { get; set; }
@@ -30,11 +29,10 @@ namespace Project.EF
         public Nullable<int> staffID { get; set; }
         public bool is_cancle { get; set; }
         public double total_price { get; set; }
+        public bool reviewed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order_detail> order_detail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<transaction> transactions { get; set; }
         public virtual user user { get; set; }
         public virtual service_time service_time { get; set; }
         public virtual user user1 { get; set; }

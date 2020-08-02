@@ -1,0 +1,58 @@
+﻿@model Project.EF.topup_card
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Tạo Thẻ Thanh Toán</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.Label("Số Tiền (Đồng)", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.value, new List<SelectListItem>
+                  {
+                        new SelectListItem() {Text = "500.000", Value="500000"},
+                        new SelectListItem() {Text = "200.000", Value="200000"},
+                        new SelectListItem() {Text = "100.000", Value="100000"},
+                        new SelectListItem() {Text = "50.000", Value="50000"},
+                        new SelectListItem() {Text = "20.000", Value="20000"},
+                        new SelectListItem() {Text = "10.000", Value="10000"},
+                        new SelectListItem() {Text = "5.000", Value="5000"}
+                  })
+            @Html.ValidationMessageFor(model => model.value, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.creator, "Người Tạo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.creator, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.amount, "Số Lượng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Tạo Mới" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<button>
+    @Html.ActionLink("Quay Lại", "Index")
+</button>

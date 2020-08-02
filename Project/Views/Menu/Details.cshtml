@@ -1,23 +1,26 @@
 ﻿@model IEnumerable<Project.EF.menu_detail>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<button>
+    @Html.ActionLink("Tạo Mới", "Create")
+</button>
+<br><br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table" id="t01">
     <tr>
         
         <th>
-            @Html.DisplayNameFor(model => model.product.name)
+           Món Ăn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.price)
+            Giá
+        </th>
+        <th>
+            Tên Menu
         </th>
         <th>
             @Html.DisplayNameFor(model => model.disable)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.menu.menu_name)
-        </th>
+        
         
         <th></th>
     </tr>
@@ -27,17 +30,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.product.name)
         </td>
-        
+
         <td>
             @Html.DisplayFor(modelItem => item.price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.disable)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.menu.menu_name)
         </td>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.disable)
+        </td>
+
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

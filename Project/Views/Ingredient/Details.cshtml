@@ -1,33 +1,33 @@
 ﻿@model Project.EF.ingredient
 
 <div>
-    <h4>ingredient</h4>
+    <h4>Thành Phần</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+            Tên Thành Phần 
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.name)
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+            Mô Tả
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
-
+        <br>
         <dt>
-            @Html.DisplayNameFor(model => model.unit)
+            Đơn Vị 
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.unit)
         </dd>
-
+        <br>
         <dt>
             @Html.DisplayNameFor(model => model.disable)
         </dt>
@@ -39,6 +39,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+   <button> @Html.ActionLink("Edit", "Edit", new { id = Model.id })</button> |
+    <button>@Html.ActionLink("Back to List", "Index")</button>
 </p>

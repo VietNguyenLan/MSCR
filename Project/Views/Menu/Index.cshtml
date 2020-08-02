@@ -1,27 +1,24 @@
 ﻿@model IEnumerable<Project.EF.menu>
-
+<h4>Danh Sách Menu</h4>
 <button>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo Mới", "Create")
 </button>
-<br>
+<br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
-<table class="table" id="t01">
+<table class="table table-striped" id="t01">
    
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.date_create)
+            Ngày Tạo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.menu_name)
+            Tên Menu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.disable)
+            Người Tạo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.creator)
-        </th>
-        <th>
-            Action
+        
         </th>
     </tr>
 
@@ -32,9 +29,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.menu_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.disable)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.user.name)
