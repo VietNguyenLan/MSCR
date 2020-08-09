@@ -34,18 +34,48 @@ namespace Project.AdminController
 
         public ActionResult CreateMenuDetail()
         {
+            SetViewBag();
+            SetViewBagMenu();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateMenuDetail(menu_detail menu_Detail)
+        {
+            try
+            {
+                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
+
+                    db.menu_detail.Add(menu_Detail);
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public void SetViewBag(long? productID = null)
         {
             ViewBag.productID = new SelectList(ListAll(), "id", "name", productID);
         }
+
+        public void SetViewBagMenu(long? menuId = null)
+        {
+            ViewBag.menuId = new SelectList(ListAllMenu() ,"id","menu_name",menuId);
+        }
         public List<product> ListAll()
         {
             return db.products.Where(x => x.disable == false).ToList();
         }
-
+        public List<menu> ListAllMenu()
+        {
+            return db.menus.Where(x => x.disable == false).ToList();
+        }
 
         // GET: Menu/Create
         public ActionResult Create()
@@ -107,7 +137,11 @@ namespace Project.AdminController
         // GET: Menu/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+
+                return View(db.menus.Include(m => m.user).Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Menu/Delete/5
@@ -116,7 +150,14 @@ namespace Project.AdminController
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
+
+                    menu menu = db.menus.Where(x => x.id == id).FirstOrDefault();
+                    db.menus.Remove(menu);
+                    db.SaveChanges();
+
+                }
 
                 return RedirectToAction("Index");
             }

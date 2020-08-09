@@ -12,12 +12,14 @@ namespace Project.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class feed_back
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int orderID { get; set; }
+        public System.DateTime create_time { get; set; }
+        public int userID { get; set; }
+        public string content { get; set; }
+    
+        public virtual order order { get; set; }
+        public virtual user user { get; set; }
     }
 }

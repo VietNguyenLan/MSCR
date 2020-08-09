@@ -21,9 +21,9 @@ namespace Project.EF
         public int creator { get; set; }
         public Nullable<int> used_by { get; set; }
         public Nullable<System.DateTime> used_time { get; set; }
-
+    
+        public virtual user user { get; set; }
         public int amount { get; set; }
 
-        public virtual user user { get; set; }
     }
 }

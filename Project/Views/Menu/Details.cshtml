@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Project.EF.menu_detail>
 
 <button>
-    @Html.ActionLink("Tạo Mới", "Create")
+    @Html.ActionLink("Thêm", "CreateMenuDetail")
 </button>
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
@@ -17,12 +17,10 @@
         <th>
             Tên Menu
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.disable)
-        </th>
+       
         
         
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -37,17 +35,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.menu.menu_name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.disable)
-        </td>
+        
 
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        
     </tr>
 }
 
 </table>
+<button>
+    @Html.ActionLink("Quay Lại", "Index")
+</button>

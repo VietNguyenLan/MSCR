@@ -17,6 +17,7 @@ namespace Project.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public user()
         {
+            this.feed_back = new HashSet<feed_back>();
             this.menus = new HashSet<menu>();
             this.orders = new HashSet<order>();
             this.orders1 = new HashSet<order>();
@@ -37,6 +38,8 @@ namespace Project.EF
         public double balance { get; set; }
         public bool is_active { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<feed_back> feed_back { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<menu> menus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

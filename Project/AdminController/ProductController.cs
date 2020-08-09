@@ -30,7 +30,56 @@ namespace Project.AdminController
             }
            
         }
-       
+
+        public ActionResult Details_Ingredient(int id)
+        {
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                return View(db.product_ingresients.Include(a => a.product).Include(b => b.ingredient).Where(x => x.productID == id).ToList());
+            }
+
+        }
+
+        public ActionResult Create_Ingredient()
+        {
+            try
+            {
+                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
+                    SetViewBagProduct();
+                    SetViewBagIngredient();
+
+                }
+            }
+            catch
+            {
+
+            }
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Create_Ingredient(product_ingresients product_Ingresients)
+        {
+            try
+            {
+                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
+
+                    db.product_ingresients.Add(product_Ingresients);
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
 
         // GET: Product/Create
         public ActionResult Create()
@@ -41,7 +90,7 @@ namespace Project.AdminController
                 {
 
                     SetViewBag();
-                    SetViewBagIngredient();
+                    
                 }
             }
             catch
@@ -51,6 +100,18 @@ namespace Project.AdminController
             return View();
         }
 
+
+
+
+        //product
+        public void SetViewBagProduct(long? productID = null)
+        {
+            ViewBag.productID = new SelectList(ListAllpro(), "id", "name", productID);
+        }
+        public List<product> ListAllpro()
+        {
+            return db.products.Where(x => x.disable == false).ToList();
+        }
 
         //get list category
         public void SetViewBag(long? categoryID = null )
@@ -64,9 +125,9 @@ namespace Project.AdminController
 
 
         //get list category
-        public void SetViewBagIngredient(long? Ingresients_id = null)
+        public void SetViewBagIngredient(long? ingID = null)
         {
-            ViewBag.Ingresients_id = new SelectList(ListAllIngredients(), "id", "name" , Ingresients_id);
+            ViewBag.ingID = new SelectList(ListAllIngredients(), "id", "name" , ingID);
         }
         public List<ingredient> ListAllIngredients()
         {

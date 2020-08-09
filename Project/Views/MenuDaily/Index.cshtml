@@ -40,7 +40,7 @@
             @Html.DisplayFor(modelItem => item.menu1.menu_name)
         </td>
         <td>
-            <button>@Html.ActionLink("Sửa", "Edit", new { id = item.date_service.ToString("u").Remove(item.date_service.ToString("u").Length - 1, 1) })</button>
+            <button>@Html.ActionLink("Sửa", "Edit", new { id = item.date_service })</button>
             <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.date_service })</button>
             <button>@Html.ActionLink("Xóa", "Delete", new { id = item.date_service })</button>
         </td>

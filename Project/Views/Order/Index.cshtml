@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Project.EF.order>
+<h4>Quản Lí Đơn Hàng</h4>
+<button>
+    @Html.ActionLink("Tạo Mới", "Create")
+</button>
+<br><br>
+    <link href="~/Style/Style.css" rel="stylesheet" />
+    <table class="table table-striped" id="t01">
+        <tr>
+            <th>
+                Khách Hàng
+            </th>
+            <th>
+                Ngày Tạo Đơn
+            </th>
+            <th>
+                Ngày Đến Lấy
+            </th>
+            <th>
+                Thời Gian Lấy Thực Tế
+            </th>
+            <th>
+                Thời Gian
+            </th>
+            <th>
+                Nhân Viên
+            </th>
+            <th>
+                Tổng Tiền
+            </th>
+            <th>
+                Hủy
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.reviewed)
+            </th>
+
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user1.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.create_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.take_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.actual_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.service_time.time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.is_cancle)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.reviewed)
+                </td>
+
+
+
+                <td>
+                   
+                    <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
+                  
+                </td>
+            </tr>
+        }
+
+    </table>

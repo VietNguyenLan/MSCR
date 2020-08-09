@@ -11,18 +11,14 @@ namespace Project.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class time_menu
     {
-        [Required, Column(TypeName = "Date"), DisplayFormat(DataFormatString = "{yyyy/MM/dd}")]
-
         public System.DateTime date_service { get; set; }
         public Nullable<int> breakfast_mId { get; set; }
         public Nullable<int> lunch_mId { get; set; }
         public Nullable<int> dinner_mId { get; set; }
-
+    
         public virtual menu menu { get; set; }
         public virtual menu menu1 { get; set; }
         public virtual menu menu2 { get; set; }

@@ -129,6 +129,7 @@
     <Compile Include="AdminController\IngredientController.cs" />
     <Compile Include="AdminController\MenuController.cs" />
     <Compile Include="AdminController\MenuDailyController.cs" />
+    <Compile Include="AdminController\OrderController.cs" />
     <Compile Include="AdminController\ProductController.cs" />
     <Compile Include="AdminController\TopUPController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -139,6 +140,9 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="EF\category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\feed_back.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\ingredient.cs">
@@ -181,15 +185,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\service_time.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\time_menu.cs">
@@ -765,6 +760,13 @@
     <Content Include="Views\TopUP\Index.cshtml" />
     <Content Include="Views\TopUP\Create.cshtml" />
     <Content Include="Views\Ingredient\Delete.cshtml" />
+    <Content Include="Views\Menu\CreateMenuDetail.cshtml" />
+    <Content Include="Views\Menu\Delete.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Product\Details_Ingredient.cshtml" />
+    <Content Include="Views\Product\Create_Ingredient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,50 @@
+﻿@model Project.EF.menu
+
+<h3>Bạn có muốn xóa Menu này không?</h3>
+<div>
+    <h4>menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Ngày Tạo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_create)
+        </dd>
+
+        <dt>
+            Tên Menu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disable)
+        </dd>
+
+        <dt>
+            Người Tạo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.username)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            <button>@Html.ActionLink("Quay Lại", "Index")</button>
+        </div>
+    }
+</div>

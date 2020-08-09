@@ -3,6 +3,7 @@
 <button>
     @Html.ActionLink("Tạo Mới", "Create")
 </button>
+<button>@Html.ActionLink("Thêm món ăn cho Menu", "CreateMenuDetail")</button>
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
 <table class="table table-striped" id="t01">
@@ -34,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.user.name)
         </td>
         <td>
-            <button>@Html.ActionLink("Sửa", "Edit", new { id=item.id })</button>
+            
             <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
             <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
         </td>

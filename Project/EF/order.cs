@@ -30,7 +30,9 @@ namespace Project.EF
         public bool is_cancle { get; set; }
         public double total_price { get; set; }
         public bool reviewed { get; set; }
+        public int receive_code { get; set; }
     
+        public virtual feed_back feed_back { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order_detail> order_detail { get; set; }
         public virtual user user { get; set; }
