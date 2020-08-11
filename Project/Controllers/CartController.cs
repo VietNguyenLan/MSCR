@@ -50,6 +50,19 @@ namespace Project.Controllers
             return RedirectToAction("");
         }
 
+        public ActionResult Remove(product product)
+        {
+            List<CartItem> items = (List<CartItem>)Session["cart"];
+            int index = isExist(items, product);
+            items[index].Quantity--;
+            if(items[index].Quantity == 0)
+            {
+                items.Remove(items[index]);
+            }
+            Session["cart"] = items;
+            return RedirectToAction("");
+        }
+
         private void AddNewCart(product product, DateTime date, int service_time)
         {
             List<CartItem> items = new List<CartItem>();
