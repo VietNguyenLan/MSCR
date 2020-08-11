@@ -1,4 +1,5 @@
 ﻿using Project.EF;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,11 @@ namespace Project.Controllers
                     product p = db.products.Where(x => x.id == item.productID).FirstOrDefault();
                     productList.Add(p);
                 }
+
+                List<CartItem> items = new List<CartItem>();
+
+
+
                 return View(productList);
             }
 
