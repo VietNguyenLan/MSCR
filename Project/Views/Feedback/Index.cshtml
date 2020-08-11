@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project.EF.feed_back>
+<h4>Phản Hồi Của Khách Hàng</h4>
+<br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Người dùng
+        </th>
+        <th>
+            Order
+        </th>
+        <th>
+            Ngày Feedback
+        </th>
+        <th>
+            Nội dung
+        </th>
+
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+
+
+
+        </tr>
+    }
+
+</table>

@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminController\CategoryController.cs" />
+    <Compile Include="AdminController\FeedbackController.cs" />
     <Compile Include="AdminController\IngredientController.cs" />
     <Compile Include="AdminController\MenuController.cs" />
     <Compile Include="AdminController\MenuDailyController.cs" />
@@ -767,6 +768,7 @@
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Product\Details_Ingredient.cshtml" />
     <Content Include="Views\Product\Create_Ingredient.cshtml" />
+    <Content Include="Views\Feedback\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

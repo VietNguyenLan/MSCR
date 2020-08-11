@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Project.EF.order_detail>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<h4>Chi Tiết Đơn Hàng</h4>
+<br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
     <tr>
         <th>
             Số Order
@@ -22,28 +22,29 @@
         </th>
 
 
-        <th></th>
+   
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.order.id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.total_price)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.order.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
 
-    </tr>
-}
+        </tr>
+    }
 
 </table>
