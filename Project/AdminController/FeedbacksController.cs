@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace Project.AdminController
 {
-    public class FeedbackController : Controller
+    public class FeedbacksController : Controller
     {
         // GET: Feedback
         public ActionResult Index()
