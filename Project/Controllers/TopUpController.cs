@@ -42,16 +42,31 @@ namespace Project.Controllers
                     card.used_by = (Int32)(Session["id"]);
                     card.used_time = DateTime.Now;
                     db.SaveChanges();
+                    CreateTopUpTransaction(card.amount, card.serial_number);
                     return Index(card.amount);
                 }
                 else
                 {
-
+                    return Index(1);
                 }
 
-                return Index();
+                
             }
             
+        }
+
+        private void CreateTopUpTransaction(int amount, String serial)
+        {
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                transaction trans = new transaction();
+                trans.userID = (Int32)(Session["id"]);
+                trans.type = "Top up";
+                trans.amount = amount;
+                trans.description = "Top up "+ amount + " using card with serial: "+ serial;
+                db.transactions.Add(trans);
+                db.SaveChanges();
+            }
         }
     }
 }

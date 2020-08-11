@@ -45,9 +45,6 @@ namespace Project.Controllers
                     productList.Add(p);
                 }
 
-                List<CartItem> items = new List<CartItem>();
-
-
 
                 return View(productList);
             }

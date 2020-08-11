@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AllOrdersController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\ConfirmEmailController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\ProcessOrderController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TopUpController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -827,11 +829,13 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Style\avatar\" />
     <Folder Include="Style\productImage\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Feedback\" />
     <Folder Include="Views\MenuDetail\" />
     <Folder Include="Views\MSCR\.git\objects\info\" />
     <Folder Include="Views\MSCR\.git\refs\tags\" />
     <Folder Include="Views\MSCR\.vs\Project\v15\Server\sqlite3\" />
+    <Folder Include="Views\ProcessOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
