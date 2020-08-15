@@ -132,7 +132,7 @@
     <Compile Include="AdminController\MenuDailyController.cs" />
     <Compile Include="AdminController\OrderController.cs" />
     <Compile Include="AdminController\ProductController.cs" />
-    <Compile Include="AdminController\TopUPController.cs" />
+    <Compile Include="AdminController\TopUPsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -817,8 +817,8 @@
     <Content Include="Views\Menu\Details.cshtml" />
     <Content Include="Views\Menu\Edit.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
-    <Content Include="Views\TopUP\Index.cshtml" />
-    <Content Include="Views\TopUP\Create.cshtml" />
+    <Content Include="Views\TopUPs\Index.cshtml" />
+    <Content Include="Views\TopUPs\Create.cshtml" />
     <Content Include="Views\Ingredient\Delete.cshtml" />
     <Content Include="Views\Menu\CreateMenuDetail.cshtml" />
     <Content Include="Views\Menu\Delete.cshtml" />

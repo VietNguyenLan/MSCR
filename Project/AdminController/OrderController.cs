@@ -12,6 +12,8 @@ namespace Project.AdminController
     {
      
         OrderSystemEntities1 db = new OrderSystemEntities1();
+        
+
         // GET: Order
         public ActionResult Index()
         {
@@ -25,11 +27,14 @@ namespace Project.AdminController
         public ActionResult Details(int id)
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
+
             {
+                ViewBag.total = db.order_detail.Where(t => t.orderID == id ).Select(i => i.total_price).Sum();
                 return View(db.order_detail.Include(c => c.order).Include(d => d.product).Where(x => x.orderID == id).ToList());
             }
         }
 
+        
         // GET: Order/Create
         public ActionResult Create()
         {

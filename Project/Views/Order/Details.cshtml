@@ -22,7 +22,7 @@
         </th>
 
 
-   
+
     </tr>
 
     @foreach (var item in Model)
@@ -35,16 +35,22 @@
                 @Html.DisplayFor(modelItem => item.product.name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.price)
+                @Html.DisplayFor(modelItem => item.price) đ
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.total_price)
+                @Html.DisplayFor(modelItem => item.total_price) đ
             </td>
 
         </tr>
+
+
+
     }
 
+   
+
 </table>
+ <h4 class="alignRight">Tổng số tiền @ViewBag.total đ </h4>

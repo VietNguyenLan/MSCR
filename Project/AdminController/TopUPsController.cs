@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Project.AdminController
 {
-    public class TopUPController : Controller
+    public class TopUPsController : Controller
     {
         // GET: TopUP
         public ActionResult Index()
