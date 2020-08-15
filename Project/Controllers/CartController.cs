@@ -11,22 +11,53 @@ namespace Project.Controllers
     public class CartController : Controller
     {
         // GET: Cart
-        public ActionResult Index()
+        public ActionResult Cart()
         {
-            return View();
+            List<CartItem> list = (List <CartItem>) Session["cart"];
+            
+            return View(list);
         }
 
-        public ActionResult Add(product product, DateTime date, int service_time)
+        public ActionResult RemoveItem(int productID)
         {
- 
-            if(Session["cart"] == null)
+            product product = new product();
+            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                product = db.products.Where(x => x.id == productID).FirstOrDefault();
+            }
+            List<CartItem> items = (List<CartItem>)Session["cart"];
+            int index = isExist(items, product);
+            items[index].Quantity--;
+            
+                items.Remove(items[index]);
+            
+            Session["cart"] = items;
+
+            return RedirectToAction("Cart");
+        }
+
+        
+        public ActionResult Add(int productID, DateTime date, int service_time)
+        {
+
+            product product = new product();
+            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            {
+                product = db.products.Where(x => x.id == productID).FirstOrDefault();
+            }
+            if (Session["cart"] == null)
             {
                 AddNewCart(product, date, service_time);
             }
             else
             {
                 List<CartItem> items = (List<CartItem>)Session["cart"];
-                if(!isCurrentCart(items, date, service_time))
+                if (items.Count() == 0)
+                {
+                    items.Clear();
+                    AddNewCart(product, date, service_time);
+                }
+                else if (!isCurrentCart(items, date, service_time))
                 {
                     items.Clear();
                     AddNewCart(product, date, service_time);
@@ -34,28 +65,33 @@ namespace Project.Controllers
                 else
                 {
                     int index = isExist(items, product);
-                    if(index == -1)
+                    if (index == -1)
                     {
                         items.Add(new CartItem { Product = product, Quantity = 1, Date = date, ServiceTime = service_time });
                     }
                     else
                     {
                         items[index].Quantity++;
+                        items[index].totalProduct = items[index].Product.price * items[index].Quantity;
                     }
                 }
 
                 Session["cart"] = items;
             }
 
-            return RedirectToAction("");
+            return RedirectToAction("Home");
         }
+
+
 
         public ActionResult Remove(product product)
         {
+
             List<CartItem> items = (List<CartItem>)Session["cart"];
             int index = isExist(items, product);
             items[index].Quantity--;
-            if(items[index].Quantity == 0)
+            items[index].totalProduct = items[index].Product.price * items[index].Quantity;
+            if (items[index].Quantity == 0)
             {
                 items.Remove(items[index]);
             }
@@ -71,13 +107,14 @@ namespace Project.Controllers
             item.Quantity = 1;
             item.Date = date;
             item.ServiceTime = service_time;
+            item.totalProduct += product.price;
             items.Add(item);
             Session["cart"] = items;
         }
 
         private bool isCurrentCart(List<CartItem> items, DateTime date, int service_time)
         {
-            if(items[1].Date == date && items[1].ServiceTime == service_time)
+            if (items[0].Date == date && items[0].ServiceTime == service_time)
             {
                 return true;
             }
@@ -86,9 +123,10 @@ namespace Project.Controllers
 
         private int isExist(List<CartItem> items, product product)
         {
-            for(int i = 0; i< items.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
-                if (items[i].Product.id.Equals(product.id)){
+                if (items[i].Product.id.Equals(product.id))
+                {
                     return i;
                 }
             }

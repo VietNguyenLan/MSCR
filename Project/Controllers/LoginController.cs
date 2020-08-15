@@ -42,7 +42,7 @@ namespace Project.Controllers
                     {
                         Session["id"] = userDetails.id;
                         Session["username"] = userDetails.username;
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                 }
             }
