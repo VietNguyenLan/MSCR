@@ -13,9 +13,19 @@ namespace Project.Controllers
         // GET: Cart
         public ActionResult Cart()
         {
+
             List<CartItem> list = (List <CartItem>) Session["cart"];
+            if(list.Count == 0)
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.totalPrice = (int)list.Sum(x => x.totalProduct);
             
-            return View(list);
+                return View(list);
+            }
+            
         }
 
         public ActionResult RemoveItem(int productID)

@@ -207,9 +207,9 @@
                                             <span class="price">@Html.DisplayFor(modelItem => item.price) </span>
                                         </div>
                                         <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng">
-                                            Giỏ hàng
+                                            
                                             <i class="fa fa-cart-plus"></i>
-                                            @Html.ActionLink("Add", "Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })
+                                            @Html.ActionLink("Giỏ hàng", "Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })
                                         </button>
                                     </div>
                                 </div>

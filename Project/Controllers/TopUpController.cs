@@ -64,6 +64,8 @@ namespace Project.Controllers
                 trans.type = "Top up";
                 trans.amount = amount;
                 trans.description = "Top up "+ amount + " using card with serial: "+ serial;
+                trans.time = DateTime.Now;
+
                 db.transactions.Add(trans);
                 db.SaveChanges();
             }

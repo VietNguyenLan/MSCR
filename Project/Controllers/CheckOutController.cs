@@ -8,21 +8,29 @@ using System.Web.Mvc;
 
 namespace Project.Controllers
 {
-    public class ProcessOrderController : Controller
+    public class CheckOutController : Controller
     {
-        // GET: ProcessOrder
-        public ActionResult Index()
+        // GET: CheckOut
+        public ActionResult CheckOut()
         {
-            ViewBag.BalanceError = -1;
+            List<CartItem> list = (List<CartItem>)Session["cart"];
+            if (list.Count == 0)
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.totalPrice = (int)list.Sum(x => x.totalProduct);
 
-            return View();
+                return View(list);
+            }
         }
-
         public ActionResult CreateOrder()
         {
+            int uID = (Int32)(Session["id"]);
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                user u = (user)db.users.Where(x => x.id == (int)(Session["id"])).FirstOrDefault();
+                user u = db.users.Where(x => x.id == uID).FirstOrDefault();
                 List<CartItem> items = (List<CartItem>)Session["cart"];
                 DateTime date = items[0].Date;
                 int service_time = items[0].ServiceTime;
@@ -48,7 +56,7 @@ namespace Project.Controllers
                     db.SaveChanges();
                     int orderID = order.id;
 
-                    foreach(CartItem item in items)
+                    foreach (CartItem item in items)
                     {
                         order_detail order_Detail = new order_detail()
                         {
@@ -68,7 +76,7 @@ namespace Project.Controllers
 
 
             }
-            return View();
+            return RedirectToAction("Home", "Home");
         }
 
 
@@ -79,11 +87,12 @@ namespace Project.Controllers
             {
                 transaction trans = new transaction()
                 {
-                userID = (Int32)(Session["id"]),
-                type = "Order Pay",
-                amount = order.total_price * -1,
-                description = "Pay " + order.total_price + " for order number:  " + order.id
-            };
+                    userID = (Int32)(Session["id"]),
+                    type = "Order Pay",
+                    amount = order.total_price * -1,
+                    description = "Pay " + order.total_price + " for order number:  " + order.id,
+                    time = DateTime.Now
+                };
                 db.transactions.Add(trans);
                 db.SaveChanges();
             }

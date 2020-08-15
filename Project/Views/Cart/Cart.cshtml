@@ -33,27 +33,34 @@
                                 <th></th>
                             </tr>
                         </thead>
+
                         <tbody>
+
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
-                                <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Date)</td>
-                                <td></td>
-                                <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
-                                <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
-                                <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                        @Html.ActionLink("Xóa", "RemoveItem", new { productID = item.Product.id })
-                                    </button>
-                                </td>
-                            </tr>
 
-                            }
+                                    <tr>
+                                        <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
+                                        <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                                        <td></td>
+                                        <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
+                                        <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
+                                        <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                                @Html.ActionLink("Xóa", "RemoveItem", new { productID = item.Product.id })
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+
+                                }
                             </tbody>
+                      
+                        
+                        
                         <tfoot>
                             <tr>
                                 <td></td>
@@ -62,7 +69,7 @@
                                 <td></td>
                                 <td></td>
                                 <td style="font-weight:800;font-size:22px;">Tổng cộng :</td>
-                                <td class="text-center" style="font-weight:800;font-size:22px;">1225000đ</td>
+                                <td class="text-center" style="font-weight:800;font-size:22px;">@ViewBag.totalPrice</td>
                                 <td></td>
                             </tr>
                         </tfoot>
@@ -76,7 +83,7 @@
                     </div>
                     <div class="col-sm-12  col-md-6">
                         <button class="btn btn-block btn-danger btn-lg"> @Html.ActionLink("Tiếp tục mua hàng", "Home","Home")</button>
-                        <button class="btn btn-lg btn-block btn-success text-uppercase">Thanh toán</button>
+                        <a class="btn btn-lg btn-block btn-success text-uppercase" href="~/CheckOut/CheckOut">Thanh toán</a>
                     </div>
                 </div>
             </div>

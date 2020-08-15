@@ -139,6 +139,7 @@
     <Compile Include="Controllers\AllOrdersController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
+    <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\ConfirmEmailController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
@@ -312,6 +313,8 @@
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.bootstrap.min.js" />
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.css" />
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.jquery.min.js" />
+    <Content Include="fonts\Font%28css,js%29\COModal.css" />
+    <Content Include="fonts\Font%28css,js%29\COModal.js" />
     <Content Include="fonts\Font%28css,js%29\css\ajax-loader.gif" />
     <Content Include="fonts\Font%28css,js%29\css\animate.css" />
     <Content Include="fonts\Font%28css,js%29\css\aos.css" />
@@ -1065,6 +1068,7 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Shared\LayoutUser.cshtml" />
     <Content Include="Views\Shared\LayoutUsers.cshtml" />
+    <Content Include="Views\CheckOut\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
