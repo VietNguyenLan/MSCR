@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\ConfirmEmailController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Controllers\ProcessOrderController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TopUpController.cs" />
+    <Compile Include="Controllers\TransactionHistoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\category.cs">
@@ -1080,6 +1082,7 @@
     <Folder Include="Views\MSCR\.git\refs\tags\" />
     <Folder Include="Views\MSCR\.vs\Project\v15\Server\sqlite3\" />
     <Folder Include="Views\ProcessOrder\" />
+    <Folder Include="Views\TransactionHistory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
