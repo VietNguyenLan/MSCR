@@ -20,7 +20,17 @@ namespace Project.Controllers
             }
             else
             {
-                ViewBag.totalPrice = (int)list.Sum(x => x.totalProduct);
+                int uID = (Int32)(Session["id"]);
+                int total = (int)list.Sum(x => x.totalProduct);
+                ViewBag.totalPrice = total;
+                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                {
+                    user u = db.users.Where(x => x.id == uID).FirstOrDefault();
+                    if(total > u.balance)
+                    {
+                        ViewBag.BalanceError = 1;
+                    }
+                }
 
                 return View(list);
             }
@@ -38,6 +48,7 @@ namespace Project.Controllers
                 if (total_price > u.balance)
                 {
                     ViewBag.BalanceError = 1;
+                    return RedirectToAction("CheckOut", "CreateOrder");
                 }
                 else
                 {

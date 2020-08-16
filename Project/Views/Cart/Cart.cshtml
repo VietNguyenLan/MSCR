@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
 </head>
 <body>
     <section class="jumbotron text-center">
@@ -14,13 +15,13 @@
             <h1 style="margin-top:120px;font-weight:800;">Giỏ Hàng</h1>
         </div>
     </section>
-   
+
     <div class="container mb-4">
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
                     <table class="table table-hover" style=" border: 2px solid #dee2e6; ">
-                       
+
                         <thead>
                             <tr>
                                 <th scope="col" style="width:100px;"></th>
@@ -39,28 +40,25 @@
                             @foreach (var item in Model)
                             {
 
-                                    <tr>
-                                        <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
-                                        <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.Date)</td>
-                                        <td></td>
-                                        <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
-                                        <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
-                                        <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-sm btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                                @Html.ActionLink("Xóa", "RemoveItem", new { productID = item.Product.id })
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    
+                                <tr>
+                                    <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
+                                    <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                                    <td></td>
+                                    <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
+                                    <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                            @Html.ActionLink("Xóa", "RemoveItem", new { productID = item.Product.id })
+                                        </button>
+                                    </td>
+                                </tr>
 
-                                }
-                            </tbody>
-                      
-                        
-                        
+
+                            }
+                        </tbody>
                         <tfoot>
                             <tr>
                                 <td></td>
@@ -76,19 +74,60 @@
                     </table>
                 </div>
             </div>
-            <div class="col mb-2">
-                <div class="row">
-                    <div class="col-sm-12  col-md-6" style="font-weight:600;">
-                        Phương thức thanh toán: Tài khoản hệ thống
-                    </div>
-                    <div class="col-sm-12  col-md-6">
-                        <button class="btn btn-block btn-danger btn-lg"> @Html.ActionLink("Tiếp tục mua hàng", "Home","Home")</button>
-                        <a class="btn btn-lg btn-block btn-success text-uppercase" href="~/CheckOut/CheckOut">Thanh toán</a>
-                    </div>
+        </div>
+
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6" style="font-weight:600;">
+                    Phương thức thanh toán: Tài khoản hệ thống
+                </div>
+                <div class="col-sm-12  col-md-6">
+                    <button class="btn btn-block btn-danger btn-lg"> @Html.ActionLink("Tiếp tục mua hàng", "Home", "Home")</button>
+                    <a id="myBtn" class="btn btn-lg btn-block btn-success text-uppercase" >Thanh toán</a>
                 </div>
             </div>
         </div>
     </div>
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+            </div>
+
+           
+            <div class="modal-body">
+                @if (Session["username"] == null)
+                {
+                    <h4>Bạn cần phải đăng nhập để thực hiện thanh toán!</h4>
+                    <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
+                        <a class="btn btn-success my-0 p" style="margin-right:30px;width:150px;" href="~/Login">
+                            Xác Nhận
+                        </a>
+                        <button class="btn btn-danger my-0 p" type="submit" style="width:150px;">
+                            Hủy
+                        </button>
+                    </div>
+                }
+                else
+                {
+                   
+                    <h4>Bạn có muốn chuyển sang trang thanh toán không!</h4>
+                    <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
+                        <a class="btn btn-success my-0 p" style="margin-right:30px;width:150px;" href="~/CheckOut/CheckOut">
+                            Xác Nhận
+                        </a>
+                        <button class="btn btn-danger my-0 p" type="submit" style="width:150px;">
+                            Hủy
+                        </button>
+                    </div>
+                }
+            </div> 
+          
+        </div>
+
+    </div>
+    <script src="~/fonts/Font(css,js)/COModal.js"></script>
 </body>
 </html>

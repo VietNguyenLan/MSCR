@@ -26,7 +26,7 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                return View(db.time_menu.SqlQuery("select * from time_menu where date_service ='"  +date_service + "'").FirstOrDefault());
+                return View(db.time_menu.SqlQuery("select * from time_menu where date_service ='"  +date_service.Date + "'").FirstOrDefault());
             }
         }
 

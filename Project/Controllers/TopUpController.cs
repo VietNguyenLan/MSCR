@@ -10,44 +10,34 @@ namespace Project.Controllers
     public class TopUpController : Controller
     {
         // GET: TopUp
-        public ActionResult Index(int? code = 0)
-        {
 
-            int uid = (Int32)(Session["id"]);
-            List<topup_card> cards = new List<topup_card>();
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
-            {
-                cards = db.topup_card.OrderByDescending(x => x.create_time).Where(x => x.used_by == uid).ToList();
-            }
-            if(code != 0 && code != 1)
-            {
-                TempData["TopUp Success"] = "Top up success "+code+" to your account";
-            }
-            if (code == 1)
-            {
-                TempData["TopUp Error"] = "Serial number or Code of the card incorrect";
-            }
-
-
-            return View(cards);
-        }
-
-        public ActionResult TopUp(String serial, String code)
+        public ActionResult TopUp(String code)
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                var card = (topup_card)db.topup_card.Where(x => x.serial_number == serial && x.code == code).FirstOrDefault();
+                var card = (topup_card)db.topup_card.Where(x =>  x.code == code).FirstOrDefault();
                 if(card!= null)
                 {
                     card.used_by = (Int32)(Session["id"]);
                     card.used_time = DateTime.Now;
+                    
                     db.SaveChanges();
-                    CreateTopUpTransaction(card.amount, card.serial_number);
-                    return Index(card.amount);
+                   
+                    transaction trans = new transaction()
+                    {
+                        userID = (Int32)(Session["id"]),
+                        type = "Top up",
+                        amount = card.value,
+                        description = "Top up " + card.value + " using card with serial: " + card.serial_number,
+                        time = DateTime.Now
+                    };
+                    db.transactions.Add(trans);
+                    db.SaveChanges();
+                    return View();
                 }
                 else
                 {
-                    return Index(1);
+                    return View();
                 }
 
                 
@@ -55,19 +45,23 @@ namespace Project.Controllers
             
         }
 
+
+
         private void CreateTopUpTransaction(int amount, String serial)
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
-                transaction trans = new transaction();
-                trans.userID = (Int32)(Session["id"]);
-                trans.type = "Top up";
-                trans.amount = amount;
-                trans.description = "Top up "+ amount + " using card with serial: "+ serial;
-                trans.time = DateTime.Now;
-
+                transaction trans = new transaction()
+                {
+                    userID = (Int32)(Session["id"]),
+                    type = "Top up",
+                amount = amount,
+                description = "Top up " + amount + " using card with serial: " + serial,
+                time = DateTime.Now
+                };
                 db.transactions.Add(trans);
                 db.SaveChanges();
+                
             }
         }
     }

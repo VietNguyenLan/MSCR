@@ -104,17 +104,17 @@
                           
                             
                             <div class="modal-body">
-                                @if (Session["username"] == null)
+                                @if (ViewBag.BalanceError == 1)
                                 {
-                                    <h4>Bạn cần phải đăng nhập để thực hiện thanh toán!</h4>
+                                    <h4>Số tiền trong tài khoản của bạn không đủ! Bạn có muốn nạp thêm tiền không?</h4>
 
                                     <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
                                         <a class="btn btn-success my-0 p" style="margin-right:30px;width:150px;" href="~/Login">
                                             Xác Nhận
                                         </a>
-                                        <button class="btn btn-danger my-0 p" type="submit" style="width:150px;">
+                                        <a class="btn btn-danger my-0 p" style="width:150px;" href="~/Cart/Cart">
                                             Hủy
-                                        </button>
+                                        </a>
                                     </div>
                                 }
                                 else

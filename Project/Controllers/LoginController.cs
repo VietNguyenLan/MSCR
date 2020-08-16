@@ -42,6 +42,7 @@ namespace Project.Controllers
                     {
                         Session["id"] = userDetails.id;
                         Session["username"] = userDetails.username;
+                        Session["user"] = userDetails;
                         return RedirectToAction("Home", "Home");
                     }
                 }
@@ -52,7 +53,7 @@ namespace Project.Controllers
         {
             int userID = (int)Session["id"];
             Session.Abandon();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Home", "Home");
         }
     
     }
