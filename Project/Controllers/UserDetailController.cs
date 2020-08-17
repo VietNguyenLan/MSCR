@@ -1,17 +1,16 @@
-﻿using Project.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
+using Project.EF;
 
 namespace Project.Controllers
 {
-    public class TransactionHistoryController : Controller
+    public class UserDetailController : Controller
     {
-        // GET: TransactionHistory
-        public ActionResult History()
+        // GET: UserDetail
+        public ActionResult UserDetail()
         {
             if (Session["id"] == null)
             {
@@ -22,10 +21,9 @@ namespace Project.Controllers
                 using(OrderSystemEntities1 db = new OrderSystemEntities1())
                 {
                     int uID = (int)Session["id"];
-                    List<transaction> transactions = db.transactions.Include(a => a.user).OrderByDescending(x => x.time).Where(x => x.userID == uID).ToList();
-                    return View(transactions);
+                    var User = db.users.Where(x => x.id == uID).FirstOrDefault();
+                    return View(User);
                 }
-                
             }
         }
     }
