@@ -15,7 +15,7 @@ namespace Project.Controllers
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
                 int uid = (Int32)(Session["id"]);
-                //var user = db.users.Find(uid);
+                //var user = db.users.Find(uid);aa
                 return View(db.orders.Where(x => x.userID == uid));
             }
 
