@@ -15,9 +15,18 @@ namespace Project.Controllers
         {
             using (OrderSystemEntities1 db = new OrderSystemEntities1())
             {
+               
+                
                 var card = (topup_card)db.topup_card.Where(x =>  x.code == code).FirstOrDefault();
-                if(card!= null)
+                if(card != null)
                 {
+                    if(card.used_by != null)
+                    {
+                        ViewBag.IsUsed = 1;
+                    }
+                    
+                    else
+                    {
                     card.used_by = (Int32)(Session["id"]);
                     card.used_time = DateTime.Now;
                     
@@ -33,14 +42,23 @@ namespace Project.Controllers
                     };
                     db.transactions.Add(trans);
                     db.SaveChanges();
-                    return View();
+                        ViewBag.success = 1;
+                        ViewBag.cardValue = card.value;
+
+                    }
+
+                      
+                       return View();
                 }
                 else
                 {
-                    return View();
+                   return View();
+                   
                 }
 
                 
+
+                 
             }
             
         }
