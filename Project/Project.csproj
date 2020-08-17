@@ -128,6 +128,7 @@
     <Compile Include="AdminController\CategoryController.cs" />
     <Compile Include="AdminController\FeedbacksController.cs" />
     <Compile Include="AdminController\IngredientController.cs" />
+    <Compile Include="AdminController\IngredientsReportController.cs" />
     <Compile Include="AdminController\MenuController.cs" />
     <Compile Include="AdminController\MenuDailyController.cs" />
     <Compile Include="AdminController\OrderController.cs" />
@@ -217,6 +218,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\IngredientDetail.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -1077,11 +1079,13 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Style\avatar\" />
     <Folder Include="Style\productImage\" />
+    <Folder Include="Views\IngredientsReport\" />
     <Folder Include="Views\MenuDetail\" />
     <Folder Include="Views\MSCR\.git\objects\info\" />
     <Folder Include="Views\MSCR\.git\refs\tags\" />
     <Folder Include="Views\MSCR\.vs\Project\v15\Server\sqlite3\" />
     <Folder Include="Views\ProcessOrder\" />
+    <Folder Include="Views\ReportIngredients\" />
     <Folder Include="Views\TransactionHistory\" />
   </ItemGroup>
   <ItemGroup>
