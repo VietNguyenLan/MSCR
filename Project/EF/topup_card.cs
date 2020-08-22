@@ -24,6 +24,5 @@ namespace Project.EF
     
         public virtual user user { get; set; }
         public int amount { get; set; }
-
     }
 }

@@ -19,7 +19,7 @@ namespace Project.Controllers
             }
             else
             {
-                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                using(OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     int uID = (int)Session["id"];
                     List<transaction> transactions = db.transactions.Include(a => a.user).OrderByDescending(x => x.time).Where(x => x.userID == uID).ToList();

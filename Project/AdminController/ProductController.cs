@@ -11,11 +11,11 @@ namespace Project.AdminController
 {
     public class ProductController : Controller
     {
-        OrderSystemEntities1 db = new OrderSystemEntities1();
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: Product
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.products.Include(c => c.category).ToList());
             }
@@ -24,7 +24,7 @@ namespace Project.AdminController
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
             }
@@ -33,7 +33,7 @@ namespace Project.AdminController
 
         public ActionResult Details_Ingredient(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.product_ingresients.Include(a => a.product).Include(b => b.ingredient).Where(x => x.productID == id).ToList());
             }
@@ -44,7 +44,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     SetViewBagProduct();
                     SetViewBagIngredient();
@@ -64,7 +64,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     db.product_ingresients.Add(product_Ingresients);
@@ -86,7 +86,7 @@ namespace Project.AdminController
         {
             try
             {
-                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                using(OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     SetViewBag();
@@ -177,7 +177,7 @@ namespace Project.AdminController
         [HttpPost]
         public ActionResult Create(product product , HttpPostedFileBase picture ,product_ingresients product_Ingresients)
         {
-            OrderSystemEntities1 db1 = new OrderSystemEntities1();
+            OrderSystemEntities2 db1 = new OrderSystemEntities2();
             try
             {
                 product pro = new product();
@@ -222,7 +222,7 @@ namespace Project.AdminController
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 SetViewBag();
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
@@ -252,7 +252,7 @@ namespace Project.AdminController
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
               
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
@@ -265,7 +265,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     product product = db.products.Where(x => x.id == id).FirstOrDefault();

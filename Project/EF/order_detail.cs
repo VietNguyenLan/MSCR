@@ -21,6 +21,7 @@ namespace Project.EF
         public int quantity { get; set; }
         public double total_price { get; set; }
         public double total { get; set; }
+
         public virtual order order { get; set; }
         public virtual product product { get; set; }
     }

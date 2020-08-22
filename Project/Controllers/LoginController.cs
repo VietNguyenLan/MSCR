@@ -18,7 +18,7 @@ namespace Project.Controllers
         [HttpPost]
         public ActionResult Authourise(user user)
         {
-            using (OrderSystemEntities1 od = new OrderSystemEntities1())
+            using (OrderSystemEntities2 od = new OrderSystemEntities2())
             {
                
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();

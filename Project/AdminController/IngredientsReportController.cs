@@ -13,7 +13,7 @@ namespace Project.AdminController
         // GET: IngredientsReport
         public ActionResult Index()
         {
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 DateTime date = DateTime.Now.Date;
                 date = date.AddDays(1).Date;

@@ -11,11 +11,11 @@ namespace Project.AdminController
     public class MenuController : Controller
     {
 
-        OrderSystemEntities1 db = new OrderSystemEntities1();
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: Menu
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.menus.Include(a => a.user).ToList());
             }
@@ -24,7 +24,7 @@ namespace Project.AdminController
         // GET: Menu/Details/5
         public ActionResult Details(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 SetViewBag();
                 return View(db.menu_detail.Include(c => c.product).Include(a => a.menu).Where(x => x.menuId == id).ToList());
@@ -44,7 +44,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     db.menu_detail.Add(menu_Detail);
@@ -89,7 +89,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     menu.date_create = DateTime.Now;
                     db.menus.Add(menu);
@@ -107,7 +107,7 @@ namespace Project.AdminController
         // GET: Menu/Edit/5
         public ActionResult Edit(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
 
                 return View(db.menus.Where(x => x.id == id).FirstOrDefault());
@@ -120,7 +120,7 @@ namespace Project.AdminController
         {
             try
             {
-                 using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                 using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     db.Entry(menu).State = EntityState.Modified;
                     db.SaveChanges();
@@ -137,7 +137,7 @@ namespace Project.AdminController
         // GET: Menu/Delete/5
         public ActionResult Delete(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
 
                 return View(db.menus.Include(m => m.user).Where(x => x.id == id).FirstOrDefault());
@@ -150,7 +150,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     menu menu = db.menus.Where(x => x.id == id).FirstOrDefault();

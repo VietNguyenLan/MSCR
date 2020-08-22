@@ -13,7 +13,7 @@ namespace Project.AdminController
         // GET: Category
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.categories.ToList());
             }
@@ -22,7 +22,7 @@ namespace Project.AdminController
         // GET: Category/Details/5
         public ActionResult Details(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
 
                 return View(db.categories.Where(x => x.id == id).FirstOrDefault());
@@ -41,7 +41,7 @@ namespace Project.AdminController
         {
             try
             {
-                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                using(OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     db.categories.Add(category);
                     db.SaveChanges();
@@ -58,7 +58,7 @@ namespace Project.AdminController
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                
                 return View(db.categories.Where(x => x.id == id).FirstOrDefault());
@@ -72,7 +72,7 @@ namespace Project.AdminController
             try
             {
                 // TODO: Add update logic here
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
@@ -90,7 +90,7 @@ namespace Project.AdminController
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
 
                 return View(db.categories.Where(x => x.id == id).FirstOrDefault());
@@ -103,7 +103,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
 
                     category category = db.categories.Where(x => x.id == id).FirstOrDefault();

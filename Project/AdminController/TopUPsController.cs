@@ -14,7 +14,7 @@ namespace Project.AdminController
         // GET: TopUP
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.topup_card.Include(c => c.user).ToList());
             }
@@ -48,7 +48,7 @@ namespace Project.AdminController
                 {
 
 
-                    using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                    using (OrderSystemEntities2 db = new OrderSystemEntities2())
                     {
 
                         string seri = Get8CharacterRandomString();

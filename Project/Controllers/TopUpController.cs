@@ -13,7 +13,7 @@ namespace Project.Controllers
 
         public ActionResult TopUp(String code)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                
                 
@@ -67,7 +67,7 @@ namespace Project.Controllers
 
         private void CreateTopUpTransaction(int amount, String serial)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 transaction trans = new transaction()
                 {

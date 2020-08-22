@@ -13,7 +13,7 @@ namespace Project.Controllers
         // GET: OrderDetail
         public ActionResult Index(order o)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Where(x => x.orderID == o.id).ToList();

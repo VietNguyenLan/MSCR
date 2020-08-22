@@ -13,7 +13,7 @@ namespace Project.Controllers
         // GET: Feedback
         public ActionResult Index(order o)
         {
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 var feedback = (feed_back)db.feed_back.Where(x => x.orderID == o.id).FirstOrDefault();
                 if(feedback != null)
@@ -32,7 +32,7 @@ namespace Project.Controllers
 
         public ActionResult Add_Feedback(order o, String content)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 var fb = new feed_back();
                 fb.orderID = o.id;

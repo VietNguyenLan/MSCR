@@ -10,14 +10,14 @@ namespace Project.AdminController
 {
     public class OrderController : Controller
     {
-     
-        OrderSystemEntities1 db = new OrderSystemEntities1();
+
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         
 
         // GET: Order
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList());
             }
@@ -26,7 +26,7 @@ namespace Project.AdminController
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
 
             {
                 ViewBag.total = db.order_detail.Where(t => t.orderID == id ).Select(i => i.total_price).Sum();
@@ -49,7 +49,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     
                     db.orders.Add(order);

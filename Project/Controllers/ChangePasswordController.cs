@@ -12,7 +12,7 @@ namespace Project.Controllers
     public class ChangePasswordController : Controller
     {
         // GET: ChangePassword
-        OrderSystemEntities1 od = new OrderSystemEntities1();
+        OrderSystemEntities2 od = new OrderSystemEntities2();
         
         public ActionResult Index()
         {

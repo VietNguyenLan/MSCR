@@ -18,7 +18,7 @@ namespace Project.Controllers
             }
             else
             {
-                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                using(OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     int uID = (int)Session["id"];
                     var User = db.users.Where(x => x.id == uID).FirstOrDefault();
