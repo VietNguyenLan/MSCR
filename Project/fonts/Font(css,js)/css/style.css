@@ -1349,10 +1349,10 @@ pre {
   .table th,
   .table td {
     padding: 0.75rem;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid #dee2e6; }
   .table thead th {
-    vertical-align: bottom;
+    vertical-align: middle;
     border-bottom: 2px solid #dee2e6; }
   .table tbody + tbody {
     border-top: 2px solid #dee2e6; }
@@ -7782,8 +7782,8 @@ h1, h2, h3, h4, h5,
       .dish-menu .menus .text .one-half p {
         margin-bottom: 0; }
     .dish-menu .menus .text .one-forth {
-      width: 80px;
-      padding-right:100px;
+      width: 100px;
+      padding-right:120px;
       text-align: right; }
       .dish-menu .menus .text .one-forth .price {
         font-size: 19px;
@@ -8229,9 +8229,10 @@ textarea.form-control {
 .insta-img,
 .menu-img,
 .user-img {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center; }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 .testimony-section {
   position: relative; }

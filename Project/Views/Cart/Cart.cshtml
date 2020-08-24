@@ -24,7 +24,7 @@
 
                         <thead>
                             <tr>
-                                <th scope="col" style="width:100px;"></th>
+                                <th scope="col" style="width:100px;height:70px;"></th>
                                 <th scope="col" style="width:220px;">Tên sản phẩm</th>
                                 <th scope="col" style="width:145px;">Ngày</th>
                                 <th scope="col" style="width:130px;">Bữa</th>
@@ -41,7 +41,7 @@
                             {
 
                                 <tr>
-                                    <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
+                                    <td><img style="width:80px;height:80px; border-radius: 50%;" src="@Url.Content(item.Product.img)"></td>
                                     <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Date)</td>
                                     <td></td>
@@ -49,9 +49,8 @@
                                     <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
                                     <td class="text-center">
-                                        <button class="btn btn-sm btn-danger">
+                                        <button class="btn btn-sm btn-danger" onclick="location.href='@Url.Action("RemoveItem", new { productID = item.Product.id })'">
                                             <i class="fa fa-trash"></i>
-                                            @Html.ActionLink("Xóa", "RemoveItem", new { productID = item.Product.id })
                                         </button>
                                     </td>
                                 </tr>
@@ -82,7 +81,7 @@
                     Phương thức thanh toán: Tài khoản hệ thống
                 </div>
                 <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-danger btn-lg"> @Html.ActionLink("Tiếp tục mua hàng", "Home", "Home")</button>
+                    <button class="btn btn-block btn-danger btn-lg" onclick="location.href='@Url.Action("Home", "Home")'">Tiếp tục mua hàng</button>
                     <a id="myBtn" class="btn btn-lg btn-block btn-success text-uppercase" >Thanh toán</a>
                 </div>
             </div>

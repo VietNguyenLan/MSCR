@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="slider-item" style="background-image: url('../../image/27683289574_854a05f955_o.jpg');" data-stellar-background-ratio="0.5">
+        <div class="slider-item" style="background-image: url('../../image/dai-hoc-fpt-1.jpg');" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row slider-text align-items-center justify-content-center">
                     <div class="col-md-10 col-sm-12 ftco-animate text-center">
@@ -107,18 +107,19 @@
                         <a class="nav-link py-3 px-4" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span> Đồ Uống</a>
                     </div>
 
-                   
+
 
                     <div class="tab-content py-5" id="v-pills-tabContent">
 
                         <!-- Food -->
-                        
-                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
-                                <div class="row">
-                                    @foreach (var item in Model)
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    if (item.categoryID != 6 && item.isCombo == false)
                                     {
-                                        if (item.categoryID != 6) {
                                         <div class="col-lg-6">
                                             <div class="menus d-flex ftco-animate">
                                                 <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
@@ -128,103 +129,99 @@
                                                         <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
                                                     </div>
                                                     <div class="one-forth">
-                                                        <span class="price">@Html.DisplayFor(modelItem => item.price) </span>
+                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
+                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                            Giỏ hàng
+                                                            <i class="fa fa-cart-plus"></i>
+                                                        </button>
                                                     </div>
-                                                    <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng">
 
-
-                                                        @Html.ActionLink("Giỏ Hàng", "Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })
-                                                        <i class="fa fa-cart-plus"></i>
-                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        }
                                     }
+                                }
 
-                                    </div> 
                             </div>
-                        
+                        </div>
+
 
 
 
                         <!-- Food -->
                         <!-- COMBO -->
-           
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                <div class="row">
-                    @foreach (var item in Model)
-                    {
-                        if (item.isCombo == true)
-                        {
 
-                            <div class="col-lg-6">
-                                <div class="menus d-flex ftco-animate">
-                                    <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
-                                    <div class="text d-flex">
-                                        <div class="one-half">
-                                            <h3>@Html.DisplayFor(modelItem => item.name)</h3>
-                                            <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    if (item.isCombo == true)
+                                    {
+
+                                        <div class="col-lg-6">
+                                            <div class="menus d-flex ftco-animate">
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="text d-flex">
+                                                    <div class="one-half">
+                                                        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
+                                                    </div>
+                                                    <div class="one-forth">
+                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
+                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                            Giỏ hàng
+                                                            <i class="fa fa-cart-plus"></i>
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="one-forth">
-                                            <span class="price">@Html.DisplayFor(modelItem => item.price) </span>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng">
-                                           <i class="fa fa-cart-plus"></i>
-                                            @Html.ActionLink("Giỏ hàng", "Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })
-                                        </button>
-                                    </div>
-                                </div>
+                                    }
+                                }
+
+
+
                             </div>
-                        }
-                    }
-
-
 
                         </div>
-               
-            </div>
-  
+
 
                         <!-- COMBO -->
-        
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <div class="row">
-                    @foreach (var item in Model)
-                    {
-                        if (item.categoryID ==6 )
-                        {
 
-                            <div class="col-lg-6">
-                                <div class="menus d-flex ftco-animate">
-                                    <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
-                                    <div class="text d-flex">
-                                        <div class="one-half">
-                                            <h3>@Html.DisplayFor(modelItem => item.name)</h3>
-                                            <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    if (item.categoryID == 6)
+                                    {
+
+                                        <div class="col-lg-6">
+                                            <div class="menus d-flex ftco-animate">
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="text d-flex">
+                                                    <div class="one-half">
+                                                        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
+                                                    </div>
+                                                    <div class="one-forth">
+                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
+                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                            Giỏ hàng
+                                                            <i class="fa fa-cart-plus"></i>
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="one-forth">
-                                            <span class="price">@Html.DisplayFor(modelItem => item.price) </span>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng">
-                                            
-                                            <i class="fa fa-cart-plus"></i>
-                                            @Html.ActionLink("Giỏ hàng", "Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })
-                                        </button>
-                                    </div>
-                                </div>
+                                    }
+                                }
+
+
                             </div>
-                        }
-                    }
-                    
 
-                </div>
-             
-            </div>
-    
-
-
-
+                        </div>
                     </div>
                 </div>
             </div>
