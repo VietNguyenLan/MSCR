@@ -1,4 +1,5 @@
 ﻿using Project.EF;
+using Project.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,6 +12,7 @@ namespace Project.AdminController
     public class CategoryController : Controller
     {
         // GET: Category
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -20,6 +22,7 @@ namespace Project.AdminController
         }
 
         // GET: Category/Details/5
+        [DeatAuthorize(Order = 3)]
         public ActionResult Details(int id)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -30,12 +33,14 @@ namespace Project.AdminController
         }
 
         // GET: Category/Create
+        [DeatAuthorize(Order = 3)]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Category/Create
+        [DeatAuthorize(Order = 3)]
         [HttpPost]
         public ActionResult Create(category category)
         {
@@ -56,6 +61,7 @@ namespace Project.AdminController
         }
 
         // GET: Category/Edit/5
+        [DeatAuthorize(Order = 3)]
         public ActionResult Edit(int id)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -66,6 +72,7 @@ namespace Project.AdminController
         }
 
         // POST: Category/Edit/5
+        [DeatAuthorize(Order = 3)]
         [HttpPost]
         public ActionResult Edit(int id, category category)
         {
@@ -88,6 +95,7 @@ namespace Project.AdminController
         }
 
         // GET: Category/Delete/5
+        [DeatAuthorize(Order = 3)]
         public ActionResult Delete(int id)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -98,6 +106,7 @@ namespace Project.AdminController
         }
 
         // POST: Category/Delete/5
+        [DeatAuthorize(Order = 3)]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

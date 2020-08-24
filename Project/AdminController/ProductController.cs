@@ -1,4 +1,5 @@
 ﻿using Project.EF;
+using Project.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,6 +14,7 @@ namespace Project.AdminController
     {
         OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: Product
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -22,6 +24,7 @@ namespace Project.AdminController
         }
 
         // GET: Product/Details/5
+    
         public ActionResult Details(int id)
         {
             using(OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -30,7 +33,7 @@ namespace Project.AdminController
             }
            
         }
-
+        [DeatAuthorize(Order = 3)]
         public ActionResult Details_Ingredient(int id)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -39,7 +42,7 @@ namespace Project.AdminController
             }
 
         }
-
+   
         public ActionResult Create_Ingredient()
         {
             try
@@ -58,7 +61,7 @@ namespace Project.AdminController
             return View();
 
         }
-
+    
         [HttpPost]
         public ActionResult Create_Ingredient(product_ingresients product_Ingresients)
         {
@@ -80,7 +83,7 @@ namespace Project.AdminController
         }
 
 
-
+  
         // GET: Product/Create
         public ActionResult Create()
         {
@@ -102,7 +105,7 @@ namespace Project.AdminController
 
 
 
-
+    
         //product
         public void SetViewBagProduct(long? productID = null)
         {
@@ -172,7 +175,7 @@ namespace Project.AdminController
         }
         //Upload Image//////////////////
 
-
+     
         // POST: Product/Create
         [HttpPost]
         public ActionResult Create(product product , HttpPostedFileBase picture ,product_ingresients product_Ingresients)
@@ -218,7 +221,7 @@ namespace Project.AdminController
                 return View();
             }
         }
-
+      
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
@@ -228,7 +231,7 @@ namespace Project.AdminController
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
             }
         }
-
+       
         // POST: Product/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, product product, HttpPostedFileBase picture)
@@ -248,7 +251,7 @@ namespace Project.AdminController
                 return View();
             }
         }
-
+      
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {
@@ -258,7 +261,7 @@ namespace Project.AdminController
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
             }
         }
-
+       
         // POST: Product/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

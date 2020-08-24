@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Project.Security;
 
 namespace Project.AdminController
 {
@@ -12,9 +13,11 @@ namespace Project.AdminController
     {
 
         OrderSystemEntities2 db = new OrderSystemEntities2();
-        
+
 
         // GET: Order
+     
+       
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
@@ -22,7 +25,7 @@ namespace Project.AdminController
                 return View(db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList());
             }
         }
-
+        [DeatAuthorize(Order = 2)]
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {

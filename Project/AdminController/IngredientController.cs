@@ -1,4 +1,5 @@
 ﻿using Project.EF;
+using Project.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,6 +12,7 @@ namespace Project.AdminController
     public class IngredientController : Controller
     {
         // GET: Ingredient
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())

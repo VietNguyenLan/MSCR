@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model  IEnumerable<Project.Models.IngredientDetail>
+
+
+
+<html lang="en">
+<head>
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:120px;font-weight:800;">Report</h1>
+        </div>
+    </section>
+    @foreach (var item in Model)
+    {
+        <h4>@item.Ingredient</h4>
+        <h4>@item.amount</h4>
+    }
+
+
+
+
+
+
+        <script src="~/fonts/Font(css,js)/COModal.js"></script>
+    </body>
+</html>

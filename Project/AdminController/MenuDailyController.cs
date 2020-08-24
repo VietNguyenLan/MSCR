@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using System.Data.Entity;
+using Project.Security;
 
 namespace Project.AdminController
 {
@@ -13,6 +14,7 @@ namespace Project.AdminController
     {
         OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: MenuDaily
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
