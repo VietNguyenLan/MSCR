@@ -1,33 +1,43 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/LayoutUser.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model  IEnumerable<Project.Models.IngredientDetail>
+<h2>Số nguyên liệu cần chuẩn bị cho ngày ma</h2>
 
 
 
-<html lang="en">
-<head>
-    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
-</head>
-<body>
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 style="margin-top:120px;font-weight:800;">Report</h1>
-        </div>
-    </section>
+
+<br><br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Nguyên Liệu
+        </th>
+        <th>
+            Số Lượng
+        </th>
+       
+    </tr>
+
     @foreach (var item in Model)
     {
-        <h4>@item.Ingredient</h4>
-        <h4>@item.amount</h4>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredient.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+               
+            </td>
+           
+
+
+
+          
+        </tr>
     }
 
 
-
-
-
-
-        <script src="~/fonts/Font(css,js)/COModal.js"></script>
-    </body>
-</html>

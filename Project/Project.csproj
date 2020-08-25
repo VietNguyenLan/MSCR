@@ -1079,6 +1079,7 @@
     <Content Include="Views\UserDetail\UserDetail.cshtml" />
     <Content Include="Views\ReportIngredients\Index.cshtml" />
     <Content Include="Views\IngredientsReport\Index.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

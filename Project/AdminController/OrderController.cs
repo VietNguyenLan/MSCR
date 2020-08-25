@@ -96,17 +96,24 @@ namespace Project.AdminController
         // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                SetViewBagUserID();
+                SetViewBagTime();
+                SetViewBagStaff();
+                return View(db.orders.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Order/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id,order order, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
