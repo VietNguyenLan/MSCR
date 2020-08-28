@@ -134,6 +134,7 @@
     <Compile Include="AdminController\OrderController.cs" />
     <Compile Include="AdminController\ProductController.cs" />
     <Compile Include="AdminController\ProductReportController.cs" />
+    <Compile Include="AdminController\ReportIncomeController.cs" />
     <Compile Include="AdminController\TopUPsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1083,6 +1084,7 @@
     <Content Include="Views\IngredientsReport\Index.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\ProductReport\Index.cshtml" />
+    <Content Include="Views\ReportIncome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
