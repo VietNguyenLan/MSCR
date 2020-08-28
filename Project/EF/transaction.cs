@@ -18,6 +18,7 @@ namespace Project.EF
         public int userID { get; set; }
         public string type { get; set; }
         public double amount { get; set; }
+        public Nullable<double> balance { get; set; }
         public string description { get; set; }
         public System.DateTime time { get; set; }
     

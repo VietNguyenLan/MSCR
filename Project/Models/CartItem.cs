@@ -8,9 +8,13 @@ namespace Project.Models
 {
     public class CartItem
     {
-        public product Product { get; set; }
+        public product Product { get; set; } 
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
         public int ServiceTime { get; set; }
+
+        public double totalProduct { get; set; } 
+        public double totalCart { get; set; }
+
     }
 }

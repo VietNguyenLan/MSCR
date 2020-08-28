@@ -24,7 +24,7 @@ namespace Project.EF
             this.topup_card = new HashSet<topup_card>();
             this.transactions = new HashSet<transaction>();
         }
-        public string LoginErrorMsg { get; set; }
+    
         public int id { get; set; }
         public string username { get; set; }
         public string password { get; set; }
@@ -37,7 +37,9 @@ namespace Project.EF
         public bool email_verified { get; set; }
         public double balance { get; set; }
         public bool is_active { get; set; }
-    
+
+        public string LoginErrorMsg { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<feed_back> feed_back { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

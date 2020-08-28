@@ -15,10 +15,10 @@ namespace Project.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class OrderSystemEntities1 : DbContext
+    public partial class OrderSystemEntities2 : DbContext
     {
-        public OrderSystemEntities1()
-            : base("name=OrderSystemEntities1")
+        public OrderSystemEntities2()
+            : base("name=OrderSystemEntities2")
         {
         }
     
@@ -43,8 +43,12 @@ namespace Project.EF
         public virtual DbSet<transaction> transactions { get; set; }
         public virtual DbSet<user> users { get; set; }
     
-        public virtual int sp_update_balance(Nullable<int> userID, Nullable<double> amount)
+        public virtual int sp_update_balance(Nullable<int> transID, Nullable<int> userID, Nullable<double> amount)
         {
+            var transIDParameter = transID.HasValue ?
+                new ObjectParameter("transID", transID) :
+                new ObjectParameter("transID", typeof(int));
+    
             var userIDParameter = userID.HasValue ?
                 new ObjectParameter("userID", userID) :
                 new ObjectParameter("userID", typeof(int));
@@ -53,7 +57,7 @@ namespace Project.EF
                 new ObjectParameter("amount", amount) :
                 new ObjectParameter("amount", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_balance", userIDParameter, amountParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_balance", transIDParameter, userIDParameter, amountParameter);
         }
     }
 }

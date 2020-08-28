@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model  IEnumerable<Project.Models.CartItem>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:120px;font-weight:800;">Thanh Toán</h1>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover" style=" border: 2px solid #dee2e6; ">
+
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width:100px;"></th>
+                                <th scope="col" style="width:220px;">Tên sản phẩm</th>
+                                <th scope="col" style="width:145px;">Ngày</th>
+                                <th scope="col" style="width:130px;">Bữa</th>
+                                <th scope="col" style="width:110px;">Giá</th>
+                                <th scope="col" class="text-center" style="width:150px;">Số lượng</th>
+                                <th scope="col" class="text-center">Tổng tiền</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
+                                    <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                                    <td></td>
+                                    <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.Quantity) </td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight:800;font-size:22px;">Tổng cộng :</td>
+                                <td class="text-center" style="font-weight:800;font-size:22px;">@ViewBag.totalPrice</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6" style="font-weight:600;">
+                        Phương thức thanh toán:
+                        <div style="display:block;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Ví điện tử
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Tài khoản hệ thống
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12  col-md-6">
+                        <button  id="myBtn" class="btn btn-lg btn-block btn-success text-uppercase">Thanh toán</button>
+                    </div>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                            </div>
+                          
+                            
+                            <div class="modal-body">
+                                @if (ViewBag.BalanceError == 1)
+                                {
+                                    <h4>Số tiền trong tài khoản của bạn không đủ! Bạn có muốn nạp thêm tiền không?</h4>
+
+                                    <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
+                                        <a class="btn btn-success my-0 p" style="margin-right:30px;width:150px;" href="~/Login">
+                                            Xác Nhận
+                                        </a>
+                                        <a class="btn btn-danger my-0 p" style="width:150px;" href="~/Cart/Cart">
+                                            Hủy
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <h4>Bạn có muốn thanh toán không?</h4>
+
+                                    <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
+                                        <a class="btn btn-success my-0 p" style="margin-right:30px;width:150px;" href="~/CheckOut/CreateOrder">
+                                            Xác Nhận
+                                        </a>
+                                        <button class="btn btn-danger my-0 p" type="submit" style="width:150px;">
+                                            Hủy
+                                        </button>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/fonts/Font(css,js)/COModal.js"></script>
+</body>
+</html>

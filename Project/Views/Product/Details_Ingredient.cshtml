@@ -9,16 +9,19 @@
 <table class="table table-striped" id="t01">
     <tr>
         <th>
-         Tên Món Ăn
+            Tên Món Ăn
         </th>
         <th>
-         Tên Thành Phần 
+            Tên Thành Phần
         </th>
         <th>
-         Số Lượng
+            Số Lượng
         </th>
-        
-        
+        <th>
+            Đơn Vị
+        </th>
+
+
         <th></th>
     </tr>
 
@@ -34,6 +37,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ingredient.unit)
             </td>
             <td>
                

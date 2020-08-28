@@ -12,7 +12,7 @@ namespace Project.Controllers
         // GET: OrderList
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 int uid = (Int32)(Session["id"]);
                 //var user = db.users.Find(uid);

@@ -13,21 +13,23 @@ namespace Project.Controllers
         // GET: ProcessOrder
         public ActionResult Index()
         {
+            ViewBag.BalanceError = -1;
+
             return View();
         }
 
         public ActionResult CreateOrder()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                user u = db.users.Where(x => x.id == (int)(Session["id"])).FirstOrDefault();
+                user u = (user)db.users.Where(x => x.id == (int)(Session["id"])).FirstOrDefault();
                 List<CartItem> items = (List<CartItem>)Session["cart"];
                 DateTime date = items[0].Date;
                 int service_time = items[0].ServiceTime;
                 float total_price = (float)items.Sum(x => x.Product.price * x.Quantity);
                 if (total_price > u.balance)
                 {
-                    ViewBag.BalanceError = true;
+                    ViewBag.BalanceError = 1;
                 }
                 else
                 {
@@ -60,9 +62,11 @@ namespace Project.Controllers
                     }
                     db.SaveChanges();
                     AddOrderToTransaction(order);
+                    ViewBag.BalanceError = 0;
+
                 }
 
-                
+
             }
             return View();
         }
@@ -71,7 +75,7 @@ namespace Project.Controllers
 
         private void AddOrderToTransaction(order order)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 transaction trans = new transaction()
                 {

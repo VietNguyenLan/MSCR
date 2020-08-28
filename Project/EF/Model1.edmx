@@ -41,6 +41,7 @@
           <Property Name="date_create" Type="date" Nullable="false" />
           <Property Name="creator" Type="int" />
           <Property Name="menu_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="disable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="menu_detail">
@@ -146,6 +147,7 @@
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="type" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="balance" Type="float" />
           <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="time" Type="datetime" Nullable="false" />
         </EntityType>
@@ -395,6 +397,7 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="sp_update_balance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="transID" Type="int" Mode="In" />
           <Parameter Name="userID" Type="int" Mode="In" />
           <Parameter Name="amount" Type="float" Mode="In" />
         </Function>
@@ -536,6 +539,7 @@
           <Property Name="date_create" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="creator" Type="Int32" />
           <Property Name="menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="disable" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="time_menu" Relationship="Self.FK_breakfast_mid" FromRole="menu" ToRole="time_menu" />
           <NavigationProperty Name="time_menu1" Relationship="Self.FK_dinner_mid" FromRole="menu" ToRole="time_menu" />
@@ -667,6 +671,7 @@
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="amount" Type="Double" Nullable="false" />
+          <Property Name="balance" Type="Double" />
           <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="user" Relationship="Self.FK_UserTransaction" FromRole="transaction" ToRole="user" />
@@ -923,7 +928,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OrderSystemEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OrderSystemEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="categories" EntityType="Self.category" />
           <EntitySet Name="feed_back" EntityType="Self.feed_back" />
           <EntitySet Name="ingredients" EntityType="Self.ingredient" />
@@ -1016,6 +1021,7 @@
             <End Role="transaction" EntitySet="transactions" />
           </AssociationSet>
           <FunctionImport Name="sp_update_balance">
+            <Parameter Name="transID" Mode="In" Type="Int32" />
             <Parameter Name="userID" Mode="In" Type="Int32" />
             <Parameter Name="amount" Mode="In" Type="Double" />
           </FunctionImport>
@@ -1025,7 +1031,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OrderSystemModelStoreContainer" CdmEntityContainer="OrderSystemEntities1">
+        <EntityContainerMapping StorageEntityContainer="OrderSystemModelStoreContainer" CdmEntityContainer="OrderSystemEntities2">
           <EntitySetMapping Name="categories">
             <EntityTypeMapping TypeName="OrderSystemModel.category">
               <MappingFragment StoreEntitySet="category">
@@ -1064,6 +1070,7 @@
                 <ScalarProperty Name="date_create" ColumnName="date_create" />
                 <ScalarProperty Name="creator" ColumnName="creator" />
                 <ScalarProperty Name="menu_name" ColumnName="menu_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="disable" ColumnName="disable" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1177,6 +1184,7 @@
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="time" ColumnName="time" />
               </MappingFragment>

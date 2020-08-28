@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /Project/App_Start
+/Project/Controllers/ProductDetailController.cs

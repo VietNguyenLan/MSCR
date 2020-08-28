@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model  IEnumerable<Project.Models.IngredientDetail>
+<h2>Số nguyên liệu cần chuẩn bị cho ngày ma</h2>
+
+
+
+
+<br><br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Nguyên Liệu
+        </th>
+        <th>
+            Số Lượng
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredient.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+               
+            </td>
+           
+
+
+
+          
+        </tr>
+    }
+
+

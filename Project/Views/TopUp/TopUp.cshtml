@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewBag.Title = "TopUp";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<head>
+
+    <link href="~/fonts/Font(css,js)/Modal.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:120px;font-weight:800;">Phương thức thanh toán</h1>
+        </div>
+
+        @if (ViewBag.IsUsed == 1)
+        {
+            <h4>Card này đã được sử dụng</h4>
+        }
+
+        @if (ViewBag.success == 1)
+        {
+            <h4>Bạn đã nạp thành công </h4> <h4 style="color:forestgreen;">@ViewBag.cardValue đ</h4>
+        }
+        @if (ViewBag.valid == 1)
+        {
+            <h4>Card không tồn tại</h4>
+        }
+    </section>
+    
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <button id="myBtn1" class="btn btn-info btn-lg btn-md my-0 p" type="submit" style="margin-right:10px;">
+                Thẻ nạp hệ thống
+                <i class="fa fa-credit-card"></i>
+            </button>
+            <button id="myBtn" class="btn btn-info btn-lg my-0 p" type="submit">
+                Ngân hàng điện tử
+                <i class="fa fa-institution"></i>
+            </button>
+        </div>
+        <form action="~/TopUp/TopUp" method="POST">
+            <div id="myModal1" class="modal2">
+                <!-- Modal content -->
+                <div class="modal-content2">
+                    <div class="modal-header2">
+                        <span class="close2">&times;</span>
+                        <center><h4>Thẻ nạp hệ thống</h4></center>
+                    </div>
+                    <div class="modal-body1" style="padding-top:30px;">
+                        <label for="username">Mã thẻ cào</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+
+                            </div>
+                            <input type="text" class="form-control" name="code" placeholder="" required="">
+                        </div> <!-- input-group.// -->
+                       
+                        <div style="display: flex; align-items: center; justify-content: center;margin-top:30px;margin-bottom:20px;">
+                            <button class="btn btn-info btn-lg my-0 p" type="submit" style="margin-right:30px;">
+                                Đồng ý
+                            </button>
+                            <button class="btn btn-info btn-lg my-0 p" type="submit">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+    </div>
+
+
+    <div id="myModal" class="modal1">
+        <!-- Modal content -->
+        <div class="modal-content1">
+            <div class="modal-header1">
+                <span class="close1">&times;</span>
+                <center><h4>Ngân hàng điện tử</h4></center>
+            </div>
+            <div>
+                <div class="card-body p-5">
+                    <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+                                <i class="fa fa-credit-card"></i> Credit Card
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
+                                <i class="fab fa-paypal"></i>  Paypal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-university"></i>  Bank Transfer
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="nav-tab-card">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="username">Full name (on the card)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="username" placeholder="" required="">
+                                    </div> <!-- input-group.// -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cardNumber">Card number</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                    </div> <!-- input-group.// -->
+                                </div><!-- form-group.// -->
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label><span class="hidden-xs">Expiration</span> </label>
+                                            <div class="form-inline">
+                                                <select class="form-control" style="width:45%">
+                                                    <option disabled selected hidden>MM</option>
+                                                    <option>01</option>
+                                                    <option>02</option>
+                                                    <option>03</option>
+                                                    <option>04</option>
+                                                    <option>05</option>
+                                                    <option>06</option>
+                                                    <option>07</option>
+                                                    <option>08</option>
+                                                    <option>09</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                                <span style="width:10%; text-align: center"> / </span>
+                                                <select class="form-control" style="width:45%">
+                                                    <option disabled selected hidden>YY</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label data-toggle="tooltip" title="3 digits code on back side of the card" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                                            <input class="form-control" required="" type="text">
+                                        </div> <!-- form-group.// -->
+                                    </div>
+                                </div>
+                                <button class="subscribe btn btn-primary btn-block" type="button"> Confirm  </button>
+                            </form>
+                        </div> <!-- tab-pane.// -->
+                        <div class="tab-pane fade" id="nav-tab-paypal">
+                            <p>Paypal is easiest way to pay online</p>
+                            <p>
+                                <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my Paypal </button>
+                            </p>
+                            <p>
+                                <strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-tab-bank">
+                            <p>Bank accaunt details</p>
+                            <dl class="param">
+                                <dt>BANK: </dt>
+                                <dd> THE WORLD BANK</dd>
+                            </dl>
+                            <dl class="param">
+                                <dt>Accaunt number: </dt>
+                                <dd> 12345678912345</dd>
+                            </dl>
+                            <dl class="param">
+                                <dt>IBAN: </dt>
+                                <dd> 123456789</dd>
+                            </dl>
+                            <p>
+                                <strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div> <!-- tab-pane.// -->
+                    </div> <!-- tab-content .// -->
+
+                </div> <!-- card-body.// -->
+            </div> <!-- card.// -->
+        </div>
+
+    </div>
+    <script src="~/fonts/Font(css,js)/Modal.js"></script>
+</body>
+
