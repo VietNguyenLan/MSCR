@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model  IEnumerable<Project.Models.ProductPrepare>
+<h2>Các món ăn cần chuẩn bị cho ngày mai</h2>
+<br>
+
+
+
+
+
+<br><br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Món ăn
+        </th>
+        <th>
+            Ảnh mô tả
+        </th>
+        
+        <th>
+            Combo
+        </th>
+        <th>
+            Số Lượng
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.name)
+        </td>
+        <td>
+            <img src="@Url.Content(item.Product.img)" alt="Sample Image" width="300px" />
+
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.isCombo)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+
+        </td>
+
+
+
+
+
+
+    </tr>
+    }
+
+</table>
+

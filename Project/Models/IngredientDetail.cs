@@ -10,5 +10,6 @@ namespace Project.Models
     {
         public ingredient Ingredient { get; set; }
         public int amount { get; set; }
+        public string product { get; set; }
     }
 }

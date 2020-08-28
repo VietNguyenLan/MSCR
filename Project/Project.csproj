@@ -133,6 +133,7 @@
     <Compile Include="AdminController\MenuDailyController.cs" />
     <Compile Include="AdminController\OrderController.cs" />
     <Compile Include="AdminController\ProductController.cs" />
+    <Compile Include="AdminController\ProductReportController.cs" />
     <Compile Include="AdminController\TopUPsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductPrepare.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\IngredientDetail.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -1080,6 +1082,7 @@
     <Content Include="Views\ReportIngredients\Index.cshtml" />
     <Content Include="Views\IngredientsReport\Index.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\ProductReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

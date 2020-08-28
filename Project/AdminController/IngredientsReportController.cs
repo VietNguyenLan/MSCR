@@ -42,7 +42,8 @@ namespace Project.AdminController
                         ingredientDetails.Add(new IngredientDetail()
                         {
                             Ingredient = pro_in.ingredient,
-                            amount = pro_in.amount
+                            amount = pro_in.amount,
+                           
                         });
                     }
                     else
