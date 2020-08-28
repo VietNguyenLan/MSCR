@@ -44,6 +44,7 @@ namespace Project.AdminController
                     else
                     {
                         productPrepares[index].Quantity += 1;
+
                     }
                 }
 
