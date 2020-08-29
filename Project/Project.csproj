@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AllOrdersController.cs" />
+    <Compile Include="Controllers\CancelOrderController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
@@ -229,6 +230,8 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\DeatAuthorizeAttribute.cs" />
+    <Compile Include="StaffControllers\CurrentOrderDetailController.cs" />
+    <Compile Include="StaffControllers\InputOrderController.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModels.cs" />
     <Compile Include="ViewModels\EditUserViewModels.cs" />
     <Compile Include="ViewModels\ForgotEmailViewModels.cs" />
@@ -571,6 +574,8 @@
     <Content Include="EF\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram.cd" />
+    <Content Include="ModelClassDiagram.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1095,7 +1100,10 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Style\avatar\" />
     <Folder Include="Style\productImage\" />
+    <Folder Include="Views\CancelOrder\" />
+    <Folder Include="Views\CurrentOrderDetail\" />
     <Folder Include="Views\CustomRoleProvider\" />
+    <Folder Include="Views\InputOrder\" />
     <Folder Include="Views\MenuDetail\" />
     <Folder Include="Views\MSCR\.git\objects\info\" />
     <Folder Include="Views\MSCR\.git\refs\tags\" />

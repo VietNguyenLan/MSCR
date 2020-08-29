@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project.AdminController.CategoryController">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\CategoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.FeedbacksController">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\FeedbacksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.IngredientController">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\IngredientController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.IngredientsReportController">
+    <Position X="14.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\IngredientsReportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.MenuController">
+    <Position X="12.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAgAAAAERAAAAAEAAAAAAAAEABEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.MenuDailyController">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAARAQgAAEAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\MenuDailyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.OrderController">
+    <Position X="10.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAgQABAAARAAAAAEAAAAAAAAEAAEACAAEAAAAAAAI=</HashCode>
+      <FileName>AdminController\OrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.ProductController">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgBACAARAAAAAEAAABgAAAEAAEACACECAAAAAEA=</HashCode>
+      <FileName>AdminController\ProductController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.ProductReportController">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\ProductReportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.ReportIncomeController">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\ReportIncomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.StaffController">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>AdminController\StaffController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.AdminController.TopUPsController">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAEACAAEAAAAAgAA=</HashCode>
+      <FileName>AdminController\TopUPsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.OrderListController">
+    <Position X="12.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AllOrdersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.CancelOrderController">
+    <Position X="1.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CancelOrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.CartController">
+    <Position X="14.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAAAAAIAAAABAAAAAAEAAAEAAAAAAAEAAA=</HashCode>
+      <FileName>Controllers\CartController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.ChangePasswordController">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAAA=</HashCode>
+      <FileName>Controllers\ChangePasswordController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.CheckOutController">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAIAAAAAAAAACA=</HashCode>
+      <FileName>Controllers\CheckOutController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.ConfirmEmailController">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConfirmEmailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.FeedbackController">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\FeedbackController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.ForgotPasswordController">
+    <Position X="10.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAQAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ForgotPasswordController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.HomeController">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAIAAAABAAAAAQEAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.LoginController">
+    <Position X="5.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.OrderDetailController">
+    <Position X="3.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\OrderDetailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.ProcessOrderController">
+    <Position X="1.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAIAAEAAAAAACA=</HashCode>
+      <FileName>Controllers\ProcessOrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.ProductDetailController">
+    <Position X="1.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProductDetailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.RegisterController">
+    <Position X="3.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAQgAAAABAAAAAAEAAAAAEAA=</HashCode>
+      <FileName>Controllers\RegisterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.TopUpController">
+    <Position X="5.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Controllers\TopUpController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.TransactionHistoryController">
+    <Position X="7" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Controllers\TransactionHistoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.UserAAController">
+    <Position X="8.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAgAAAAAAAACAAEAAACAAAA=</HashCode>
+      <FileName>Controllers\UserAAController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Controllers.UserDetailController">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserDetailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.StaffControllers.CurrentOrderDetailController">
+    <Position X="7" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAAAAA=</HashCode>
+      <FileName>StaffControllers\CurrentOrderDetailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.StaffControllers.InputOrderController">
+    <Position X="8.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>StaffControllers\InputOrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Models.CartItem">
+    <Position X="10.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAEAAAAAAgAAAAAAAAAAAAAAAAABAAAAgAAAAAA=</HashCode>
+      <FileName>Models\CartItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Models.IngredientDetail">
+    <Position X="12.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IngredientDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Models.ProductPrepare">
+    <Position X="14.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\ProductPrepare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
