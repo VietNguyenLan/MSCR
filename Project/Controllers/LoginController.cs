@@ -36,7 +36,12 @@ namespace Project.Controllers
                 {
                     if (userDetails.role.Equals(2))
                     {
+                        Session["id"] = userDetails.id;
+                        Session["username"] = userDetails.username;
+                        Session["user"] = userDetails;
+                        Session["role"] = userDetails.role;
                         return RedirectToAction("Index", "Order");
+
                     }
                     else
                     {

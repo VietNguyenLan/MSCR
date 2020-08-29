@@ -135,6 +135,7 @@
     <Compile Include="AdminController\ProductController.cs" />
     <Compile Include="AdminController\ProductReportController.cs" />
     <Compile Include="AdminController\ReportIncomeController.cs" />
+    <Compile Include="AdminController\StaffController.cs" />
     <Compile Include="AdminController\TopUPsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -154,7 +155,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TopUpController.cs" />
     <Compile Include="Controllers\TransactionHistoryController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserAAController.cs" />
     <Compile Include="Controllers\UserDetailController.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\category.cs">
@@ -1064,7 +1065,6 @@
     <Content Include="Views\Product\Details_Ingredient.cshtml" />
     <Content Include="Views\Product\Create_Ingredient.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
-    <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Feedbacks\Index.cshtml" />
     <Content Include="Views\Register\Activation.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
@@ -1085,6 +1085,10 @@
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\ProductReport\Index.cshtml" />
     <Content Include="Views\ReportIncome\Index.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\StaffUpdateInfo\Index.cshtml" />
+    <Content Include="Views\UserAA\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

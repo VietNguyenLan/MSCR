@@ -92,6 +92,14 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="@Url.Action("Index", "Staff")">
+                        <i class="fas fa-image"></i>
+                        Quản lý nhân viên
+                    </a>
+                </li>
+
+                
             </ul>
            
         </nav>
@@ -109,10 +117,18 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">ADMIN</a>
-                            </li>
-                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @Session["username"]
+                                </button>
+                                <div class="dropdown-menu">
+                                   
+                                    <a class="dropdown-item" href="~/UserDetail/UserDetail">Thông tin</a>
+                                   
+                                    <a class="dropdown-item" href="~/Login/LogOut">Đăng xuất</a>
+                                </div>
+                            </div>
+
                         </ul>
                     </div>
                 </div>

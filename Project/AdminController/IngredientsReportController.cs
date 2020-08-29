@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using Project.EF;
 using Project.Models;
+using Project.Security;
 
 namespace Project.AdminController
 {
     public class IngredientsReportController : Controller
     {
         // GET: IngredientsReport
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using(OrderSystemEntities2 db = new OrderSystemEntities2())
