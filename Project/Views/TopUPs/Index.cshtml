@@ -1,65 +1,85 @@
 ﻿@model IEnumerable<Project.EF.topup_card>
-<h4>Thẻ Thanh Toán</h4>
-<button>
-    @Html.ActionLink("Tạo Mới Thẻ Thanh Toán", "Create")
-</button>
-<link href="~/Style/Style.css" rel="stylesheet" />
-<br><br>
-<table class="table table-striped" id="t01">
-    <tr>
-        <th>
-            Số Seri 
-        </th>
-        <th>
-            Code
-        </th>
-        <th>
-            Số Tiền
-        </th>
-        <th>
-            Thời Gian Tạo
-        </th>
-        <th>
-            Người Tạo
-        </th>
-        <th>
-            Thời Gian Dùng
-        </th>
-        <th>
-            Người Dùng 
-        </th>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-    </tr>
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
 
-    @foreach (var item in Model)
-    {
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+</head>
+<body>
+    <h4>Thẻ Thanh Toán</h4>
+    <button>
+        @Html.ActionLink("Tạo Mới Thẻ Thanh Toán", "Create")
+    </button>
+
+
+    <br>
+    <br>
+
+    <table id="table_id" class="table table-striped">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.serial_number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.value)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.create_time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.user.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.used_time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.used_by)
-            </td>
-            
-            
+            <th>
+                Số Seri
+            </th>
+            <th>
+                Code
+            </th>
+            <th>
+                Số Tiền
+            </th>
+            <th>
+                Thời Gian Tạo
+            </th>
+            <th>
+                Người Tạo
+            </th>
+            <th>
+                Thời Gian Dùng
+            </th>
+            <th>
+                Người Dùng
+            </th>
 
-           
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.serial_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.create_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.used_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.used_by)
+                </td>
+
+
+
+
+            </tr>
+        }
+
+    </table>
+    <script>
+
+        $('#table_id').dataTable({
+        });
+    </script>
+</body>

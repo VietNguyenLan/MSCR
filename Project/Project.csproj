@@ -403,6 +403,7 @@
     <Content Include="fonts\Font%28css,js%29\images\person_3.jpg" />
     <Content Include="fonts\Font%28css,js%29\images\person_4.jpg" />
     <Content Include="fonts\Font%28css,js%29\images\tour-4.jpg" />
+    <Content Include="fonts\Font%28css,js%29\Jquery-3.5.1.js" />
     <Content Include="fonts\Font%28css,js%29\js\aos.js" />
     <Content Include="fonts\Font%28css,js%29\js\bootstrap-datepicker.js" />
     <Content Include="fonts\Font%28css,js%29\js\bootstrap.min.js" />
