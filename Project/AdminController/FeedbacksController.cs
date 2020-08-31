@@ -13,7 +13,7 @@ namespace Project.AdminController
         // GET: Feedback
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.feed_back.Include(c => c.user).Include(d => d.order).ToList());
             }

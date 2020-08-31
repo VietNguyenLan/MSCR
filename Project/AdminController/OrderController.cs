@@ -5,28 +5,32 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Project.Security;
 
 namespace Project.AdminController
 {
     public class OrderController : Controller
     {
-     
-        OrderSystemEntities1 db = new OrderSystemEntities1();
-        
+
+        OrderSystemEntities2 db = new OrderSystemEntities2();
+
 
         // GET: Order
+     
+        [DeatAuthorize(Order = 2)]
+        
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList());
             }
         }
-
+       
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
 
             {
                 ViewBag.total = db.order_detail.Where(t => t.orderID == id ).Select(i => i.total_price).Sum();
@@ -49,7 +53,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     
                     db.orders.Add(order);
@@ -93,17 +97,24 @@ namespace Project.AdminController
         // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                SetViewBagUserID();
+                SetViewBagTime();
+                SetViewBagStaff();
+                return View(db.orders.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Order/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id,order order, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

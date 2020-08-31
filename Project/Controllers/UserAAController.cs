@@ -10,9 +10,9 @@ using Project.ViewModels;
 
 namespace Project.Controllers
 {
-    public class UserController : Controller
+    public class UserAAController : Controller
     {
-        OrderSystemEntities1 od = new OrderSystemEntities1();   
+        OrderSystemEntities2 od = new OrderSystemEntities2();   
 
         public ActionResult UserDetails(int id)
         {
@@ -86,8 +86,7 @@ namespace Project.Controllers
         {
             string path = UpLoadImage(picture);
 
-            if (!ModelState.IsValid)
-            {
+           
                 try
                 {
                     int uid = (Int32)Session["id"];
@@ -107,7 +106,7 @@ namespace Project.Controllers
                     ModelState.AddModelError("", "Update has fail !");
                 }
                 
-            }
+            
             return View();
            
         }

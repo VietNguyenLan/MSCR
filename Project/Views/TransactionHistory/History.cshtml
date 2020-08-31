@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model IEnumerable<Project.EF.transaction>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:120px;font-weight:800;">Lịch sử giao dịch</h1>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover" style=" border: 2px solid #dee2e6; ">
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    Người dùng
+                                </th>
+                                <th>
+                                    Kiểu
+                                </th>
+                                <th>
+                                    Số tiền
+                                </th>
+                                <th>
+                                    Mô tả
+                                </th>
+                                <th>
+                                   Thời gian
+                                </th>
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user.username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.amount) đ
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.time)
+                                    </td>
+
+
+                                </tr>
+
+
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="~/fonts/Font(css,js)/COModal.js"></script>
+</body>
+</html>

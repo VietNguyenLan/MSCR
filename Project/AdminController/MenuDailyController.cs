@@ -6,16 +6,18 @@ using System.Web;
 using System.Web.Mvc;
 
 using System.Data.Entity;
+using Project.Security;
 
 namespace Project.AdminController
 {
     public class MenuDailyController : Controller
     {
-        OrderSystemEntities1 db = new OrderSystemEntities1();
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: MenuDaily
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList());
             }
@@ -24,7 +26,7 @@ namespace Project.AdminController
         // GET: MenuDaily/Details/5
         public ActionResult Details(DateTime date_service)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.time_menu.SqlQuery("select * from time_menu where date_service ='"  +date_service.Date + "'").FirstOrDefault());
             }
@@ -45,7 +47,7 @@ namespace Project.AdminController
         {
             try
             {
-                using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     time_menu tM = new time_menu();
 

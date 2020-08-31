@@ -23,7 +23,7 @@ namespace Project.Controllers
                 int uID = (Int32)(Session["id"]);
                 int total = (int)list.Sum(x => x.totalProduct);
                 ViewBag.totalPrice = total;
-                using(OrderSystemEntities1 db = new OrderSystemEntities1())
+                using(OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     user u = db.users.Where(x => x.id == uID).FirstOrDefault();
                     if(total > u.balance)
@@ -38,7 +38,7 @@ namespace Project.Controllers
         public ActionResult CreateOrder()
         {
             int uID = (Int32)(Session["id"]);
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 user u = db.users.Where(x => x.id == uID).FirstOrDefault();
                 List<CartItem> items = (List<CartItem>)Session["cart"];
@@ -94,7 +94,7 @@ namespace Project.Controllers
 
         private void AddOrderToTransaction(order order)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 transaction trans = new transaction()
                 {

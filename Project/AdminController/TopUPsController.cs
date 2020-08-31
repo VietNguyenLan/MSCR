@@ -6,15 +6,17 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using Project.Security;
 
 namespace Project.AdminController
 {
     public class TopUPsController : Controller
     {
         // GET: TopUP
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 return View(db.topup_card.Include(c => c.user).ToList());
             }
@@ -48,7 +50,7 @@ namespace Project.AdminController
                 {
 
 
-                    using (OrderSystemEntities1 db = new OrderSystemEntities1())
+                    using (OrderSystemEntities2 db = new OrderSystemEntities2())
                     {
 
                         string seri = Get8CharacterRandomString();

@@ -5,15 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using Project.EF;
 using Project.Models;
+using Project.Security;
 
 namespace Project.AdminController
 {
     public class IngredientsReportController : Controller
     {
         // GET: IngredientsReport
+        [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 DateTime date = DateTime.Now.Date;
                 date = date.AddDays(1).Date;
@@ -42,7 +44,8 @@ namespace Project.AdminController
                         ingredientDetails.Add(new IngredientDetail()
                         {
                             Ingredient = pro_in.ingredient,
-                            amount = pro_in.amount
+                            amount = pro_in.amount,
+                           
                         });
                     }
                     else

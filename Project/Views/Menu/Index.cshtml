@@ -19,7 +19,10 @@
             Người Tạo
         </th>
         <th>
-        
+            Mô tả
+        </th>
+        <th>
+
         </th>
     </tr>
 
@@ -35,7 +38,10 @@
             @Html.DisplayFor(modelItem => item.user.name)
         </td>
         <td>
-            
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+
             <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
             <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
         </td>

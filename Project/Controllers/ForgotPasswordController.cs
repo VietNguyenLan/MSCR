@@ -13,7 +13,7 @@ namespace Project.Controllers
     public class ForgotPasswordController : Controller
     {
         // GET: ForgotPassword
-        OrderSystemEntities1 db = new OrderSystemEntities1();
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         public ActionResult Index()
         {
             return View();

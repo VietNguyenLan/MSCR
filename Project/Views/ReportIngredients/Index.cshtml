@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "IngredientsReport";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model  IEnumerable<Project.Models.IngredientDetail>
+
+<h2>IngredientsReport</h2>
+
+@foreach (var item in Model)
+{
+    <td>@Html.DisplayFor(modelItem => item.Ingredient)</td>
+    <td>@Html.DisplayFor(modelItem => item.amount)</td>
+}
+

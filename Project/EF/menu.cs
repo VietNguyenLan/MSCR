@@ -27,6 +27,7 @@ namespace Project.EF
         public System.DateTime date_create { get; set; }
         public Nullable<int> creator { get; set; }
         public string menu_name { get; set; }
+        public string description { get; set; }
         public bool disable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

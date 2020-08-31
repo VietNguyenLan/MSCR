@@ -18,7 +18,7 @@ namespace Project.Controllers
         [HttpPost]
         public ActionResult Authourise(user user)
         {
-            using (OrderSystemEntities1 od = new OrderSystemEntities1())
+            using (OrderSystemEntities2 od = new OrderSystemEntities2())
             {
                
                 var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
@@ -36,13 +36,19 @@ namespace Project.Controllers
                 {
                     if (userDetails.role.Equals(2))
                     {
-                        return RedirectToAction("Index", "Product");
+                        Session["id"] = userDetails.id;
+                        Session["username"] = userDetails.username;
+                        Session["user"] = userDetails;
+                        Session["role"] = userDetails.role;
+                        return RedirectToAction("Index", "Order");
+
                     }
                     else
                     {
                         Session["id"] = userDetails.id;
                         Session["username"] = userDetails.username;
                         Session["user"] = userDetails;
+                        Session["role"] = userDetails.role;
                         return RedirectToAction("Home", "Home");
                     }
                 }

@@ -26,7 +26,7 @@ namespace Project.Controllers
                 id = 1;
             }
 
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
 
             {
                 var date_menu = db.time_menu.SqlQuery("select * from time_menu where date_service ='" + date + "'").FirstOrDefault();
@@ -63,7 +63,7 @@ namespace Project.Controllers
         {
 
             product product = new product();
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 product = db.products.Where(x => x.id == productID).FirstOrDefault();
             }

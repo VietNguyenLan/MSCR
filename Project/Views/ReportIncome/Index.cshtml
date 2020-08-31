@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Project.EF.order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tất cả các đơn hàng trong ngày</h2>
+
+<br><br>
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+           Ngày tạo đơn
+        </th>
+        <th>
+            Ngày đến lấy
+        </th>
+        <th>
+            Ngày đến lấy thực tế
+        </th>
+
+        <th>
+            Tổng tiền 
+        </th>
+        <th>
+            Review
+        </th>
+        <th>
+            Receive code
+        </th>
+
+        <th>
+            Nhân viên
+        </th>
+        <th>
+           Thời gian
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.take_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actual_time)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reviewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.receive_code)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.user.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service_time.time)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+<h4>Tổng thu nhập trong ngày :  @ViewBag.total đ</h4>

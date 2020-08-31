@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model Project.EF.user
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:120px;font-weight:800;">Thông tin cá nhân</h1>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Tên
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                        <br>
+                        <dt>
+                            Địa chỉ
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.address)
+                        </dd>
+                        <br>
+                        <dt>
+                            Số điện thoại
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.phone_num)
+                        </dd>
+                        <br>
+                        <dt>
+                            Ảnh đại diện
+                        </dt>
+
+                        <dd>
+
+                            <img src="@Url.Content(Model.avt_img)" alt="Sample Image" width="300px" />
+                        </dd>
+
+                        <dt>
+                            Số dư tài khoản
+                        </dt>
+
+                        <dd>
+
+                            @Html.DisplayFor(model => model.balance)
+                        </dd>
+
+                        
+
+
+                    </dl>
+
+                    <a href="~/UserAA/Edit"> 
+                        Sửa thông tin cá nhân
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="~/fonts/Font(css,js)/COModal.js"></script>
+</body>
+</html>

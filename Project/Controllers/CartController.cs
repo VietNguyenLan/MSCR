@@ -31,7 +31,7 @@ namespace Project.Controllers
         public ActionResult RemoveItem(int productID)
         {
             product product = new product();
-            using(OrderSystemEntities1 db = new OrderSystemEntities1())
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 product = db.products.Where(x => x.id == productID).FirstOrDefault();
             }
@@ -51,7 +51,7 @@ namespace Project.Controllers
         {
 
             product product = new product();
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 product = db.products.Where(x => x.id == productID).FirstOrDefault();
             }

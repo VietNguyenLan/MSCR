@@ -12,7 +12,7 @@ namespace Project.Controllers
         // GET: ProductDetail
         public ActionResult Index(int productID)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 product product = db.products.Where(x => x.id == productID).FirstOrDefault();
                 List<product_ingresients> product_Ingresients = db.product_ingresients.Where(x => x.productID == productID).ToList();

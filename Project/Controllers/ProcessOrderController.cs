@@ -20,7 +20,7 @@ namespace Project.Controllers
 
         public ActionResult CreateOrder()
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 user u = (user)db.users.Where(x => x.id == (int)(Session["id"])).FirstOrDefault();
                 List<CartItem> items = (List<CartItem>)Session["cart"];
@@ -75,7 +75,7 @@ namespace Project.Controllers
 
         private void AddOrderToTransaction(order order)
         {
-            using (OrderSystemEntities1 db = new OrderSystemEntities1())
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
                 transaction trans = new transaction()
                 {
