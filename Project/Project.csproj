@@ -588,6 +588,11 @@
     <Content Include="Style\Create.css" />
     <Content Include="Style\Home.css" />
     <Content Include="Style\Login.css" />
+    <Content Include="Style\productImage\1162237704comrang_duabo.jpg" />
+    <Content Include="Style\productImage\1223111349bunbohue.jpg" />
+    <Content Include="Style\productImage\1352748637bunNgan.jpg" />
+    <Content Include="Style\productImage\143856306gaRan.jpg" />
+    <Content Include="Style\productImage\1806348451xoi-xeo-ha-noi.jpg" />
     <Content Include="Style\sideBar.css" />
     <Content Include="Style\Style.css" />
     <Content Include="Views\MSCR\.gitattributes" />
@@ -1089,12 +1094,12 @@
     <Content Include="Views\UserAA\Index.cshtml" />
     <Content Include="Views\OrderList\Index.cshtml" />
     <Content Include="Views\OrderDetail\Index.cshtml" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Style\avatar\" />
-    <Folder Include="Style\productImage\" />
     <Folder Include="Views\CancelOrder\" />
     <Folder Include="Views\CurrentOrderDetail\" />
     <Folder Include="Views\CustomRoleProvider\" />

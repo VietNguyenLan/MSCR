@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/fonts/Font(css,js)/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container" style="padding-top:100px;">
+        <br />
+        <!-- Portfolio Item Heading -->
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-fluid" src="~/Style/productImage/1162237704comrang_duabo.jpg" alt="">
+            </div>
+
+            <div class="col-md-4">
+                <div style="border: 1px dotted red;padding:0px 0px 25px 45px;border-radius: 5px;">
+                    <h1 class="my-3" style="font-weight:bold;">Cơm rang dưa bò</h1>
+                    <h5 style="word-wrap:break-word;">Cơm rang đặc sản</h5>
+                    <h4 class="my-3">Thành phần</h4>
+                    <ul>
+                        <li>Cơm</li>
+                        <li>Thịt bò</li>
+                        <li>Dưa gót</li>
+                        <li>Hành khô</li>
+                        <li>Dưa chua</li>
+                        <li>Các loại gia vị</li>
+                    </ul>
+                    <h6 class="my-3">Ngày: 12/11/2020 &nbsp;&nbsp;&nbsp; Bữa: Bữa tối</h6>
+                    <form class="d-flex justify-content-left">
+                        <!-- Default input -->
+                        <h5 style="margin-right: 10px; padding: 0.375rem 0.75rem;font-weight:bold;">Số lượng : </h5>
+                        <input type="number" value="1" min="1" Search" class="form-control" style="width: 80px;height:40px;">
+                    </form>
+                    <div style="display:flex;">
+                        <button class="btn btn-info btn-lg btn-md my-0 p" type="submit" style="margin-right:10px;">
+                            Giỏ hàng
+                            <i class="fa fa-cart-plus"></i>
+                        </button>
+                        <form action="~/Cart/Cart">
+                            <button class="btn btn-info btn-lg my-0 p" type="submit">
+                                Mua Ngay
+                                <i class="fa fa-check-circle"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div><br />
+        <!-- /.row -->
+        <!-- Related Projects Row -->
+        <h3 class="my-4">Các món gợi ý cho bạn</h3>
+
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-footer" src="~/Style/productImage/1223111349bunbohue.jpg" alt="">
+                </a>
+                <center> <h5 style="margin-top:10px;">Bún bò Huế</h5></center>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-footer" src="~/Style/productImage/1352748637bunNgan.jpg" alt="">
+                </a>
+                <center> <h5 style="margin-top:10px;">Bún ngan</h5></center>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-footer" src="~/Style/productImage/143856306gaRan.jpg" alt="">
+                </a>
+                <center> <h5 style="margin-top:10px;">Gà rán</h5></center>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-footer" src="~/Style/productImage/1806348451xoi-xeo-ha-noi.jpg" alt="">
+                </a>
+                <center> <h5 style="margin-top:10px;">Xôi xéo</h5></center>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <!-- loader -->
+    <script src="~/fonts/Font(css,js)/js/jquery.min.js"></script>
+    <script src="~/fonts/Font(css,js)/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/fonts/Font(css,js)/js/jquery.stellar.min.js"></script>
+    <script src="~/fonts/Font(css,js)/js/aos.js"></script>
+    <script src="~/fonts/Font(css,js)/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

@@ -3,7 +3,6 @@
     ViewBag.Title = "InProcess";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
-@model 
 <head>
     <link href="~/fonts/Font(css,js)/OrderList.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -14,12 +13,31 @@
             <h1 style="margin-top:80px;font-weight:700;">Chi tiết đơn hàng</h1>
         </div>
     </section>
-    <div class="container" style="margin-bottom:50px;">
-    </div>
-    <div class="container mb-4">
-        
-
-    </div>
+    <div class="container mb-4" style="text-align:center;">
+            <div style="border: 1px dotted red;padding:0px 0px 25px 45px;border-radius: 5px;">
+                <h1 class="my-3" style="font-weight:bold;">Cơm rang dưa bò</h1>
+                <h5 style="word-wrap:break-word;">Cơm rang đặc sản</h5>
+                <h6 class="my-3">Ngày: 12/11/2020 &nbsp;&nbsp;&nbsp; Bữa: Bữa tối</h6>
+                <form class="d-flex justify-content-left">
+                    <!-- Default input -->
+                    <h5 style="margin-right: 10px; padding: 0.375rem 0.75rem;font-weight:bold;">Số lượng : </h5>
+                    <input type="number" value="1" min="1" Search" class="form-control" style="width: 80px;height:40px;">
+                </form>
+                <div style="display:flex;">
+                    <button class="btn btn-info btn-lg btn-md my-0 p" type="submit" style="margin-right:10px;">
+                        Giỏ hàng
+                        <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <form action="~/Cart/Cart">
+                        <button class="btn btn-info btn-lg my-0 p" type="submit">
+                            Mua Ngay
+                            <i class="fa fa-check-circle"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr />
 </body>
 
 
