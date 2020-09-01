@@ -36,6 +36,15 @@
                                 <th>
                                     Số lượng
                                 </th>
+                                <th>
+                                    Ngày đến lấy 
+                                </th>
+                                <th>
+                                    Giờ đến lấy
+                                </th>
+                                <th>
+                                   Mã nhận đơn
+                                </th>
 
 
 
@@ -47,23 +56,32 @@
                             @foreach (var item in Model)
                             {
 
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.orderID)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.product.name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.price) đ
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.quantity)
-                                    </td>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.orderID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.product.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.price) đ
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.quantity)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.order.take_date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.order.take_time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.order.receive_code)
+                                </td>
 
 
 
-                                </tr>
+                            </tr>
 
 
                             }
