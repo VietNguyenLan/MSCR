@@ -1070,9 +1070,6 @@
     <Content Include="Views\Register\Activation.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\FoodDetail\FoodDetail.cshtml" />
-    <Content Include="Views\OrderList\Cancel.cshtml" />
-    <Content Include="Views\OrderList\InProcess.cshtml" />
-    <Content Include="Views\OrderList\Success.cshtml" />
     <Content Include="Views\TopUp\TopUp.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Shared\LayoutUser.cshtml" />
@@ -1090,6 +1087,8 @@
     <Content Include="Views\StaffUpdateInfo\Index.cshtml" />
     <Content Include="Views\UserAA\Edit.cshtml" />
     <Content Include="Views\UserAA\Index.cshtml" />
+    <Content Include="Views\OrderList\Index.cshtml" />
+    <Content Include="Views\OrderDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

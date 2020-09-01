@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "InProcess";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model IEnumerable<Project.EF.order>
+<head>
+    <link href="~/fonts/Font(css,js)/OrderList.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 style="margin-top:80px;font-weight:700;">Danh sách đơn hàng</h1>
+        </div>
+    </section>
+    <div class="container" style="margin-bottom:50px;">
+    </div>
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Đơn hàng số</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày sử dụng</th>
+                                <th>Bữa</th>
+                                <th>Tổng tiền</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id)
+                                    </td>
+                                    <td>
+                                       @item.create_time.ToShortDateString()
+                                    </td>
+                                    <td>
+                                        @item.take_date.ToShortDateString()
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.take_time)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.total_price)
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Index","OrderDetail", new { oID = item.id})'">
+                                                Chi tiết
+                                                <i class="fa fa-cart-plus"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (item.actual_time != null)
+                                        {
+                                            <div class="text-center">
+                                                <a class="btn btn-success text-white disabled" style="cursor:pointer; width:100px;">
+                                                    Phản hồi <i class="fa fa-send"></i>
+                                                </a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-center">
+                                                <a href="#" class="btn btn-success text-white" style="cursor:pointer; width:100px;">
+                                                    Phản hồi <i class="fa fa-send"></i>
+                                                </a>
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+

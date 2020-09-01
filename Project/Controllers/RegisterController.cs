@@ -59,7 +59,7 @@ namespace Project.Controllers
                     u.phone_num = user.phone_num;
                     u.email = user.email;
                     u.role = 1;
-                    u.avt_img = path;
+                    u.avt_img = "~/Style/avatar/985985854default-avatar.png";
                     u.is_active = user.is_active;
                 
                     db.users.Add(u);
