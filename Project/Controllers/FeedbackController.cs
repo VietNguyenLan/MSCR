@@ -11,7 +11,7 @@ namespace Project.Controllers
     public class FeedbackController : Controller
     {
         // GET: Feedback
-        public ActionResult Index(order o)
+        public ActionResult Feedback(order o)
         {
             using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
@@ -43,7 +43,7 @@ namespace Project.Controllers
                 db.SaveChanges();
 
             }
-            return Index(o);
+            return Feedback(o);
         }
     }
 
