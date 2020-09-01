@@ -81,38 +81,61 @@ namespace Project.Controllers
             return path;
         }
 
-        [HttpPost]
-        public ActionResult Edit(user user1, HttpPostedFileBase picture)
+        //[HttpPost]
+        //public ActionResult Edit(user user1, HttpPostedFileBase picture)
+        //{
+        //    string path = UpLoadImage(picture);
+
+           
+        //        try
+        //        {
+        //            int uid = (Int32)Session["id"];
+        //            var user = od.users.Find(uid);
+        //            user.name = user1.name;
+        //            user.address = user1.address;
+        //            user.phone_num = user1.phone_num;
+        //            user.role = user1.role;
+        //            user.email = user1.email;
+        //            user.avt_img = path;
+        //            user.is_active = user1.is_active;
+        //            od.SaveChanges();
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ModelState.AddModelError("", "Update has fail !");
+        //        }
+                
+            
+        //    return View();
+           
+        //}
+
+        public ActionResult Index(user user1, HttpPostedFileBase picture)
         {
             string path = UpLoadImage(picture);
 
-           
-                try
-                {
-                    int uid = (Int32)Session["id"];
-                    var user = od.users.Find(uid);
-                    user.name = user1.name;
-                    user.address = user1.address;
-                    user.phone_num = user1.phone_num;
-                    user.role = user1.role;
-                    user.email = user1.email;
-                    user.avt_img = path;
-                    user.is_active = user1.is_active;
-                    od.SaveChanges();
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "Update has fail !");
-                }
-                
-            
-            return View();
-           
-        }
 
-        public ActionResult Index()
-        {
+            try
+            {
+                int uid = (Int32)Session["id"];
+                var user = od.users.Find(uid);
+                user.name = user1.name;
+                user.address = user1.address;
+                user.phone_num = user1.phone_num;
+                user.role = user1.role;
+                user.email = user1.email;
+                user.avt_img = path;
+                user.is_active = user1.is_active;
+                od.SaveChanges();
+                return RedirectToAction("Home", "Home");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Update has fail !");
+            }
+
+
             return View();
         }
 
