@@ -12,74 +12,55 @@
 <body>
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 style="margin-top:120px;font-weight:800;">Thông tin cá nhân</h1>
+            <h1 style="margin-top:100px;font-weight:800;">Thông tin cá nhân</h1>
         </div>
     </section>
 
-    <div class="container mb-4">
+    <div class="container bootstrap snippet">
         <div class="row">
-            <div class="col-12">
-                <div class="table-responsive">
+            <div class="col-sm-3">
+                <!--left col-->
 
 
-                    <dl class="dl-horizontal">
-                        <dt>
-                            Tên
-                        </dt>
+                <div class="text-center">
+                    <img src="~/image/dai-hoc-fpt-1.jpg" class="img-thumbnail" alt="avatar">
+                </div><br>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.name)
-                        </dd>
-                        <br>
-                        <dt>
-                            Địa chỉ
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.address)
-                        </dd>
-                        <br>
-                        <dt>
-                            Số điện thoại
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.phone_num)
-                        </dd>
-                        <br>
-                        <dt>
-                            Ảnh đại diện
-                        </dt>
-
-                        <dd>
-
-                            <img src="@Url.Content(Model.avt_img)" alt="Sample Image" width="300px" />
-                        </dd>
-
-                        <dt>
-                            Số dư tài khoản
-                        </dt>
-
-                        <dd>
-
-                            @Html.DisplayFor(model => model.balance)
-                        </dd>
-
-                        
-
-
-                    </dl>
-
-                    <a href="~/UserAA/Edit"> 
-                        Sửa thông tin cá nhân
-                    </a>
+            </div><!--/col-3-->
+            <div class="col-sm-9">
+            <br/>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label style="font-weight:600;font-size:25px;">Tên</label>
+                        <input type="text" class="form-control" value=" @Html.DisplayFor(model => model.name)" disabled />
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-    
-    <script src="~/fonts/Font(css,js)/COModal.js"></script>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label style="font-weight:600;font-size:25px;">Địa chỉ</label>
+                        <input type="text" class="form-control" value="@Html.DisplayFor(model => model.address)" disabled />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label style="font-weight:600;font-size:25px;">Số điện thoại</label>
+                        <input type="text" class="form-control" value="@Html.DisplayFor(model => model.phone_num)" disabled />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label style="font-weight:600;font-size:25px;">Số dư tài khoản</label>
+                        <input type="text" class="form-control" value="@Html.DisplayFor(model => model.balance)" disabled />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-info" type="submit" onclick="location.href='/UserAA/Index'">Sửa thông tin cá nhân <i class="fa fa-edit"></i></button>
+                    </div>
+                </div>
+                </div><!--/col-9-->
+             </div><!--/row-->
+        </div><br /><br />
 </body>
 </html>

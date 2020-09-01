@@ -8,37 +8,44 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <link href="~/Style/Login.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/fonts/Font(css,js)/Logincss.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="login">
-        @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
-        {
-            <h1>Login to Web App</h1>
-            <form method="post" action="">
-                <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
-                <p>@Html.LabelFor(Model => Model.username)</p>
-                <p>@Html.EditorFor(Model => Model.username)</p>
-                <p>@Html.ValidationMessageFor(Model => Model.username)</p>
-                <p>@Html.LabelFor(Model => Model.password)</p>
-                <p>@Html.EditorFor(Model => Model.password)</p>
-                <p>@Html.ValidationMessageFor(Model => Model.password)</p>
-                <div class="bg">
-                    <p class="remember_me">
-                        <label>
-                            <input type="checkbox" name="remember_me" id="remember_me">
-                            Remember me
-                        </label>
-                    </p>
-                    <p class="submit"><input type="submit" name="commit" value="Login"></p>
-                    <p>If you don't have account @Html.ActionLink("Click Here","Index","Register")<p>
-                </div>
-            </form>
-        }
-    </div>
-
-    <div class="login-help">
-        <p>Forgot your password? @Html.ActionLink("Click here to reset it","Index", "ForgotPassword")</p>
+           
+    <div class="wrapper fadeInDown" style="padding-top:100px;">
+        <div id="formContent">
+            @using (Html.BeginForm("Authourise", "Login", FormMethod.Post))
+            {
+                <h1 style="text-align:center;margin-bottom:50px;margin-top:30px;">Đăng nhập</h1>
+                <form method="post" action="">
+                    <p class="field-validation-error">@Html.DisplayFor(Model => Model.LoginErrorMsg)</p>
+                    <div style="margin-bottom:30px;font-size:20px;">
+                        @Html.LabelFor(Model => Model.username, "Tên đăng nhập")
+                        @Html.EditorFor(Model => Model.username)
+                        @Html.ValidationMessageFor(Model => Model.username)
+                    </div>
+                    <div style="margin-bottom:30px;font-size:20px;">
+                        @Html.LabelFor(Model => Model.password, "Mật khẩu")
+                        @Html.PasswordFor(Model => Model.password)
+                        @Html.ValidationMessageFor(Model => Model.password)
+                    </div>
+                    <div class="bg">
+                        <p class="remember_me">
+                            <label>
+                                <input type="checkbox" name="remember_me" id="remember_me">
+                                Nhớ tên đăng nhập và mật khẩu
+                            </label>
+                        </p>
+                        <input class="btn btn-success btnsubmit" type="submit" name="commit" value="Đăng nhập">
+                        <p>Chưa có tài khoản @Html.ActionLink("đăng ký ngay", "Index", "Register")<p>
+                        <p>Quên mật khẩu? @Html.ActionLink("đổi mật khẩu ngay", "Index", "ForgotPassword")</p>
+                    </div>
+                </form>
+            }
+        </div>
     </div>
 
 </body>

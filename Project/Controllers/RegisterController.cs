@@ -58,7 +58,7 @@ namespace Project.Controllers
                     u.address = user.address;
                     u.phone_num = user.phone_num;
                     u.email = user.email;
-                    u.role = user.role;
+                    u.role = 1;
                     u.avt_img = path;
                     u.is_active = user.is_active;
                 

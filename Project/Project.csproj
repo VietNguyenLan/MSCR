@@ -236,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
@@ -429,6 +428,7 @@
     <Content Include="fonts\Font%28css,js%29\js\main.js" />
     <Content Include="fonts\Font%28css,js%29\js\owl.carousel.min.js" />
     <Content Include="fonts\Font%28css,js%29\js\popper.min.js" />
+    <Content Include="fonts\Font%28css,js%29\Logincss.css" />
     <Content Include="fonts\Font%28css,js%29\Modal.css" />
     <Content Include="fonts\Font%28css,js%29\Modal.js" />
     <Content Include="fonts\Font%28css,js%29\OrderList.css" />
@@ -437,13 +437,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\dai-hoc-fpt-1.jpg" />
-    <Content Include="obj\Debug\Project.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Project.dll" />
-    <Content Include="obj\Debug\Project.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="bin\Project.dll.config" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\EF\Model1.csdl" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\EF\Model1.msl" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\EF\Model1.ssdl" />
@@ -1071,7 +1068,6 @@
     <Content Include="Views\ForgotPassword\Index.cshtml" />
     <Content Include="Views\Feedbacks\Index.cshtml" />
     <Content Include="Views\Register\Activation.cshtml" />
-    <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\FoodDetail\FoodDetail.cshtml" />
     <Content Include="Views\OrderList\Cancel.cshtml" />
@@ -1093,6 +1089,7 @@
     <Content Include="Views\Staff\Create.cshtml" />
     <Content Include="Views\StaffUpdateInfo\Index.cshtml" />
     <Content Include="Views\UserAA\Edit.cshtml" />
+    <Content Include="Views\UserAA\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

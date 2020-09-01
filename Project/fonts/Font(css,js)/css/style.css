@@ -402,9 +402,9 @@ mark,
   padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
-  max-width: 100%;
-  height: auto; }
+  border-radius: 8.25rem;
+  width: 240px;
+  height: 240px; }
 
 .figure {
   display: inline-block; }
@@ -731,9 +731,9 @@ pre {
     max-width: 16.66667%; }
   .col-sm-3 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%; }
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%; }
   .col-sm-4 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 33.33333%;
@@ -761,9 +761,9 @@ pre {
     max-width: 66.66667%; }
   .col-sm-9 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
-    max-width: 75%; }
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%; }
   .col-sm-10 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 83.33333%;
@@ -1558,7 +1558,7 @@ pre {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -7947,8 +7947,8 @@ h1, h2, h3, h4, h5,
     color: #404044; }
 
 .form-control {
-  height: 40px !important;
-  background: #fff !important;
+  height: 50px !important;
+  background: #fff;
   color: #404044 !important;
   font-size: 18px;
   border-radius: 0px;
