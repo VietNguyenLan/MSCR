@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -86,7 +87,7 @@ namespace Project.Controllers
         //{
         //    string path = UpLoadImage(picture);
 
-           
+
         //        try
         //        {
         //            int uid = (Int32)Session["id"];
@@ -105,12 +106,21 @@ namespace Project.Controllers
         //        {
         //            ModelState.AddModelError("", "Update has fail !");
         //        }
-                
-            
-        //    return View();
-           
-        //}
 
+
+        //    return View();
+
+        //}
+        public ActionResult Index()
+        {
+            int uID = (Int32)Session["id"];
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+              
+                return View(db.users.Where(x => x.id == uID).FirstOrDefault());
+            }
+        }
+        [HttpPost]
         public ActionResult Index(user user1, HttpPostedFileBase picture)
         {
             string path = UpLoadImage(picture);
@@ -123,12 +133,16 @@ namespace Project.Controllers
                 user.name = user1.name;
                 user.address = user1.address;
                 user.phone_num = user1.phone_num;
-                user.role = user1.role;
+                user.role = 1;
+                user.avt_img = "~/Style/avatar/985985854default-avatar.png";
                 user.email = user1.email;
-                user.avt_img = path;
-                user.is_active = user1.is_active;
+                user.email_verified = true;
+                user.is_active = true;
+              
+
+                od.Entry(user).State = EntityState.Modified;
                 od.SaveChanges();
-                return RedirectToAction("Home", "Home");
+                return Redirect("UserDetail/UserDetail");
             }
             catch (Exception ex)
             {
