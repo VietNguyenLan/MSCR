@@ -19,10 +19,6 @@ namespace Project.Controllers
                 ViewBag.total = db.order_detail.Where(t => t.orderID == oID).Select(i => i.total_price).Sum();
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Include(a => a.product).Where(x => x.orderID == oID ).ToList();
-                
-            
-
-               
                 return View(_Details);
             }
         }
