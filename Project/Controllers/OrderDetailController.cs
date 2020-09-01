@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Project.Controllers
 {
@@ -15,22 +16,14 @@ namespace Project.Controllers
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                order o = db.orders.Where(x => x.id == oID).FirstOrDefault();
+                ViewBag.total = db.order_detail.Where(t => t.orderID == oID).Select(i => i.total_price).Sum();
                 List<order_detail> _Details = new List<order_detail>();
-                _Details = db.order_detail.Where(x => x.orderID == oID ).ToList();
-                List<product> _products = new List<product>();
-                foreach (order_detail item in _Details)
-                {
+                _Details = db.order_detail.Include(a => a.product).Where(x => x.orderID == oID ).ToList();
+                
+            
 
-                    _products.Add((product)db.products.Where(x => x.id == item.productID).FirstOrDefault());
-                }
-
-
-                dynamic model = new ExpandoObject();
-                model.order = o;
-                model.order_detail = _Details;
-                model.products = _products;
-                return View(model);
+               
+                return View(_Details);
             }
         }
     }
