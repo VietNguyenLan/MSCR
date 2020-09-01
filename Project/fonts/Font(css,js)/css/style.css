@@ -7947,7 +7947,7 @@ h1, h2, h3, h4, h5,
     color: #404044; }
 
 .form-control {
-  height: 50px !important;
+  height: 50px ;
   background: #fff;
   color: #404044 !important;
   font-size: 18px;
@@ -8969,3 +8969,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+.img-footer{
+    width:255px;
+    height:170px;
+}
