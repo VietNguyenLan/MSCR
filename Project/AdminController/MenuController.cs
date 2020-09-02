@@ -93,7 +93,9 @@ namespace Project.AdminController
             {
                 using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
+                    int uID = (Int32)(Session["id"]);
                     menu.date_create = DateTime.Now;
+                    menu.creator = uID;
                     db.menus.Add(menu);
                     db.SaveChanges();
                 }

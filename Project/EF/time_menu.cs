@@ -15,6 +15,7 @@ namespace Project.EF
     public partial class time_menu
     {
         public System.DateTime date_service { get; set; }
+
         public Nullable<int> breakfast_mId { get; set; }
         public Nullable<int> lunch_mId { get; set; }
         public Nullable<int> dinner_mId { get; set; }
