@@ -58,10 +58,6 @@
                             @Html.ValidationMessageFor(Model => Model.email)
                         </div>
                     </div>
-                    <div style="margin-bottom:30px;font-size:20px;">
-                        @Html.LabelFor(Model => Model.avt_img, "Ảnh đại diện")
-                        <input type="file" id="picture" name="picture" class="btn-info" />
-                    </div>
                         <div class="bg">
                             <input class="btn btn-success btnsubmit" type="submit" name="commit" value="Đăng ký">
                             <p>Đã có tài khoản @Html.ActionLink("đăng nhập", "Index", "Login")<p>
