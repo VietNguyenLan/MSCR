@@ -46,7 +46,7 @@
                             {
 
                                 <tr>
-                                    <td class="menu-img" style="background-image: url(@Url.Content(item.Product.img))"></td>
+                                    <td ><img style="width:80px;height:80px; border-radius: 50%;" src="@Url.Content(item.Product.img)"></td>
                                     <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Date)</td>
                                     <td></td>
