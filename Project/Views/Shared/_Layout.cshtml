@@ -25,81 +25,95 @@
                 <strong>MS</strong>
             </div>
             <ul class="list-unstyled components">
-
-                <li>
-                    <a href="@Url.Action("Index", "ReportIncome")">
-                        <i class="fas fa-align-left"></i>
-                        Báo Cáo Doanh Số
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Order")">
-                        <i class="fas fa-align-left"></i>
-                        Quản Lí Đơn Hàng
-                    </a>
-                </li>
+                @if (Session["role"].Equals(3))
+                {
 
 
+                    <li>
+                        <a href="@Url.Action("Index", "ReportIncome")">
+                            <i class="fas fa-align-left"></i>
+                            Báo Cáo Doanh Số
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="@Url.Action("Index", "MenuDaily")">
-                        <i class="fas fa-align-left"></i>
-                        Menu Hàng Ngày
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Menu")">
-                        <i class="fas fa-list"></i>
-                        Danh Sách Menu
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "TopUPs")">
-                        <i class="fas fa-image"></i>
-                        Thẻ Thanh Toán
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Product")">
-                        <i class="fas fa-image"></i>
-                        Món Ăn
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Category")">
-                        <i class="fas fa-image"></i>
-                        Phân Loại Món Ăn
-                    </a>
-                </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Order")">
+                            <i class="fas fa-align-left"></i>
+                            Quản Lí Đơn Hàng
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="@Url.Action("Index", "Feedbacks")">
-                        <i class="fas fa-image"></i>
-                        Phản Hồi Của Người Dùng
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "IngredientsReport")">
-                        <i class="fas fa-image"></i>
-                        Xem nguyên liệu cần chuẩn bị cho ngày mai
-                    </a>
-                </li>
 
-                <li>
-                    <a href="@Url.Action("Index", "ProductReport")">
-                        <i class="fas fa-image"></i>
-                        Xem những món ăn cần chuẩn bị cho ngày mai
-                    </a>
-                </li>
 
-                <li>
-                    <a href="@Url.Action("Index", "Staff")">
-                        <i class="fas fa-image"></i>
-                        Quản lý nhân viên
-                    </a>
-                </li>
+                    <li>
+                        <a href="@Url.Action("Index", "MenuDaily")">
+                            <i class="fas fa-align-left"></i>
+                            Menu Hàng Ngày
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Menu")">
+                            <i class="fas fa-list"></i>
+                            Danh Sách Menu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "TopUPs")">
+                            <i class="fas fa-image"></i>
+                            Thẻ Thanh Toán
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Product")">
+                            <i class="fas fa-image"></i>
+                            Món Ăn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Category")">
+                            <i class="fas fa-image"></i>
+                            Phân Loại Món Ăn
+                        </a>
+                    </li>
 
-                
+                    <li>
+                        <a href="@Url.Action("Index", "Feedbacks")">
+                            <i class="fas fa-image"></i>
+                            Phản Hồi Của Người Dùng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "IngredientsReport")">
+                            <i class="fas fa-image"></i>
+                            Xem nguyên liệu cần chuẩn bị cho ngày mai
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "ProductReport")">
+                            <i class="fas fa-image"></i>
+                            Xem những món ăn cần chuẩn bị cho ngày mai
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "Staff")">
+                            <i class="fas fa-image"></i>
+                            Quản lý nhân viên
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Order")">
+                            <i class="fas fa-align-left"></i>
+                            Quản Lí Đơn Hàng
+                        </a>
+                    </li>
+                }
+
+
             </ul>
            
         </nav>

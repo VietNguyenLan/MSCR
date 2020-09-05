@@ -22,7 +22,9 @@ namespace Project.EF
     
         public int id { get; set; }
         public string time { get; set; }
-    
+
+        
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders { get; set; }
     }

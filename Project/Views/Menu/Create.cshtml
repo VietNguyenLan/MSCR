@@ -10,13 +10,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.creator, "Người Tạo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.creator, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.creator, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    
 
     <div class="form-group">
         @Html.Label("Tên Menu", htmlAttributes: new { @class = "control-label col-md-2" })

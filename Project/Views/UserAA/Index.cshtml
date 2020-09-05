@@ -1,60 +1,77 @@
 ﻿
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
+@model Project.EF.user
+@using (Html.BeginForm("Index", "UserAA", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+    <head>
+        <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+    </head>
+    <body>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 style="margin-top:100px;font-weight:800;">Thông tin cá nhân</h1>
+            </div>
+        </section>
 
-<head>
-    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
-</head>
-<body>
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 style="margin-top:100px;font-weight:800;">Thông tin cá nhân</h1>
-        </div>
-    </section>
-
-    <div class="container bootstrap snippet">
-        <div class="row">
-            <div class="col-sm-3">
-                <!--left col-->
+        <div class="container bootstrap snippet">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--left col-->
 
 
-                <div class="text-center">
-                    <img src="#")" class="img-thumbnail" alt="avatar">
-                </div><br>
+                    <div class="text-center">
+                        <img src="#" )" class="img-thumbnail" alt="avatar">
+                    </div><br>
 
-            </div><!--/col-3-->
-            <div class="col-sm-9">
-                <br />
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label style="font-weight:600;font-size:25px;">Tên</label>
-                        <input type="text" class="form-control" value=""  />
+                </div><!--/col-3-->
+                <div class="col-sm-9">
+                    <br />
+                    <div class="form-group">
+                        @Html.Label("Tên", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label style="font-weight:600;font-size:25px;">Địa chỉ</label>
-                        <input type="text" class="form-control" value=""  />
+                    <div class="form-group">
+                        @Html.Label("Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label style="font-weight:600;font-size:25px;">Số điện thoại</label>
-                        <input type="text" class="form-control" value=""  />
+                    <div class="form-group">
+                        @Html.Label("Số điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.phone_num, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.phone_num, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <br>
-                        <button class="btn btn-lg btn-info" type="submit" onclick="location.href='/UserDetail/UserDetail'">Xác nhận <i class="fa fa-edit"></i></button>
-                        <button class="btn btn-lg btn-danger" type="submit" onclick="location.href='/UserDetail/UserDetail'">Hủy <i class="fa fa-edit"></i></button>
+                    <div class="form-group">
+                        @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-            </div><!--/col-9-->
-        </div><!--/row-->
-    </div><br /><br />
-</body>
 
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-info" type="submit" onclick="location.href='/UserDetail/UserDetail'">Xác nhận <i class="fa fa-edit"></i></button>
+                            <button class="btn btn-lg btn-danger" type="submit" onclick="location.href='/UserDetail/UserDetail'">Hủy <i class="fa fa-edit"></i></button>
+                        </div>
+                    </div>
+                </div><!--/col-9-->
+            </div><!--/row-->
+        </div><br /><br />
+    </body>
+}
 

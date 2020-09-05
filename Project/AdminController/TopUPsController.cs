@@ -52,12 +52,13 @@ namespace Project.AdminController
 
                     using (OrderSystemEntities2 db = new OrderSystemEntities2())
                     {
-
+                        int uID = (Int32)(Session["id"]);
                         string seri = Get8CharacterRandomString();
                         string code = Get8CharacterRandomString();
                         topup_Card.serial_number = seri;
                         topup_Card.code = code;
                         topup_Card.create_time = DateTime.Now;
+                        topup_Card.creator = uID;
                         db.topup_card.Add(topup_Card);
                         db.SaveChanges();
                     }
