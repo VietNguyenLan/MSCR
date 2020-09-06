@@ -26,11 +26,11 @@ namespace Project.Controllers
 
             using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", useremail.email))
             {
-                mm.Subject = "Rest Password";
-                string body = "Hello " + user.username + ",";
-                body += "<br /><br />Here is your passowrd:" + useremail.password + "";
-                body += "<br /><br />Please click the following link to login your account";
-                body += "<br /><a href = '" + this.Url.Action("Index", "Login", null, this.Request.Url.Scheme) + "'>Click here !</a>";
+                mm.Subject = "Yêu cầu gửi lại mật khẩu";
+                string body = "Xin chào" + user.username + ",";
+                body += "<br /><br />Đây là mật khẩu của bạn:" + useremail.password + "";
+                body += "<br /><br />Hãy truy cập vào đây để đăng nhập";
+                body += "<br /><a href = '" + this.Url.Action("Index", "Login", null, this.Request.Url.Scheme) + "'>Ấn vào đây !</a>";
                 body += "<br /><br />Thanks";
                 mm.Body = body;
                 mm.IsBodyHtml = true;
@@ -52,11 +52,11 @@ namespace Project.Controllers
             if (forgotpassword != null)
             {
                 SendActivationEmail(forgotpassword);
-                forgotEmailViewModels.ErrorMgs = "Please check your email !";
+                forgotEmailViewModels.ErrorMgs = "Kiểm tra email của bạn!";
             }
             else
             {
-                forgotEmailViewModels.ErrorMgs = "Wrong email, please check again !";
+                forgotEmailViewModels.ErrorMgs = "Email sai, hãy thử lại  !";
             }
            
             return View("Index",forgotEmailViewModels);

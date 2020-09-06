@@ -29,7 +29,7 @@ namespace Project.Controllers
                 userid.password = changePasswordViewModels.NewPassword;
                 od.Entry(userid).State = EntityState.Modified;
                 od.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Home");
             }
             else if (userid.password != changePasswordViewModels.NewPassword)
             {

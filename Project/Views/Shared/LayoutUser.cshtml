@@ -16,7 +16,7 @@
         <div class="container">
             <a class="navbar-brand" href="~/home/Home">MSCR</a>
             <div>
-                <a class="fa fa-shopping-cart cart" style="font-size: 22px;color: #17a2b8;" href="~/Cart/cart">&nbsp<span style="font-family:VnArabia;">0</span></a> &nbsp
+                <a class="fa fa-shopping-cart cart" style="font-size: 20px;color: white;margin-right:20px;"  href="~/Cart/cart"></a>
                 @if (Session["username"] == null)
                 {
                     <a class="btn btn-outline-info waves-effect" style="margin-right:5px;" href="~/Login">Đăng nhập</a>
@@ -25,10 +25,10 @@
                 else
                 {    
             <div class="btn-group">
-                <div style="color:white;">@{Project.EF.user user = (Project.EF.user)Session["user"];} @user.balance </div>
-                <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div style="color:white;margin-right:20px;width:160px;font-weight:600;">Số dư : @{Project.EF.user user = (Project.EF.user)Session["user"];} @user.balance đ </div>
+                <div style="color:white;cursor:pointer;font-weight:600;" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @user.name
-                </button>
+                </div>
                 <div class="dropdown-menu">
                     @if (Session["role"].Equals(3))
                     {

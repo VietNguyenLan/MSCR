@@ -9,6 +9,7 @@
 <html lang="en">
 <head>
     <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
+
 </head>
 <body>
     <section class="jumbotron text-center">
@@ -26,7 +27,6 @@
                 <div class="text-center">
                     <img src="~/image/dai-hoc-fpt-1.jpg" class="img-thumbnail" alt="avatar">
                 </div><br>
-
             </div><!--/col-3-->
             <div class="col-sm-9">
                 <br />
@@ -54,16 +54,14 @@
                         <input type="text" class="form-control" value="@Html.DisplayFor(model => model.email)" disabled />
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label style="font-weight:600;font-size:25px;">Số dư tài khoản</label>
-                        <input type="text" class="form-control" value="@Html.DisplayFor(model => model.balance)" disabled />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
+                <div class="form-group" style="display:flex;">
+                    <div class="col-xs-12" style="margin-right:20px;">
                         <br>
                         <button class="btn btn-lg btn-info" type="submit" onclick="location.href='/UserAA/Index'">Sửa thông tin cá nhân <i class="fa fa-edit"></i></button>
+                    </div>
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-info" type="submit" onclick="location.href='/ChangePassword/Index'">Đổi mật khẩu <i class="fa fa-edit"></i></button>
                     </div>
                 </div>
             </div><!--/col-9-->

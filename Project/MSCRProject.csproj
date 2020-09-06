@@ -134,6 +134,7 @@
     <Compile Include="AdminController\OrderController.cs" />
     <Compile Include="AdminController\ProductController.cs" />
     <Compile Include="AdminController\ProductReportController.cs" />
+    <Compile Include="AdminController\ReadOrderController.cs" />
     <Compile Include="AdminController\ReportIncomeController.cs" />
     <Compile Include="AdminController\StaffController.cs" />
     <Compile Include="AdminController\TopUPsController.cs" />
@@ -624,6 +625,7 @@
     <Content Include="Views\OrderDetail\Index.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\Feedback\Feedback.cshtml" />
+    <Content Include="Views\ReadOrder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

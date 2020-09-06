@@ -4,33 +4,35 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en" dir="ltr">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Reset Password</title>
-    <style type="text/css">
-        body {
-            font-family: Arial;
-            font-size: 10pt;
-        }
-    </style>
+    <meta charset="utf-8">
+    <title>Gửi lại mật khẩu</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/fonts/Font(css,js)/Logincss.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        <div>
+
+    <div class="wrapper fadeInDown" style="padding-top:100px;">
+        <div id="formContent">
             @using (Html.BeginForm("ForgotPassword", "ForgotPassword", FormMethod.Post))
             {
                 <form method="post" action="">
-                    <p class="field-validation-error">@Html.DisplayFor(Model => Model.ErrorMgs)</p>
-                    <p>@Html.LabelFor(Model => Model.Email)</p>
-                    <p>@Html.EditorFor(Model => Model.Email)</p>
+                    <p class="field-validation-error" style="margin-top:20px;">@Html.DisplayFor(Model => Model.ErrorMgs)</p>
+                    <p class="field-validation-error"></p>
+                    <div style="margin-bottom:30px;font-size:20px;">
+                        @Html.LabelFor(Model => Model.Email)
+                        @Html.EditorFor(Model => Model.Email)
+                    </div>
                     <div class="bg">
-                        <p class="submit"><input type="submit" name="Send" value="Confirm"></p>
+                        <input class="btn btn-success btnsubmit" type="submit" name="commit" value="Xác nhận">
                     </div>
                 </form>
             }
         </div>
     </div>
+
 </body>
 </html>

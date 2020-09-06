@@ -86,12 +86,12 @@ namespace Project.Controllers
 
             using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
             {
-                mm.Subject = "Account Activation";
-                string body = "Hello " + user.username + ",";
-                body += "<br /><br />Thanks for the confirmation and enjoy your day!";
-                body += "<br /><br />Please click the following link to login your account";
-                body += "<br /><a href = '" + string.Format("{0}://{1}/Register/Activation/{2}", Request.Url.Scheme, Request.Url.Authority, otpcode) + "'>Click here !</a>";
-                body += "<br /><br />Thanks";
+                mm.Subject = "Kích hoạt tài khoản";
+                string body = "Xin chào " + user.username + ",";
+                body += "<br /><br />Chúc mừng bạn đã đăng ký thành công !";
+                body += "<br /><br />Hãy ấn vào đường link dưới đây để kích hoạt tài khoản của bạn";
+                body += "<br /><a href = '" + string.Format("{0}://{1}/Register/Activation/{2}", Request.Url.Scheme, Request.Url.Authority, otpcode) + "'>Ấn vào đây !</a>";
+                body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
                 mm.Body = body;
                 mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
