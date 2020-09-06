@@ -74,24 +74,28 @@
                             <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chọn ngày
                             </button>
+                            @{
+                                DateTime date = new DateTime();
+                            }
                             <div class="dropdown-menu" id="date">
-                                <a class="dropdown-item" href="#">Thứ hai</a>
-                                <a class="dropdown-item" href="#">Thứ ba</a>
-                                <a class="dropdown-item" href="#">Thứ tư</a>
-                                <a class="dropdown-item" href="#">Thứ năm</a>
-                                <a class="dropdown-item" href="#">Thứ sáu</a>
-                                <a class="dropdown-item" href="#">Thứ bảy</a>
-                                <a class="dropdown-item" href="#">Chủ nhật</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("02/31/2020") , service_time = 1 , id =1})">Thứ hai</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/01/2020") , service_time = 1 , id =1})">Thứ ba</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/02/2020") , service_time = 1 , id =1})">Thứ tư</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/03/2020") , service_time = 1 , id =1})">Thứ năm</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/04/2020") , service_time = 1 , id =1})">Thứ sáu</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/05/2020") , service_time = 1 , id =1})">Thứ bảy</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/06/2020") , service_time = 1 , id =1})">Chủ nhật</a>
                             </div>
                         </div>
                         <div class="btn-group" style="padding-left:40px;">
                             <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chọn bữa
                             </button>
+                            
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Bữa sáng</a>
-                                <a class="dropdown-item" href="#">Bữa trưa</a>
-                                <a class="dropdown-item" href="#">Bữa tối</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = DateTime.Now , service_time = 1 , id =1})">Bữa sáng</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = DateTime.Now , service_time = 2 , id =1})">Bữa trưa</a>
+                                <a class="dropdown-item" href="@Url.Action("Home", new { date = DateTime.Now , service_time = 3 , id =1})">Bữa tối</a>
                             </div>
                         </div>
                     </div>
