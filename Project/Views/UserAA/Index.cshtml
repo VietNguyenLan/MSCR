@@ -7,9 +7,9 @@
 @model Project.EF.user
 @using (Html.BeginForm("Index", "UserAA", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.id)
+ 
+  
+  
     <head>
         <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
     </head>

@@ -31,6 +31,8 @@ namespace Project.EF
         public double total_price { get; set; }
         public bool reviewed { get; set; }
         public int receive_code { get; set; }
+
+        public string content { get; set; }
     
         public virtual feed_back feed_back { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -124,7 +124,7 @@
                                     if (item.categoryID != 6)
                                     {
                                         <div class="col-lg-6">
-                                            <div class="menus d-flex ftco-animate">
+                                            <div class="menus d-flex ftco-animate" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">
                                                 <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
                                                 <div class="text d-flex">
                                                     <div class="one-half">

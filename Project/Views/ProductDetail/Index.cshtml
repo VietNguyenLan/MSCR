@@ -1,4 +1,4 @@
-﻿
+﻿@model Project.EF.product
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
@@ -21,31 +21,31 @@
         <!-- Portfolio Item Row -->
         <div class="row">
 
+
+
             <div class="col-md-8">
-                <img class="img-fluid" src="~/Style/productImage/1162237704comrang_duabo.jpg" alt="">
+                <img class="img-fluid" src="@Url.Content(Model.img)" alt="">
             </div>
 
             <div class="col-md-4">
                 <div style="border: 1px dotted red;padding:0px 0px 25px 45px;border-radius: 5px;">
-                    <h1 class="my-3" style="font-weight:bold;">Cơm rang dưa bò</h1>
-                    <h5 style="word-wrap:break-word;">Cơm rang đặc sản</h5>
+                    <h1 class="my-3" style="font-weight:bold;">@Html.DisplayFor(model => model.name) </h1>
+                    <h5 style="word-wrap:break-word;"> @Html.DisplayFor(model => model.description) </h5>
                     <h4 class="my-3">Thành phần</h4>
+                    
                     <ul>
-                        <li>Cơm</li>
-                        <li>Thịt bò</li>
-                        <li>Dưa gót</li>
-                        <li>Hành khô</li>
-                        <li>Dưa chua</li>
-                        <li>Các loại gia vị</li>
+                        @foreach (var a in ViewBag.listIng)
+                        {
+
+
+                        <li>@a.name</li>
+
+                        }
                     </ul>
-                    <h6 class="my-3">Ngày: 12/11/2020 &nbsp;&nbsp;&nbsp; Bữa: Bữa tối</h6>
-                    <form class="d-flex justify-content-left">
-                        <!-- Default input -->
-                        <h5 style="margin-right: 10px; padding: 0.375rem 0.75rem;font-weight:bold;">Số lượng : </h5>
-                        <input type="number" value="1" min="1" Search" class="form-control" style="width: 80px;height:40px;">
-                    </form>
+                  
+                  
                     <div style="display:flex;">
-                        <button class="btn btn-info btn-lg btn-md my-0 p" type="submit" style="margin-right:10px;">
+                        <button class="btn btn-info btn-lg btn-md my-0 p" type="submit" style="margin-right:10px;" onclick="location.href='@Url.Action("Add","Home", new { productID = Model.id, date = DateTime.Now.Date, service_time = 1 })'">
                             Giỏ hàng
                             <i class="fa fa-cart-plus"></i>
                         </button>
@@ -59,7 +59,10 @@
                 </div>
             </div>
 
-        </div><br />
+        </div>
+
+
+        <br />
         <!-- /.row -->
         <!-- Related Projects Row -->
         <h3 class="my-4">Các món gợi ý cho bạn</h3>

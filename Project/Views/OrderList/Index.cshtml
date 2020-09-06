@@ -62,7 +62,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        @if (item.actual_time != null)
+                                        @if (item.actual_time != null )
                                         {
                                             <div class="text-center">
                                                 <a class="btn btn-success text-white disabled" style="cursor:pointer; width:100px;">
@@ -73,7 +73,7 @@
                                         else
                                         {
                                             <div class="text-center">
-                                                <a href="#" class="btn btn-success text-white" style="cursor:pointer; width:100px;">
+                                                <a href="@Url.Action("Feedback","Feedback", new { oID = item.id})" class="btn btn-success text-white" style="cursor:pointer; width:100px;">
                                                     Phản hồi <i class="fa fa-send"></i>
                                                 </a>
                                             </div>
