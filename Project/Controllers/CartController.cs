@@ -15,8 +15,9 @@ namespace Project.Controllers
         {
 
             List<CartItem> list = (List <CartItem>) Session["cart"];
-            if(list.Count == 0)
+            if(list == null)
             {
+                ViewBag.cartEmpty = 1;
                 return View();
             }
             else
