@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Project.EF;
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
-using Project.EF;
 using System.Web.Mvc;
-using System.Dynamic;
+using System.Data.Entity;
 
 namespace Project.StaffControllers
 {
@@ -15,22 +16,29 @@ namespace Project.StaffControllers
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                order o = db.orders.Where(x => x.id == orderID).FirstOrDefault();
-                List<order_detail> _Details = new List<order_detail>();
-                _Details = db.order_detail.Where(x => x.orderID == o.id).ToList();
-                List<product> _products = new List<product>();
-                foreach (order_detail item in _Details)
+                order order = db.orders.Where(x => x.id == orderID).FirstOrDefault();
+                ViewBag.orderID = orderID;
+                ViewBag.code = order.receive_code;
+                ViewBag.takeDate = order.take_date;
+                var time = "";
+                if (order.take_time == 1)
                 {
-
-                    _products.Add((product)db.products.Where(x => x.id == item.productID));
+                    time = "6h - 9h";
                 }
-                UpdateOrderStatus(o);
-
-                dynamic model = new ExpandoObject();
-                model.order = o;
-                model.order_detail = _Details;
-                model.products = _products;
-                return View(model);
+                else if (order.take_time == 2)
+                {
+                    time = "9h - 13h";
+                }
+                else
+                {
+                    time = "16h - 19h";
+                }
+                ViewBag.takeTime = time;
+                ViewBag.total = db.order_detail.Where(t => t.orderID == orderID).Select(i => i.total_price).Sum();
+                List<order_detail> _Details = new List<order_detail>();
+                _Details = db.order_detail.Include(o => o.order).Include(a => a.product).Where(x => x.orderID == orderID).ToList();
+                UpdateOrderStatus(order);
+                return View(_Details);
             }
         }
 
