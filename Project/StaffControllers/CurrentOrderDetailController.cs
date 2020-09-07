@@ -11,10 +11,11 @@ namespace Project.StaffControllers
     public class CurrentOrderDetailController : Controller
     {
         // GET: CurrentOrderDetail
-        public ActionResult Index(order o)
+        public ActionResult Index(int orderID)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
+                order o = db.orders.Where(x => x.id == orderID).FirstOrDefault();
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Where(x => x.orderID == o.id).ToList();
                 List<product> _products = new List<product>();

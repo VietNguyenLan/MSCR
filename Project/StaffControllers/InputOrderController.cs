@@ -62,6 +62,7 @@ namespace Project.StaffControllers
                             ViewBag.error = "Order was not for current time!";
                             return View();
                         }
+
                         if(order.take_date == today && order.take_time == service_time)
                         {
                             if(order.actual_time != null)
@@ -71,7 +72,7 @@ namespace Project.StaffControllers
                             }
                             else
                             {
-                                return RedirectToAction("Index", "CurrentOrderDetail", order);
+                                return RedirectToAction("Index", "CurrentOrderDetail", orderID);
                             }
 
                         }
