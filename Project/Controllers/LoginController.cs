@@ -40,7 +40,7 @@ namespace Project.Controllers
                         Session["username"] = userDetails.username;
                         Session["user"] = userDetails;
                         Session["role"] = userDetails.role;
-                        return RedirectToAction("Index", "Order");
+                        return RedirectToAction("Index", "InputOrder");
 
                     }
                     else

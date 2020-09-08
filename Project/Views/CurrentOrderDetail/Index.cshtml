@@ -1,9 +1,10 @@
-﻿
+﻿@model IEnumerable<Project.EF.order_detail>
 @{
-    ViewBag.Title = "InProcess";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
-@model IEnumerable<Project.EF.order_detail>
+
+
 <head>
     <link href="~/fonts/Font(css,js)/OrderList.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -25,7 +26,7 @@
                     <div><span style="font-weight:500;font-size:18px;">Mã nhận đơn: </span>@ViewBag.code</div>
                 </div>
                 <div style="display:flex; width:400px;margin-left:100px;margin-right:100px;margin-bottom:20px;">
-                    <div style="margin-right: 55px"><span style="font-weight:500;font-size:18px;">Ngày sử dụng: </span>@ViewBag.takeDate</div>
+                    <div style="margin-right: 55px"><span style="font-weight:500;font-size:18px;">Ngày sử dụng: </span>@ViewBag.takeDate.ToShortDateString()</div>
                     <div><span style="font-weight:500;font-size:18px;">Bữa ăn: </span>@ViewBag.takeTime</div>
                 </div>
             </div>
@@ -59,7 +60,7 @@
                                             @Html.DisplayFor(modelItem => item.product.name)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.price) đ
+                                            @Html.DisplayFor(modelItem => item.product.price) đ
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.quantity)
@@ -78,7 +79,7 @@
     </div>
     <div class="text-center">
 
-        <a href="~/OrderList/Index" class="btn btn-success text-white" style="cursor:pointer; width:100px;height:40px;">
+        <a href="~/InputOrder/Index" class="btn btn-success text-white" style="cursor:pointer; width:100px;height:40px;">
             Quay lại
         </a>
     </div>
@@ -106,5 +107,6 @@
     </div>
     <script src="~/fonts/Font(css,js)/COModal.js"></script>
 </body>
+
 
 

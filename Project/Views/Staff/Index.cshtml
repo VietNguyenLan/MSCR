@@ -42,40 +42,41 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone_num)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.avt_img)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email_verified)
-            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone_num)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            <img src="@Url.Content(item.avt_img)" alt="Sample Image" width="300px" />
 
-            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_verified)
+        </td>
 
-            <td>
-               
-              
-                <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button><br>
 
-            </td>
-        </tr>
+
+        <td>
+
+
+            <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button><br>
+
+        </td>
+    </tr>
     }
 
 </table>

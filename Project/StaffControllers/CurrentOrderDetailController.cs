@@ -37,16 +37,20 @@ namespace Project.StaffControllers
                 ViewBag.total = db.order_detail.Where(t => t.orderID == orderID).Select(i => i.total_price).Sum();
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Include(o => o.order).Include(a => a.product).Where(x => x.orderID == orderID).ToList();
-                UpdateOrderStatus(order);
+                UpdateOrderStatus(order.id);
                 return View(_Details);
             }
         }
 
-        private void UpdateOrderStatus(order o)
+        private void UpdateOrderStatus(int oID)
         {
+            
             using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                o.actual_time = DateTime.Now;
+                order order = db.orders.Where(x => x.id == oID).FirstOrDefault();
+                order.actual_time = DateTime.Now;
+                int uID = (Int32)(Session["id"]);
+                order.staffID = uID;
                 db.SaveChanges();
             }
         }

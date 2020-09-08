@@ -36,8 +36,9 @@
                                 <th>
                                     Mô tả
                                 </th>
+                                
                                 <th>
-                                   Thời gian
+                                    Thời gian
                                 </th>
 
 
@@ -49,25 +50,26 @@
                             @foreach (var item in Model)
                             {
 
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.user.username)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.type)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.amount) đ
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.description)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.time)
-                                    </td>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.user.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.amount) đ
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.time)
+                                </td>
 
 
-                                </tr>
+                            </tr>
 
 
                             }

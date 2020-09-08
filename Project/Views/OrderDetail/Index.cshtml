@@ -25,7 +25,7 @@
                     <div><span style="font-weight:500;font-size:18px;">Mã nhận đơn: </span>@ViewBag.code</div>
                 </div>
                 <div style="display:flex; width:400px;margin-left:100px;margin-right:100px;margin-bottom:20px;">
-                    <div style="margin-right: 55px"><span style="font-weight:500;font-size:18px;">Ngày sử dụng: </span>@ViewBag.takeDate</div>
+                    <div style="margin-right: 55px"><span style="font-weight:500;font-size:18px;">Ngày sử dụng: </span>@ViewBag.takeDate.ToShortDateString()</div>
                     <div><span style="font-weight:500;font-size:18px;">Bữa ăn: </span>@ViewBag.takeTime</div>
                 </div>
             </div>

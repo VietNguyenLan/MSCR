@@ -77,21 +77,26 @@
                             @{
                                 DateTime date = new DateTime();
                             }
-                            <div class="dropdown-menu" id="date">
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("02/31/2020") , service_time = 1 , id =1})">Thứ hai</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/01/2020") , service_time = 1 , id =1})">Thứ ba</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/02/2020") , service_time = 1 , id =1})">Thứ tư</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/03/2020") , service_time = 1 , id =1})">Thứ năm</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/04/2020") , service_time = 1 , id =1})">Thứ sáu</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/05/2020") , service_time = 1 , id =1})">Thứ bảy</a>
-                                <a class="dropdown-item" href="@Url.Action("Home", new { date = date.ToString("09/06/2020") , service_time = 1 , id =1})">Chủ nhật</a>
+                            <div class="dropdown-menu" id="myInput">
+                                <a class="dropdown-item" data-time="02/31/2020" href="@Url.Action("Home", new { date = date.ToString("02/31/2020") , service_time = 1 , id =1})">Thứ hai</a>
+                                <a class="dropdown-item" data-time="09/01/2020" href="@Url.Action("Home", new { date = date.ToString("09/01/2020") , service_time = 1 , id =1})">Thứ ba</a>
+                                <a class="dropdown-item" data-time="09/02/2020" href="@Url.Action("Home", new { date = date.ToString("09/02/2020") , service_time = 1 , id =1})">Thứ tư</a>
+                                <a class="dropdown-item" data-time="09/03/2020" href="@Url.Action("Home", new { date = date.ToString("09/03/2020") , service_time = 1 , id =1})">Thứ năm</a>
+                                <a class="dropdown-item" data-time="09/04/2020" href="@Url.Action("Home", new { date = date.ToString("09/04/2020") , service_time = 1 , id =1})">Thứ sáu</a>
+                                <a class="dropdown-item" data-time="09/05/2020" href="@Url.Action("Home", new { date = date.ToString("09/05/2020") , service_time = 1 , id =1})">Thứ bảy</a>
+                                <a class="dropdown-item" data-time="09/06/2020" href="@Url.Action("Home", new { date = date.ToString("09/06/2020") , service_time = 1 , id =1})">Chủ nhật</a>
                             </div>
                         </div>
+
+                        
+                  
+
+
                         <div class="btn-group" style="padding-left:40px;">
                             <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chọn bữa
                             </button>
-                            
+
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="@Url.Action("Home", new { date = DateTime.Now , service_time = 1 , id =1})">Bữa sáng</a>
                                 <a class="dropdown-item" href="@Url.Action("Home", new { date = DateTime.Now , service_time = 2 , id =1})">Bữa trưa</a>
@@ -112,6 +117,7 @@
 
 
 
+
                     <div class="tab-content py-5" id="v-pills-tabContent">
 
                         <!-- Food -->
@@ -124,11 +130,11 @@
                                     if (item.categoryID != 6)
                                     {
                                         <div class="col-lg-6">
-                                            <div class="menus d-flex ftco-animate" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">
+                                            <div class="menus d-flex ftco-animate" >
                                                 <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
                                                 <div class="text d-flex">
                                                     <div class="one-half">
-                                                        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <h3 onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
                                                         <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
                                                     </div>
                                                     <div class="one-forth">

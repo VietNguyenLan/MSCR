@@ -101,7 +101,7 @@ namespace Project.Controllers
                 Session["cart"] = items;
             }
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Cart","Cart");
         }
 
         

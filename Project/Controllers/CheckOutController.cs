@@ -38,7 +38,9 @@ namespace Project.Controllers
         public ActionResult CreateOrder()
         {
             int uID = (Int32)(Session["id"]);
+            int oID = 0;
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
+               
             {
                 user u = db.users.Where(x => x.id == uID).FirstOrDefault();
                 List<CartItem> items = (List<CartItem>)Session["cart"];
@@ -66,7 +68,7 @@ namespace Project.Controllers
                     db.orders.Add(order);
                     db.SaveChanges();
                     int orderID = order.id;
-
+                    oID = orderID;
                     foreach (CartItem item in items)
                     {
                         order_detail order_Detail = new order_detail()
@@ -83,11 +85,12 @@ namespace Project.Controllers
                     AddOrderToTransaction(order);
                     ViewBag.BalanceError = 0;
 
+                    Session.Remove("cart");
                 }
 
 
             }
-            return RedirectToAction("Home", "Home");
+            return RedirectToAction("Index", "OrderDetail",new { oID = oID });
         }
 
 
@@ -106,6 +109,10 @@ namespace Project.Controllers
                 };
                 db.transactions.Add(trans);
                 db.SaveChanges();
+
+                int userId = (Int32)(Session["id"]);
+                user us = db.users.Where(x => x.id == userId).FirstOrDefault();
+                Session["user"] = us;
             }
         }
 

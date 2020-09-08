@@ -16,7 +16,7 @@ namespace Project.Controllers
             {
                
                 int uid = (Int32)(Session["id"]);
-                //var user = db.users.Find(uid);
+               
                 return View(db.orders.Where(x => x.userID == uid).ToList());
             }
         }

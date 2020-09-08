@@ -45,6 +45,9 @@ namespace Project.Controllers
                         ViewBag.success = 1;
                         ViewBag.cardValue = card.value;
 
+                        int userId = (Int32)(Session["id"]);
+                        user u = db.users.Where(x => x.id == userId).FirstOrDefault();
+                        Session["user"] = u;
                     }
 
                       

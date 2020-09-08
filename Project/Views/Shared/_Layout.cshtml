@@ -102,13 +102,20 @@
                             Quản lý nhân viên
                         </a>
                     </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Ingredient")">
+                            <i class="fas fa-image"></i>
+                            Thành phần món ăn
+                        </a>
+                    </li>
+
                 }
                 else
                 {
                     <li>
-                        <a href="@Url.Action("Index", "Order")">
+                        <a href="@Url.Action("Index", "ReadOrder")">
                             <i class="fas fa-align-left"></i>
-                            Quản Lí Đơn Hàng
+                            Kiểm tra đơn hàng
                         </a>
                     </li>
                 }

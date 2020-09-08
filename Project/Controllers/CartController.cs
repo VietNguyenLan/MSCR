@@ -18,7 +18,9 @@ namespace Project.Controllers
             if(list == null)
             {
                 ViewBag.cartEmpty = 1;
+                
                 return View();
+
             }
             else
             {
