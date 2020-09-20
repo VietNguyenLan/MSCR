@@ -409,6 +409,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\Banner1%28thang8%29.jpg" />
+    <Content Include="image\banner2t9.jpg" />
     <Content Include="image\dai-hoc-fpt-1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -35,8 +35,8 @@
                             <tr>
                                 <th scope="col" style="width:100px;height:70px;"></th>
                                 <th scope="col" style="width:220px;">Tên sản phẩm</th>
-                                <th scope="col" style="width:145px;">Ngày</th>
-                                <th scope="col" style="width:130px;">Bữa</th>
+                                <th> </th>
+                                <th> </th>
                                 <th scope="col" style="width:110px;">Giá</th>
                                 <th scope="col" class="text-center" style="width:150px;">Số lượng</th>
                                 <th scope="col" class="text-center">Tổng tiền</th>
@@ -52,7 +52,7 @@
                                 <tr>
                                     <td><img style="width:80px;height:80px; border-radius: 50%;" src="@Url.Content(item.Product.img)"></td>
                                     <td>@Html.DisplayFor(modelItem => item.Product.name)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                                    <td></td>
                                     <td></td>
                                     <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
                                     <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>

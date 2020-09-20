@@ -22,7 +22,7 @@
         </th>
 
 
-        <th></th>
+       
     </tr>
 
     @foreach (var item in Model)
@@ -41,10 +41,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ingredient.unit)
             </td>
-            <td>
-               
-                <button>@Html.ActionLink("Xóa", "Delete", new {  id=item.productID  })</button>
-            </td>
+           
         </tr>
     }
 

@@ -3,63 +3,67 @@
 <button>
     @Html.ActionLink("Tạo Mới", "Create")
 </button>
-<br><br>
-<link href="~/Style/Style.css" rel="stylesheet" />
-<table class="table table-striped" id="t01">
-    <tr>
-        <th>
-           Tên Món Ăn
-        </th>
-        <th>
-            Mô tả
-        </th>
-        <th>
-            Giá 
-        </th>
-        <th>
-            Ảnh
-        </th>
-        <th>
-            Combo
-        </th>
+&nbsp &nbsp &nbsp &nbsp &nbsp
 
-        <th>
-            Loại
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            <img src= "@Url.Content(item.img)" alt="Sample Image" width="300px" />
-          
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isCombo)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.category.name)
-        </td>
-        <td>
-            <button>@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button><br>
-            <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button><br>
-            <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button><br>
+    <br><br>
+    <link href="~/Style/Style.css" rel="stylesheet" />
+    <table class="table table-striped" id="t01">
+        <tr>
+            <th>
+                Tên Món Ăn
+            </th>
+            <th>
+                Mô tả
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Ảnh
+            </th>
+            <th>
+                Combo
+            </th>
 
-            <button>@Html.ActionLink("Xem Thành Phần", "Details_Ingredient", new { id = item.id })</button>
+            <th>
+                Loại
+            </th>
+            <th></th>
+        </tr>
 
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.img)" alt="Sample Image" width="300px" />
 
-</table>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isCombo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.name)
+                </td>
+                <td>
+                    <button>@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button><br>
+                    <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button><br>
+                    <button>@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button><br>
+
+                    <button>@Html.ActionLink("Xem Thành Phần", "Details_Ingredient", new { id = item.id })</button>
+
+                </td>
+            </tr>
+        }
+
+    </table>

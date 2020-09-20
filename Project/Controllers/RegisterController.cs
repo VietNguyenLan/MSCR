@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
@@ -38,12 +40,12 @@ namespace Project.Controllers
 
             if (result.Count() != 0)
             {
-                 user.LoginErrorMsg = "Username Is Already In Use";
+                 user.LoginErrorMsg = "Username này đã được sử dụng";
 
             }
             if (custemail.Count() != 0)
             {
-                user.LoginErrorMsg = "Email is already in use";
+                user.LoginErrorMsg = "Email này đã được sử dụng";
             }
 
             else
@@ -54,7 +56,7 @@ namespace Project.Controllers
 
                     u.name = user.name;
                     u.username = user.username;
-                    u.password = user.password;
+                    u.password = EncodePassword(user.password);
                     u.address = user.address;
                     u.phone_num = user.phone_num;
                     u.email = user.email;
@@ -65,11 +67,27 @@ namespace Project.Controllers
                     db.users.Add(u);
                     db.SaveChanges();
                     SendActivationEmail(u);
-                    user.LoginErrorMsg = "Please check your email !";
+                    user.LoginErrorMsg = "Đăng kí thành công vui lòng kiểm tra Email để kích hoạt tài khoản !";
                
                 
             }
             return View("Index", user);
+        }
+
+        public string EncodePassword(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
         }
 
         private void SendActivationEmail(user user)

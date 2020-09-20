@@ -3,6 +3,8 @@ using Project.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -28,6 +30,22 @@ namespace Project.AdminController
             return View();
         }
 
+        public string EncodePassword(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
+        }
+
         // POST: Staff/Create
         [HttpPost]
         public ActionResult Create(user user,FormCollection collection)
@@ -40,7 +58,7 @@ namespace Project.AdminController
 
                 u.name = user.name;
                 u.username = user.username;
-                u.password = user.password;
+                u.password = EncodePassword(user.password); 
                 u.address = user.address;
                 u.phone_num = user.phone_num;
                 u.email = user.email;

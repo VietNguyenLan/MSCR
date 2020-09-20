@@ -48,7 +48,7 @@ namespace Project.AdminController
             {
                 using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
-
+                    menu_Detail.price = 30000;
                     db.menu_detail.Add(menu_Detail);
                     db.SaveChanges();
                 }

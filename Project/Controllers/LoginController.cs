@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Project.EF;
@@ -20,8 +22,9 @@ namespace Project.Controllers
         {
             using (OrderSystemEntities2 od = new OrderSystemEntities2())
             {
+                string encoded = EncodePassword(user.password);
                
-                var userDetails = od.users.Where(x => x.username == user.username && x.password == user.password).FirstOrDefault();
+                var userDetails = od.users.Where(x => x.username == user.username && x.password == encoded).FirstOrDefault();
                 
                 if(user.username == "" || user.password == "")
                 {
@@ -53,6 +56,22 @@ namespace Project.Controllers
                     }
                 }
             }
+        }
+
+        public string EncodePassword(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
         }
 
         public ActionResult LogOut()

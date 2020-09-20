@@ -3,6 +3,8 @@ using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,7 +23,7 @@ namespace Project.Controllers
             {
                 service_time = 1;
             }
-            if(id is null)
+            if (id is null)
             {
                 id = 1;
             }
@@ -40,23 +42,42 @@ namespace Project.Controllers
                     menuID = (int)date_menu.dinner_mId;
                 }
 
+                ViewBag.Dates = date;
+                ViewBag.encode = EncodePassword("123123");
+
                 List<product> productList = new List<product>();
 
                 var menu_details = db.menu_detail.Where(x => x.menuId == menuID).ToList();
                 foreach (menu_detail item in menu_details)
                 {
-                    
-                    
-                        product p = db.products.Where(x => x.id == item.productID ).FirstOrDefault();
-                        productList.Add(p);
-                    
-                   
+
+
+                    product p = db.products.Where(x => x.id == item.productID).FirstOrDefault();
+                    productList.Add(p);
+
+
                 }
 
 
                 return View(productList);
             }
 
+        }
+
+        public  string EncodePassword(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
         }
 
         public ActionResult Add(int productID, DateTime date, int service_time)
@@ -74,7 +95,7 @@ namespace Project.Controllers
             else
             {
                 List<CartItem> items = (List<CartItem>)Session["cart"];
-                if(items.Count() == 0)
+                if (items.Count() == 0)
                 {
                     items.Clear();
                     AddNewCart(product, date, service_time);
@@ -101,10 +122,10 @@ namespace Project.Controllers
                 Session["cart"] = items;
             }
 
-            return RedirectToAction("Cart","Cart");
+            return RedirectToAction("Cart", "Cart");
         }
 
-        
+
 
         public ActionResult Remove(product product)
         {
