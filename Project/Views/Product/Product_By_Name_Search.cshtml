@@ -19,14 +19,9 @@
         </div>
     </div>
     <div>
-     
-        
-        <form action="~/product/Product_By_Name_Search" method="POST">
-           
-            <button style="width:150px;margin-left:225px;margin-right:225px;margin-top:30px;" id="myBtn" class="btn btn-lg btn-block btn-success" type="submit">Tìm kiếm</button>
+        <form>
+            <input type="text" name="search" placeholder="Search..">
         </form>
-        
-            
     </div>
 </div>
 
@@ -51,9 +46,7 @@
             Combo
         </th>
 
-        <th>
-            Loại
-        </th>
+        
         <th></th>
     </tr>
 
@@ -77,9 +70,6 @@
                 @Html.DisplayFor(modelItem => item.isCombo)
             </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.category.name)
-            </td>
             <td>
                 <button>@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button><br>
                 <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button><br>

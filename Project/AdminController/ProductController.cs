@@ -19,12 +19,29 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
+                SetViewBag();
                 return View(db.products.Include(c => c.category).ToList());
             }
         }
 
+        public ActionResult Product_By_Category(int categoryID)
+        {
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                return View(db.products.Include(c => c.category).Where(a => a.categoryID == categoryID).ToList());
+            }
+        }
+
+        public ActionResult Product_By_Name_Search(product product)
+        {
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                return View(db.products.SqlQuery("SELECT * FROM PRODUCT WHERE NAME LIKE '%"+product.name+"%'").ToList());
+            }
+        }
+
         // GET: Product/Details/5
-    
+
         public ActionResult Details(int id)
         {
             using(OrderSystemEntities2 db = new OrderSystemEntities2())

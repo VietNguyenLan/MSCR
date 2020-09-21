@@ -35,6 +35,8 @@ namespace Project.EF
         public int Product_id { get; set; }
         public int Ingresients_id { get; set; }
 
+        IEnumerable<string> namePro;
+
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<menu_detail> menu_detail { get; set; }

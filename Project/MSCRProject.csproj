@@ -630,6 +630,8 @@
     <Content Include="Views\CurrentOrderDetail\Index.cshtml" />
     <Content Include="Views\InputOrder\Index.cshtml" />
     <Content Include="Views\InputOrder\Index2.cshtml" />
+    <Content Include="Views\Product\Product_By_Category.cshtml" />
+    <Content Include="Views\Product\Product_By_Name_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
