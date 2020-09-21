@@ -36,7 +36,7 @@ namespace Project.AdminController
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                return View(db.products.SqlQuery("SELECT * FROM PRODUCT WHERE NAME LIKE '%"+ pname + "%'"+ "or description like '%"+pname+"%' or price like '%"+ pname +"%'").ToList());
+                return View(db.products.SqlQuery("SELECT * FROM PRODUCT WHERE NAME LIKE '%"+ pname + "%'"+ "or description like '%"+pname+"%' or price like '%" + pname + "%'").ToList());
             }
         }
 
