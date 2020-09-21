@@ -18,11 +18,12 @@
             <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 7})">Đồ ăn Vặt</a>
         </div>
     </div>
-    <div>
-        <form>
-            <input type="text" name="search" placeholder="Search..">
+      <form action="Product_By_Name_Search">
+            <p>
+                <input type="text" name="pname">
+                <input type="submit" value="Tìm kiếm" />
+            </p>
         </form>
-    </div>
 </div>
 
 <br>

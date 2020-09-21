@@ -32,11 +32,11 @@ namespace Project.AdminController
             }
         }
 
-        public ActionResult Product_By_Name_Search(product product)
+        public ActionResult Product_By_Name_Search(string pname)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                return View(db.products.SqlQuery("SELECT * FROM PRODUCT WHERE NAME LIKE '%"+product.name+"%'").ToList());
+                return View(db.products.SqlQuery("SELECT * FROM PRODUCT WHERE NAME LIKE '%"+ pname + "%'"+ "or description like '%"+pname+"%' or price like '%"+ pname +"%'").ToList());
             }
         }
 
