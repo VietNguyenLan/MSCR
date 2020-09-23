@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+
 
 namespace Project.AdminController
 {
@@ -15,13 +17,17 @@ namespace Project.AdminController
         OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: Product
         [DeatAuthorize(Order = 3)]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                SetViewBag();
-                return View(db.products.Include(c => c.category).ToList());
-            }
+            if (page == null) page = 1;
+            int pageSize = 5;
+            var pro = db.products.Include(c => c.category).ToList().OrderBy(a => a.id);
+
+            int pageNumber = (page ?? 1);
+
+            SetViewBag();
+             return View(pro.ToPagedList(pageNumber , pageSize));
+            
         }
 
         public ActionResult Product_By_Category(int categoryID)

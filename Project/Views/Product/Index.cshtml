@@ -1,5 +1,9 @@
-﻿@model IEnumerable<Project.EF.product>
+﻿@model PagedList.IPagedList<Project.EF.product>
+@using PagedList.Mvc;
 <link href="~/Style/Style.css" rel="stylesheet" />
+
+
+
 <h4>Món Ăn</h4>
 <button>
     @Html.ActionLink("Tạo Mới", "Create")
@@ -19,16 +23,16 @@
         </div>
     </div>
     <div>
-     
-        
+
+
         <form action="Product/Product_By_Name_Search">
             <p>
                 <input type="text" name="pname">
                 <input type="submit" value="Tìm kiếm" />
             </p>
         </form>
-        
-            
+
+
     </div>
 </div>
 
@@ -94,3 +98,13 @@
     }
 
 </table>
+
+<br />
+
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+
