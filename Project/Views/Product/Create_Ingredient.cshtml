@@ -3,7 +3,12 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+   
+    if(ViewBag.isProduct == 1)
+    {
+        <h4>Thành phần này đã tồn tại</h4>
+    }
+
     <div class="form-horizontal">
         <h4>Thêm thành phần cho món ăn</h4>
         <hr />
