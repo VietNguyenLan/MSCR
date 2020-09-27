@@ -285,6 +285,7 @@ namespace Project.AdminController
             {
               
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
+
             }
         }
        
