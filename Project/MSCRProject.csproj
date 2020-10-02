@@ -303,6 +303,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="fonts\Bootstrap social.css" />
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.bootstrap.min.css" />
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.bootstrap.min.js" />
     <Content Include="fonts\Font%28css,js%29\Cart\Cart.css" />
@@ -419,11 +420,14 @@
     <Content Include="fonts\Font%28css,js%29\OrderList.css" />
     <Content Include="fonts\Font%28css,js%29\TopUp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Google\google.css" />
+    <Content Include="fonts\Google\google.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\Banner1%28thang8%29.jpg" />
     <Content Include="image\banner2t9.jpg" />
     <Content Include="image\dai-hoc-fpt-1.jpg" />
+    <Content Include="image\google-logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Font%28css,js%29\css\.DS_Store" />
@@ -544,6 +548,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="ClassDiagram.cd" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
