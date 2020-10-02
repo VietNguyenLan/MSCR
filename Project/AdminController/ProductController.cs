@@ -88,20 +88,23 @@ namespace Project.AdminController
         [HttpPost]
         public ActionResult Create_Ingredient(product_ingresients product_Ingresients)
         {
+            
             try
             {
                 using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
-
                     db.product_ingresients.Add(product_Ingresients);
                     db.SaveChanges();
+                    
+
+                   
                 }
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error","Error");
             }
         }
 
@@ -121,7 +124,7 @@ namespace Project.AdminController
             }
             catch
             {
-
+                return RedirectToAction("Error", "Error");
             }
             return View();
         }
@@ -241,7 +244,7 @@ namespace Project.AdminController
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error", "Error");
             }
         }
       
@@ -271,7 +274,7 @@ namespace Project.AdminController
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error", "Error");
             }
         }
       
@@ -282,6 +285,7 @@ namespace Project.AdminController
             {
               
                 return View(db.products.Where(x => x.id == id).FirstOrDefault());
+
             }
         }
        
@@ -304,7 +308,7 @@ namespace Project.AdminController
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error", "Error");
             }
         }
     }

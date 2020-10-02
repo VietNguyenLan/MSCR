@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminController\CategoryController.cs" />
+    <Compile Include="AdminController\ErrorController.cs" />
     <Compile Include="AdminController\FeedbacksController.cs" />
     <Compile Include="AdminController\IngredientController.cs" />
     <Compile Include="AdminController\IngredientsReportController.cs" />
@@ -575,6 +576,7 @@
     <Content Include="Style\sideBar.css" />
     <Content Include="Style\Style.css" />
     <Content Include="Style\StyleSheet1.css" />
+    <Content Include="Style\Error.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -652,6 +654,7 @@
     <Content Include="Views\InputOrder\Index2.cshtml" />
     <Content Include="Views\Product\Product_By_Category.cshtml" />
     <Content Include="Views\Product\Product_By_Name_Search.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
