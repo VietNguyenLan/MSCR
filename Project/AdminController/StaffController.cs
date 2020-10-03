@@ -2,6 +2,7 @@
 using Project.Security;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,12 +14,13 @@ namespace Project.AdminController
     public class StaffController : Controller
     {
         // GET: Staff
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                return View(db.users.Where(x => x.role == 2).ToList());
+                return View(db.users.Where(x => x.role == 2 ).Where(x => x.is_active == true).ToList());
             }
         }
 
@@ -102,17 +104,27 @@ namespace Project.AdminController
         // GET: Staff/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+
+                return View(db.users.Where(x => x.id == id).FirstOrDefault());
+
+            }
         }
 
         // POST: Staff/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, user user, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
+                {
+                    user.is_active = false;
 
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch

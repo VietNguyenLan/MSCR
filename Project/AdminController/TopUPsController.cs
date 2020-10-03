@@ -7,19 +7,25 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
 using Project.Security;
+using PagedList;
+
 
 namespace Project.AdminController
 {
     public class TopUPsController : Controller
     {
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: TopUP
         [DeatAuthorize(Order = 3)]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                return View(db.topup_card.Include(c => c.user).ToList());
-            }
+            if (page == null) page = 1;
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            var pop = db.topup_card.Include(c => c.user).OrderByDescending(a => a.create_time).ToList();
+
+            return View(pop.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: TopUP/Details/5

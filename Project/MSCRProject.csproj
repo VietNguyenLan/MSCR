@@ -648,6 +648,7 @@
     <Content Include="Views\Product\Product_By_Category.cshtml" />
     <Content Include="Views\Product\Product_By_Name_Search.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
