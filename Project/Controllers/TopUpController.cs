@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,8 +17,8 @@ namespace Project.Controllers
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-               
-                
+
+          
                 var card = (topup_card)db.topup_card.Where(x =>  x.code == code).FirstOrDefault();
                 if(card != null)
                 {
@@ -42,12 +44,16 @@ namespace Project.Controllers
                     };
                     db.transactions.Add(trans);
                     db.SaveChanges();
+
+                       
                         ViewBag.success = 1;
                         ViewBag.cardValue = card.value;
-
+                        
                         int userId = (Int32)(Session["id"]);
                         user u = db.users.Where(x => x.id == userId).FirstOrDefault();
                         Session["user"] = u;
+
+                        SendActivationEmail(u, card.value);
                     }
 
                       
@@ -65,6 +71,31 @@ namespace Project.Controllers
                  
             }
             
+        }
+
+        private void SendActivationEmail(user user, int value)
+        {
+
+
+            using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
+            {
+                mm.Subject = "Nạp Tiền Thành Công";
+                string body = "Xin chào " + user.username + ",";
+                body += "<br /><br />Bạn đã nạp thành công "+value+" nghìn đồng !";
+             
+
+                body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential("nguyenanhyoung@gmail.com", "anhdaica1");
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+            }
         }
 
 

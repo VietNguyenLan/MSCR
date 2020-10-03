@@ -108,7 +108,7 @@ namespace Project.Controllers
 
             using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
             {
-                mm.Subject = "Kích hoạt tài khoản";
+                mm.Subject = "Đặt Hàng Thành Công";
                 string body = "Xin chào " + user.username + ",";
                 body += "<br /><br />Bạn đã đặt hàng thành công !";
                 body += "<br /><br />Hãy ấn vào đường link dưới đây để xem chi tiết đơn hàng của bạn";
