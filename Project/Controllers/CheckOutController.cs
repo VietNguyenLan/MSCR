@@ -113,7 +113,6 @@ namespace Project.Controllers
                 body += "<br /><br />Bạn đã đặt hàng thành công !";
                 body += "<br /><br />Hãy ấn vào đường link dưới đây để xem chi tiết đơn hàng của bạn";
                 body += "<br /><br /> http://localhost:51293/OrderDetail?oID="+orderID;
-
                 body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
                 mm.Body = body;
                 mm.IsBodyHtml = true;
