@@ -98,10 +98,7 @@ namespace Project.Controllers
             return RedirectToAction("Index", "OrderDetail",new { oID = oID });
         }
 
-        /// <summary>
-        /// send Email
-        /// </summary>
-        /// <param name="user"></param>
+       
         private void SendActivationEmail(user user , int orderID)
         {
             
