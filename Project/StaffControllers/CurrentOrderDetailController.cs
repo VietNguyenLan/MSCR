@@ -12,11 +12,11 @@ namespace Project.StaffControllers
     public class CurrentOrderDetailController : Controller
     {
         // GET: CurrentOrderDetail
-        public ActionResult Index(int orderID)
+        public ActionResult Index(int orderID, int recieved_code)
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                order order = db.orders.Where(x => x.id == orderID).FirstOrDefault();
+                order order = db.orders.Where(x => x.id == orderID && x.receive_code == recieved_code).FirstOrDefault();
                 ViewBag.orderID = orderID;
                 ViewBag.code = order.receive_code;
                 ViewBag.takeDate = order.take_date;
