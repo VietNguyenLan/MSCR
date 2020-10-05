@@ -58,7 +58,8 @@ namespace Project.AdminController
 
                     using (OrderSystemEntities2 db = new OrderSystemEntities2())
                     {
-                        int countNum = db.topup_card.Count();
+                        //count current index of total rơ in table, +1 for new record
+                        int countNum = db.topup_card.Count() + 1; 
                         int uID = (Int32)(Session["id"]);
                         string seri = Get8CharacterRandomString();
                         string code = Get8CharacterRandomString();
