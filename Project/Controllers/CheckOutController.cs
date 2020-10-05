@@ -88,7 +88,7 @@ namespace Project.Controllers
                     AddOrderToTransaction(order);
                     ViewBag.BalanceError = 0;
 
-                    SendActivationEmail(u , orderID);
+                    SendActivationEmail(u , order);
 
                     Session.Remove("cart");
                 }
@@ -99,7 +99,7 @@ namespace Project.Controllers
         }
 
        
-        private void SendActivationEmail(user user , int orderID)
+        private void SendActivationEmail(user user , order order)
         {
             
 
@@ -107,9 +107,11 @@ namespace Project.Controllers
             {
                 mm.Subject = "Đặt Hàng Thành Công";
                 string body = "Xin chào " + user.username + ",";
-                body += "<br /><br />Bạn đã đặt hàng thành công !";
+                body += "<br /><br />Bạn đã đặt hàng thành công order số: "+ order.id;
+                body += "<br /><br />Mã nhận đơn của bạn là: "+ order.receive_code;
+
                 body += "<br /><br />Hãy ấn vào đường link dưới đây để xem chi tiết đơn hàng của bạn";
-                body += "<br /><br /> http://localhost:51293/OrderDetail?oID="+orderID;
+                body += "<br /><br /> http://localhost:51293/OrderDetail?oID="+order.id;
                 body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
                 mm.Body = body;
                 mm.IsBodyHtml = true;

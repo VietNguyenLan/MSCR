@@ -53,7 +53,7 @@ namespace Project.Controllers
                         user u = db.users.Where(x => x.id == userId).FirstOrDefault();
                         Session["user"] = u;
 
-                        SendActivationEmail(u, card.value);
+                        SendActivationEmail(u, card);
                     }
 
                       
@@ -73,7 +73,7 @@ namespace Project.Controllers
             
         }
 
-        private void SendActivationEmail(user user, int value)
+        private void SendActivationEmail(user user, topup_card card)
         {
 
 
@@ -81,10 +81,10 @@ namespace Project.Controllers
             {
                 mm.Subject = "Nạp Tiền Thành Công";
                 string body = "Xin chào " + user.username + ",";
-                body += "<br /><br />Bạn đã nạp thành công "+value+" nghìn đồng !";
+                body += "<br /><br />Bạn đã nạp thành công "+ card.value +" nghìn đồng từ thẻ nạp có số series: " + card.serial_number;
              
 
-                body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
+                body += "<br /><br />Cảm ơn bạn đã sử dụng dịch vụ và chúc bạn một ngày tốt lành !";
                 mm.Body = body;
                 mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
