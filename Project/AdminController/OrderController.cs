@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Project.Security;
+using PagedList;
 
 namespace Project.AdminController
 {
@@ -19,12 +20,17 @@ namespace Project.AdminController
      
         [DeatAuthorize(Order = 2)]
         
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                return View(db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList());
-            }
+            if (page == null) page = 1;
+            int pageSize = 10;
+
+
+            int pageNumber = (page ?? 1);
+
+            var order = db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList().OrderBy(e => e.create_time);
+            return View(order.ToPagedList(pageNumber, pageSize));
+
         }
        
         // GET: Order/Details/5
