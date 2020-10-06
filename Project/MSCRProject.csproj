@@ -425,10 +425,12 @@
     <Content Include="fonts\Google\google.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\120702177_1038031593292104_6144582756609734542_n.jpg" />
     <Content Include="image\Banner1%28thang8%29.jpg" />
     <Content Include="image\banner2t9.jpg" />
     <Content Include="image\dai-hoc-fpt-1.jpg" />
     <Content Include="image\google-logo.png" />
+    <Content Include="image\med-food-hero.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Font%28css,js%29\css\.DS_Store" />
