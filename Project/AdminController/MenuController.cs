@@ -1,4 +1,5 @@
-﻿using Project.EF;
+﻿using PagedList;
+using Project.EF;
 using Project.Security;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,16 @@ namespace Project.AdminController
         OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: Menu
         [DeatAuthorize(Order = 3)]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                return View(db.menus.Include(a => a.user).ToList());
-            }
+            if (page == null) page = 1;
+            int pageSize = 5;
+
+
+            int pageNumber = (page ?? 1);
+            var menu = db.menus.Include(a => a.user).ToList().OrderBy(a => a.id);
+            return View(menu.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Menu/Details/5

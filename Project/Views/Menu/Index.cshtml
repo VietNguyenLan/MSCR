@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Project.EF.menu>
+﻿@model PagedList.IPagedList<Project.EF.menu>
+@using PagedList.Mvc;
 <h4>Danh Sách Menu</h4>
 <button>
     @Html.ActionLink("Tạo Mới", "Create")
@@ -7,7 +8,7 @@
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
 <table class="table table-striped" id="t01">
-   
+
     <tr>
         <th>
             Ngày Tạo
@@ -26,26 +27,35 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_create)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.menu_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_create)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.menu_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
 
-            <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
-           
-        </td>
-    </tr>
-}
+                <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
+
+            </td>
+        </tr>
+    }
 
 </table>
+<br />
+
+
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    / @Model.PageCount
+    <br><br>
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
