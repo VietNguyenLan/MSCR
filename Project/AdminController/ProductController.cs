@@ -21,10 +21,10 @@ namespace Project.AdminController
         {
             if (page == null) page = 1;
             int pageSize = 5;
-            var pro = db.products.Include(c => c.category).ToList().OrderBy(a => a.id);
+            
 
             int pageNumber = (page ?? 1);
-
+            var pro = db.products.Include(c => c.category).ToList().OrderBy(a => a.id);
             SetViewBag();
              return View(pro.ToPagedList(pageNumber , pageSize));
             

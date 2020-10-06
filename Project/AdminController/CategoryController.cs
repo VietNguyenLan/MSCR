@@ -1,4 +1,5 @@
-﻿using Project.EF;
+﻿using PagedList;
+using Project.EF;
 using Project.Security;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,18 @@ namespace Project.AdminController
     public class CategoryController : Controller
     {
         // GET: Category
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         [DeatAuthorize(Order = 3)]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                return View(db.categories.ToList());
-            }
+
+            if (page == null) page = 1;
+            int pageSize = 5;
+            var cat = db.categories.ToList().OrderBy(x => x.id);
+
+            int pageNumber = (page ?? 1);
+            return View(cat.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Category/Details/5
