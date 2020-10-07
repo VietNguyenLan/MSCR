@@ -3,7 +3,8 @@
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
-@model IEnumerable<Project.EF.transaction>
+@model PagedList.IPagedList<Project.EF.transaction>
+@using PagedList.Mvc;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
                                 <th>
                                     Mô tả
                                 </th>
-                                
+
                                 <th>
                                     Thời gian
                                 </th>
@@ -50,32 +51,40 @@
                             @foreach (var item in Model)
                             {
 
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.user.username)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.type)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.amount) đ
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.description)
-                                </td>
-                               
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.time)
-                                </td>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user.username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.amount) đ
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.time)
+                                    </td>
 
 
-                            </tr>
+                                </tr>
 
 
                             }
                         </tbody>
 
                     </table>
+                    <br />
+
+
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                    / @Model.PageCount
+                    <br><br>
+
+                    @Html.PagedListPager(Model, page => Url.Action("History", new { page }))
                 </div>
             </div>
         </div>
