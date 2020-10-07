@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminController\CategoryController.cs" />
+    <Compile Include="AdminController\ConfirmActionController.cs" />
     <Compile Include="AdminController\ErrorController.cs" />
     <Compile Include="AdminController\FeedbacksController.cs" />
     <Compile Include="AdminController\IngredientController.cs" />
@@ -664,6 +665,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Style\avatar\" />
     <Folder Include="Views\CancelOrder\" />
+    <Folder Include="Views\ConfirmAction\" />
     <Folder Include="Views\CustomRoleProvider\" />
     <Folder Include="Views\MenuDetail\" />
     <Folder Include="Views\ProcessOrder\" />
