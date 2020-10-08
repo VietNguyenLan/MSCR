@@ -37,7 +37,7 @@ namespace Project.StaffControllers
                 ViewBag.total = db.order_detail.Where(t => t.orderID == orderID).Select(i => i.total_price).Sum();
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Include(o => o.order).Include(a => a.product).Where(x => x.orderID == orderID).ToList();
-                UpdateOrderStatus(order.id);
+                //UpdateOrderStatus(order.id);
                 return View(_Details);
             }
         }

@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminController\CategoryController.cs" />
+    <Compile Include="AdminController\ConfirmActionController.cs" />
     <Compile Include="AdminController\ErrorController.cs" />
     <Compile Include="AdminController\FeedbacksController.cs" />
     <Compile Include="AdminController\IngredientController.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Security\DeatAuthorizeAttribute.cs" />
     <Compile Include="StaffControllers\CurrentOrderDetailController.cs" />
     <Compile Include="StaffControllers\InputOrderController.cs" />
+    <Compile Include="StaffControllers\QRScannerController.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModels.cs" />
     <Compile Include="ViewModels\EditUserViewModels.cs" />
     <Compile Include="ViewModels\ForgotEmailViewModels.cs" />
@@ -555,6 +557,7 @@
       <Link>.editorconfig</Link>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\instascan.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -567,6 +570,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\qrcode.js" />
     <Content Include="Style\Create.css" />
     <Content Include="Style\Home.css" />
     <Content Include="Style\Login.css" />
@@ -579,6 +583,8 @@
     <Content Include="Style\Style.css" />
     <Content Include="Style\StyleSheet1.css" />
     <Content Include="Style\Error.css" />
+    <Content Include="Views\OrderDetail\qrcode.js" />
+    <Content Include="Views\OrderDetail\qrcode.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -659,6 +665,8 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Staff\Delete.cshtml" />
     <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\ConfirmAction\Index.cshtml" />
+    <Content Include="Views\QRScanner\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
