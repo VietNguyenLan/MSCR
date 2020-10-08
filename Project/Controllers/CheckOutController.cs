@@ -103,16 +103,27 @@ namespace Project.Controllers
         {
             
 
-            using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
+            using (MailMessage mm = new MailMessage("nmtien2502@gmail.com", user.email))
             {
                 mm.Subject = "Đặt Hàng Thành Công";
-                string body = "Xin chào " + user.username + ",";
+
+              
+                string body = "<div style='font - family: Segoe UI; margin: 0; color: #707070;font-size:16px;'>";
+                body += "<div style='max - width:800px; width: 100 %; margin: 0 auto; '>";
+                body += "<img style='width: 100 % ' src='https://i.pinimg.com/564x/f9/98/86/f99886a97ba4e7b0aa4d8b33e00b060c.jpg' />";
+                body += "<div style='padding: 1.5rem; color: #707070;'>";
+                body += " <h3 style='color:#069B4F; font-size:24px;'>Đặt hàng thành công</h3>";
+                body += "Xin chào " + user.name + ",";
                 body += "<br /><br />Bạn đã đặt hàng thành công order số: "+ order.id;
                 body += "<br /><br />Mã nhận đơn của bạn là: "+ order.receive_code;
-
+                body += "<br /><br />Hãy nhớ ngày đến lấy đồ ăn của bạn: " + order.take_date;
+                body += "<br /><br />Tổng hóa đơn của bạn là: " + order.total_price + "nghìn đồng!";
                 body += "<br /><br />Hãy ấn vào đường link dưới đây để xem chi tiết đơn hàng của bạn";
                 body += "<br /><br /> http://localhost:51293/OrderDetail?oID="+order.id;
                 body += "<br /><br />Cảm ơn và chúc bạn một ngày tốt lành !";
+                body += "</div>";
+                body += "</div>";
+                body += "</div>";
                 mm.Body = body;
                 mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
