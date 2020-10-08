@@ -2,6 +2,7 @@
 using Project.Security;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,16 +14,17 @@ namespace Project.AdminController
     public class StaffController : Controller
     {
         // GET: Staff
+        OrderSystemEntities2 db = new OrderSystemEntities2();
         [DeatAuthorize(Order = 3)]
         public ActionResult Index()
         {
             using (OrderSystemEntities2 db = new OrderSystemEntities2())
             {
-                return View(db.users.Where(x => x.role == 2).ToList());
+                return View(db.users.Where(x => x.role == 2).Where(x => x.is_active == true).ToList());
             }
         }
 
-       
+
 
         // GET: Staff/Create
         public ActionResult Create()
@@ -48,7 +50,7 @@ namespace Project.AdminController
 
         // POST: Staff/Create
         [HttpPost]
-        public ActionResult Create(user user,FormCollection collection)
+        public ActionResult Create(user user, FormCollection collection)
         {
             try
             {
@@ -58,7 +60,7 @@ namespace Project.AdminController
 
                 u.name = user.name;
                 u.username = user.username;
-                u.password = EncodePassword(user.password); 
+                u.password = EncodePassword(user.password);
                 u.address = user.address;
                 u.phone_num = user.phone_num;
                 u.email = user.email;
@@ -80,45 +82,55 @@ namespace Project.AdminController
         // GET: Staff/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+
+                return View(db.users.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Staff/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, user user)
         {
             try
             {
-                // TODO: Add update logic here
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
+                {
+                    user.avt_img = "abc";
+                    user.email = "abc";
+                    user.address = "abc";
+                    user.phone_num = "1";
+                    user.username = "abc";
+                    user.name = "abc";
+                    user.password = "abc";
+                    user.is_active = false;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
-            catch
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
-                return View();
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting  
+                        // the current instance as InnerException  
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
             }
-        }
 
-        // GET: Staff/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: Staff/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
-    }
+     }
 }
+

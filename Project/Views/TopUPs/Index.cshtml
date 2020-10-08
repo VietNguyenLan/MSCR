@@ -1,6 +1,7 @@
-﻿@model IEnumerable<Project.EF.topup_card>
+﻿@model PagedList.IPagedList<Project.EF.topup_card>
+@using PagedList.Mvc;
 <head>
-   
+
 </head>
 <body>
     <h4>Thẻ Thanh Toán</h4>
@@ -70,9 +71,10 @@
         }
 
     </table>
-    <script>
 
-        $('#table_id').dataTable({
-        });
-    </script>
 </body>
+
+  Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    / @Model.PageCount
+    <br><br>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

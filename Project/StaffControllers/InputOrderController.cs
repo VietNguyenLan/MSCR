@@ -67,7 +67,7 @@ namespace Project.StaffControllers
                             }
                             else
                             {
-                                return RedirectToAction("Index", "CurrentOrderDetail", new { orderID = orders.id });
+                                return RedirectToAction("Index", "CurrentOrderDetail", new { orderID = orders.id , recieved_code = order.receive_code});
                             }
 
                         }

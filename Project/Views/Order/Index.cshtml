@@ -1,85 +1,95 @@
-﻿@model IEnumerable<Project.EF.order>
+﻿@model PagedList.IPagedList<Project.EF.order>
+@using PagedList.Mvc;
 <h4>Quản Lí Đơn Hàng</h4>
 
 <br><br>
-    <link href="~/Style/Style.css" rel="stylesheet" />
-    <table class="table table-striped" id="t01">
+<link href="~/Style/Style.css" rel="stylesheet" />
+<table class="table table-striped" id="t01">
+    <tr>
+        <th>
+            Khách Hàng
+        </th>
+        <th>
+            Ngày Tạo Đơn
+        </th>
+        <th>
+            Ngày Đến Lấy
+        </th>
+        <th>
+            Thời Gian Lấy Thực Tế
+        </th>
+        <th>
+            Thời Gian
+        </th>
+        <th>
+            Nhân Viên
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th>
+            Hủy
+        </th>
+
+        <th>
+            Reviewed
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                Khách Hàng
-            </th>
-            <th>
-                Ngày Tạo Đơn
-            </th>
-            <th>
-                Ngày Đến Lấy
-            </th>
-            <th>
-                Thời Gian Lấy Thực Tế
-            </th>
-            <th>
-                Thời Gian
-            </th>
-            <th>
-                Nhân Viên
-            </th>
-            <th>
-                Tổng Tiền
-            </th>
-            <th>
-                Hủy
-            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.user1.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.take_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actual_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service_time.time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_cancle)
+            </td>
 
-            <th>
-                @Html.DisplayNameFor(model => model.reviewed)
-            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.reviewed)
+            </td>
 
 
 
-            <th></th>
+            <td>
+
+                <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
+
+
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.user1.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.create_time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.take_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.actual_time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.service_time.time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.user.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.total_price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.is_cancle)
-                </td>
+</table>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.reviewed)
-                </td>
+<br />
 
 
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    / @Model.PageCount
+    <br><br>
 
-                <td>
-                  
-                    <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
-
-
-                </td>
-            </tr>
-        }
-
-    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

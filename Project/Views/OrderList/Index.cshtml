@@ -1,12 +1,14 @@
-﻿
+﻿@model PagedList.IPagedList<Project.EF.order>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "InProcess";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
-@model IEnumerable<Project.EF.order>
+
 <head>
     <link href="~/fonts/Font(css,js)/OrderList.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
     <section class="jumbotron text-center">
@@ -42,7 +44,7 @@
                                         @Html.DisplayFor(modelItem => item.id)
                                     </td>
                                     <td>
-                                       @item.create_time.ToShortDateString()
+                                        @item.create_time.ToShortDateString()
                                     </td>
                                     <td>
                                         @item.take_date.ToShortDateString()
@@ -62,7 +64,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        @if (item.actual_time != null )
+                                        @if (item.actual_time != null)
                                         {
                                             <div class="text-center">
                                                 <a class="btn btn-success text-white disabled" style="cursor:pointer; width:100px;">
@@ -84,6 +86,12 @@
 
                         </tbody>
                     </table>
+
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                    / @Model.PageCount
+                    <br><br>
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
                 </div>
             </div>
         </div>

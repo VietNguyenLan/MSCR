@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 using System.Data.Entity;
 using Project.Security;
+using PagedList;
 
 namespace Project.AdminController
 {
@@ -15,13 +16,18 @@ namespace Project.AdminController
         OrderSystemEntities2 db = new OrderSystemEntities2();
         // GET: MenuDaily
         [DeatAuthorize(Order = 3)]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            using (OrderSystemEntities2 db = new OrderSystemEntities2())
-            {
-                return View(db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList());
-            }
+            if (page == null) page = 1;
+            int pageSize = 5;
+
+
+            int pageNumber = (page ?? 1);
+            var time = db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList().OrderBy(c => c.date_service);
+            return View(time.ToPagedList(pageNumber, pageSize));
+
         }
+        
 
         // GET: MenuDaily/Details/5
         public ActionResult Details(DateTime date_service)

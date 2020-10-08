@@ -4978,12 +4978,15 @@ button.bg-danger:focus {
   background-color: #bd2130 !important; }
 
 .bg-light {
-  background-color: #f8f9fa !important; }
+  background-image: url("../../../image/120702177_1038031593292104_6144582756609734542_n.jpg")
+
+}
 
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #dae0e5 !important; }
+    background-image: url("../../../image/120702177_1038031593292104_6144582756609734542_n.jpg")
+}
 
 .bg-dark {
   background-color: #343a40 !important; }
@@ -7568,7 +7571,8 @@ h1, h2, h3, h4, h5,
     display: inline-block; }
 
 .bg-light {
-  background: #fafafa !important; }
+    background-image: url("../../../image/120702177_1038031593292104_6144582756609734542_n.jpg")
+}
 
 .bg-primary {
   background: #ffb400; }
