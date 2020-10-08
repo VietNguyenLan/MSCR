@@ -53,7 +53,6 @@
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 text-center heading-section ftco-animate">
                     <h2>Thực đơn</h2>
-                    <br>
                     <h4>@ViewBag.Dates.ToShortDateString()</h4> 
                     
                     <div>
@@ -119,20 +118,17 @@
                                     {
                                         <div class="col-lg-6">
                                             <div class="menus d-flex ftco-animate">
-                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img)); width:150px;height:100px;"></div>
                                                 <div class="text d-flex">
-                                                    <div class="one-half">
-                                                        <h3 style="cursor:pointer;font-weight:700;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
-                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
+                                                    <div class="one-half" style="padding-left:5px;">
+                                                        <h3 style="cursor:pointer;font-weight:700;font-size:19px;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <div style=" white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.description)</div>
+                                                            <div class="price" style="font-size:19px;font-weight:600;padding-bottom:10px;">@Html.DisplayFor(modelItem => item.price) đ </div>
+                                                            <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                                Giỏ hàng
+                                                                <i class="fa fa-cart-plus"></i>
+                                                            </button>
                                                     </div>
-                                                    <div class="one-forth">
-                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
-                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
-                                                            Giỏ hàng
-                                                            <i class="fa fa-cart-plus"></i>
-                                                        </button>
-                                                    </div>
-
                                                 </div>
                                             </div>
                                         </div>
