@@ -92,7 +92,7 @@ namespace Project.Controllers
                 Session["cart"] = items;
             }
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Cart");
         }
 
 
@@ -109,7 +109,7 @@ namespace Project.Controllers
                 items.Remove(items[index]);
             }
             Session["cart"] = items;
-            return RedirectToAction("");
+            return RedirectToAction("Cart");
         }
 
         private void AddNewCart(product product, DateTime date, int service_time)
