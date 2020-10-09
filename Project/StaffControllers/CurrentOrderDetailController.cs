@@ -42,6 +42,14 @@ namespace Project.StaffControllers
             }
         }
 
+        public ActionResult OrderCompeleted(int oID)
+        {
+            UpdateOrderStatus(oID);
+
+            return RedirectToAction("Index", "QRScanner");
+        }
+
+
         private void UpdateOrderStatus(int oID)
         {
             
