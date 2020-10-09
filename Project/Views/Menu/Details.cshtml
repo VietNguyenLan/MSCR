@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<Project.EF.menu_detail>
 
-<button>
+<button class="btn btn-success">
     @Html.ActionLink("Thêm", "CreateMenuDetail")
 </button>
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
-<table class="table" id="t01">
+<table class="table table-bordered table-striped" id="t01">
     <tr>
         
-        <th>
+        <th style="width:350px;">
            Món Ăn
         </th>
         
-        <th>
+        <th style="width:350px;">
             Tên Menu
         </th>
        
@@ -38,6 +38,6 @@
 }
 
 </table>
-<button>
+<button class="btn btn-secondary">
     @Html.ActionLink("Quay Lại", "Index")
 </button>
