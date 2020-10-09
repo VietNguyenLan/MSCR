@@ -5,26 +5,26 @@
     @Html.ActionLink("Tạo Mới", "Create")
 </button>
 <br /><br />
-<div class="container" style="display:flex;">
-    <div class="dropdown" style="margin-right:700px;">
-        <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Loại Món Ăn
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 3})">Cơm</a>
-            <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 4})">Bún</a>
-            <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 5})">Xôi</a>
-            <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 6})">Nước</a>
-            <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 7})">Đồ ăn Vặt</a>
-        </div>
-    </div>
-      <form action="Product_By_Name_Search">
-            <p>
-                <input type="text" name="pname">
-                <input type="submit" value="Tìm kiếm" />
-            </p>
-        </form>
-</div>
+      <div class="container" style="display:flex;">
+          <div class="dropdown" style="margin-right:650px;">
+              <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Loại Món Ăn
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 3})">Cơm</a>
+                  <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 4})">Bún</a>
+                  <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 5})">Xôi</a>
+                  <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 6})">Nước</a>
+                  <a class="dropdown-item" href="@Url.Action("Product_By_Category", new { categoryID = 7})">Đồ ăn Vặt</a>
+              </div>
+          </div>
+          <form action="Product_By_Name_Search">
+              <p>
+                  <input type="text" name="pname" style="width:200px;">
+                  <input type="submit" value="Tìm kiếm" />
+              </p>
+          </form>
+      </div>
 
 <br>
 <br>
