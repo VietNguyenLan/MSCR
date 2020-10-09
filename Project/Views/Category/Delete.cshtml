@@ -12,7 +12,7 @@
         <dd>
             @Html.DisplayFor(model => model.name)
         </dd>
-        <br>
+        <br/>
         <dt>
             Mô Tả
         </dt>
@@ -20,7 +20,7 @@
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
-        <br>
+        <br/>
         <dt>
             @Html.DisplayNameFor(model => model.disable)
         </dt>
@@ -35,8 +35,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" /> |
-          <button>  @Html.ActionLink("Quay Lại", "Index")</button>
+            <input type="submit" value="Xóa" class="btn btn-danger" style="margin-right:10px;" /> 
+          <button class="btn btn-secondary">  @Html.ActionLink("Quay Lại", "Index")</button>
         </div>
     }
 </div>
