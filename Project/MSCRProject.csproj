@@ -240,6 +240,7 @@
     <Compile Include="Models\IngredientDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\DeatAuthorizeAttribute.cs" />
+    <Compile Include="StaffControllers\CancelCurrentOrderController.cs" />
     <Compile Include="StaffControllers\CurrentOrderDetailController.cs" />
     <Compile Include="StaffControllers\InputOrderController.cs" />
     <Compile Include="StaffControllers\QRScannerController.cs" />
@@ -672,6 +673,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Style\avatar\" />
+    <Folder Include="Views\CancelCurrentOrder\" />
     <Folder Include="Views\CancelOrder\" />
     <Folder Include="Views\CustomRoleProvider\" />
     <Folder Include="Views\MenuDetail\" />

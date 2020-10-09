@@ -34,8 +34,8 @@
             }
         );
         scanner.addListener('scan', function (content) {
-            alert("Quét thành công");
-            window.open(content, "_blank");
+            //window.open(content, "_self");
+            location.href = content;
         });
         Instascan.Camera.getCameras().then(cameras => {
             if (cameras.length > 0) {
