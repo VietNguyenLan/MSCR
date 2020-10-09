@@ -10,7 +10,33 @@ namespace Project.StaffControllers
     public class CancelCurrentOrderController : Controller
     {
         // GET: CancelCurrentOrder
-        public ActionResult Index(int oID, int otp, string reason)
+
+        public ActionResult Index(int oID)
+        {
+            ViewBag.oID = oID;
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                order o = db.orders.Where(x => x.id == oID).FirstOrDefault();
+
+                o.is_cancle = true;
+                db.SaveChanges();
+
+                transaction trans = new transaction()
+                {
+                    userID = o.userID,
+                    type = "Cancel",
+                    amount = o.total_price,
+                    description = "Cancel order:  " + oID,
+                    time = DateTime.Now
+                };
+                db.transactions.Add(trans);
+                db.SaveChanges();
+
+            }
+            return RedirectToAction("Index", "QRScanner");
+        }
+
+    public ActionResult Cancel(int oID, int otp, string reason)
         {
             using(OrderSystemEntities2 db = new OrderSystemEntities2())
             {
@@ -31,12 +57,36 @@ namespace Project.StaffControllers
                     }
                     else
                     {
+                        UpdateCancel(oID, reason);
                         return RedirectToAction("Index", "QRScanner");
                     }
 
                 }
 
             }  
+        }
+
+        private void UpdateCancel(int oID,string reason)
+        {
+            using(OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                order o = db.orders.Where(x => x.id == oID).FirstOrDefault();
+
+                o.is_cancle = true;
+                db.SaveChanges();
+
+                transaction trans = new transaction()
+                {
+                    userID = (Int32)(Session["id"]),
+                    type = "Cancel",
+                    amount = o.total_price,
+                    description = "Cancel order:  " + oID + ":  " + reason,
+                    time = DateTime.Now
+                };
+                db.transactions.Add(trans);
+                db.SaveChanges();
+
+            }
         }
     }
 }

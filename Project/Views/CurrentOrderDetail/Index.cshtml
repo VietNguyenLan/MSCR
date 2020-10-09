@@ -47,6 +47,7 @@
                                     <th>
                                         Số lượng
                                     </th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
@@ -55,14 +56,16 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-
                                         <td>
+                                            <img src="@Url.Content(item.product.img)" alt="Sample Image" width="70" style="height:70px;border-radius:50px;" />
+                                        </td>
+                                        <td style="vertical-align:middle;">
                                             @Html.DisplayFor(modelItem => item.product.name)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.product.price) đ
+                                        <td style="vertical-align:middle;">
+                                            @Html.DisplayFor(modelItem => item.price) đ
                                         </td>
-                                        <td>
+                                        <td style="vertical-align:middle;">
                                             @Html.DisplayFor(modelItem => item.quantity)
                                         </td>
                                     </tr>
@@ -77,12 +80,15 @@
             </div>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" style="margin-bottom:50px;">
 
-        <a href="~/InputOrder/Index" class="btn btn-success text-white" style="cursor:pointer; width:100px;height:40px;">
-            Quay lại
+        <a href="@ViewBag.complete" class="btn btn-success text-white" style="cursor:pointer; width:120px;height:40px;margin-right:10px;">
+            Thành công
         </a>
-    </div>
+        <a href="@ViewBag.cancel" class="btn btn-danger text-white" style="cursor:pointer; width:90px;height:40px;">
+            Huỷ
+            </a>
+</div>
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -96,9 +102,9 @@
                     <a href="#" class="btn btn-success my-0 p" style="margin-right:30px;width:150px;">
                         Xác Nhận
                     </a>
-                    <button class="btn btn-danger my-0 p" type="submit" style="width:150px;">
+                    <butston class="btn btn-danger my-0 p" type="submit" style="width:150px;">
                         Hủy
-                    </button>
+                    </butston>
                 </div>
             </div>
 

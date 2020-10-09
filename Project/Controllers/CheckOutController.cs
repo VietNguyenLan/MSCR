@@ -103,7 +103,7 @@ namespace Project.Controllers
         {
             
 
-            using (MailMessage mm = new MailMessage("nmtien2502@gmail.com", user.email))
+            using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
             {
                 mm.Subject = "Đặt Hàng Thành Công";
 
