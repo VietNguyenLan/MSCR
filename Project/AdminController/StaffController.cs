@@ -97,6 +97,7 @@ namespace Project.AdminController
             {
                 using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
+                   
                     user.avt_img = "abc";
                     user.email = "abc";
                     user.address = "abc";

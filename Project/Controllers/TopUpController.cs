@@ -77,10 +77,15 @@ namespace Project.Controllers
         {
 
 
-            using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
+            using (MailMessage mm = new MailMessage("nmtien2502@gmail.com", user.email))
             {
                 mm.Subject = "Nạp Tiền Thành Công";
-                string body = "Xin chào " + user.username + ",";
+                string body = "<div style='font - family: Segoe UI; margin: 0; color: #707070;font-size:16px;'>";
+                body += "<div style='max - width:800px; width: 100 %; margin: 0 auto; '>";
+                body += "<img style='width: 100 % ' src='https://i.pinimg.com/564x/f9/98/86/f99886a97ba4e7b0aa4d8b33e00b060c.jpg' />";
+                body += "<div style='padding: 1.5rem; color: #707070;'>";
+                body += " <h3 style='color:#069B4F; font-size:24px;'>Nạp tiền thành công</h3>";
+                body += "Xin chào " + user.name + ",";
                 body += "<br /><br />Bạn đã nạp thành công "+ card.value +" nghìn đồng từ thẻ nạp có số series: " + card.serial_number;
              
 

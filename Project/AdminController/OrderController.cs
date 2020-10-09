@@ -28,7 +28,7 @@ namespace Project.AdminController
 
             int pageNumber = (page ?? 1);
 
-            var order = db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList().OrderBy(e => e.create_time);
+            var order = db.orders.Include(c => c.user).Include(b => b.user1).Include(a => a.service_time).ToList().OrderByDescending(e => e.create_time);
             return View(order.ToPagedList(pageNumber, pageSize));
 
         }
