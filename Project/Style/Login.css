@@ -1,8 +1,8 @@
 ﻿body {
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     color: #404040;
-    background-image: background-repeat: no-repeat;
-    background-image: url('../image/dai-hoc-fpt-1.jpg');
+   background-repeat: no-repeat;
+    background-image: url('../image/iStock_887491114.jpg');
     background-position: center;
     background-size: cover;
 }
