@@ -44,7 +44,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody style="font-weight:600;">
 
                             @foreach (var item in Model)
                             {
@@ -55,7 +55,9 @@
                                     <td></td>
                                     <td></td>
                                     <td>@Html.DisplayFor(modelItem => item.Product.price)</td>
-                                    <td><input type="number" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Quantity)" min="1">  </td>
+                                    <td class=" text-center"><i style="color:orange;cursor:pointer;padding-right:10px;" class="fa fa-minus" onclick="location.href='@Url.Action("Remove", new { productID = item.Product.id })'"></i>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                    <i style="color:blue;cursor:pointer;padding-left:10px;" class="fa fa-plus" onclick="location.href='@Url.Action("AddItem", new { productID = item.Product.id })'"></i></td>
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.totalProduct)</td>
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-danger" onclick="location.href='@Url.Action("RemoveItem", new { productID = item.Product.id })'">

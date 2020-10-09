@@ -17,15 +17,28 @@ namespace Project.AdminController
                 int uID = (Int32)(Session["id"]);
                 Random rnd = new Random();
                 int otp = rnd.Next(1000, 10000);
-                otp_table otp_ = new otp_table()
+
+                otp_table exist_otp = db.otp_table.Where(x => x.uId == uID).FirstOrDefault();
+                if(exist_otp != null)
                 {
-                    uId = uID,
-                    create_time = DateTime.Now,
-                    otp = otp
-                };
-                db.otp_table.Add(otp_);
-                db.SaveChanges();
-                return View(otp);
+                    exist_otp.otp = otp;
+                    exist_otp.create_time = DateTime.Now;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    otp_table otp_ = new otp_table()
+                    {
+                        uId = uID,
+                        create_time = DateTime.Now,
+                        otp = otp
+                    };
+                    db.otp_table.Add(otp_);
+                    db.SaveChanges();
+                }
+
+                ViewBag.code = otp;
+                return View();
             }
             
         }

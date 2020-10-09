@@ -18,11 +18,15 @@
         </div>
     </section>
 
-    <div id="qrcode"></div>
+   
+        <div style="display: flex; justify-content: center; text-align: center;"  id="qrcode"></div>
+        <div style="text-align:center;margin-bottom:30px;font-style:italic;">Sử dụng mã QR code để nhận đồ ăn</div>
+ 
     <script type="text/javascript">
        
         new QRCode("qrcode", {
-            text: "Recieve code: " + @ViewBag.code,
+            text: "http://localhost:51293/InputOrder/IndexQR?orderID=" + @ViewBag.orderID + "&recieved_code=" + @ViewBag.code,
+            //text: "http://localhost:51293/OrderDetail?oID=6024",
             width: 256,
             height: 256,
             colorDark: "black",
@@ -52,6 +56,7 @@
 
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>
                                         Tên món ăn
                                     </th>
@@ -69,14 +74,16 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-
                                         <td>
+                                            <img src="@Url.Content(item.product.img)" alt="Sample Image" width="70" style="height:70px;border-radius:50px;" />
+                                        </td>
+                                        <td style="vertical-align:middle;">
                                             @Html.DisplayFor(modelItem => item.product.name)
                                         </td>
-                                        <td>
+                                        <td style="vertical-align:middle;">
                                             @Html.DisplayFor(modelItem => item.price) đ
                                         </td>
-                                        <td>
+                                        <td style="vertical-align:middle;">
                                             @Html.DisplayFor(modelItem => item.quantity)
                                         </td>
                                     </tr>
@@ -91,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" style="margin-bottom:80px;">
 
         <a href="~/OrderList/Index" class="btn btn-success text-white" style="cursor:pointer; width:100px;height:40px;">
             Quay lại

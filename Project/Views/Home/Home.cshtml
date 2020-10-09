@@ -28,17 +28,14 @@
     <link href="~/fonts/Font(css,js)/css/style.css" rel="stylesheet" />
 
 </head>
-<body>
+<body style="background-color:#0000009c ;">
 
     <!-- END nav -->
-
-    <section class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url('../../image/Banner1(thang8).jpg'); height:400px;">
-        </div>
-        <div class="slider-item" style="background-image: url('../../image/banner2t9.jpg'); height:400px;">
-        </div>
-
-
+    <section class="home-slider owl-carousel" style="padding-bottom:30px;margin-top:80px;">
+            <div class="slider-item" style="background-image: url('../../image/Banner1(thang8).jpg'); height:400px;width:98%;margin:auto;">
+            </div>
+            <div class="slider-item" style="background-image: url('../../image/banner2t9.jpg'); height:400px;width:98%;margin:auto;">
+            </div>
     </section>
 
     <div class="ftco-section-reservation">
@@ -47,8 +44,6 @@
             </div>
         </div>
     </div>
-    <br/>
-    <br/>
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-5">
@@ -66,15 +61,16 @@
                             @{
                                 DateTime date = new DateTime();
                             }
-                            <div class="dropdown-menu" id="myInput">
-                                <a class="dropdown-item" data-time="02/31/2020" href="@Url.Action("Home", new { date = date.ToString("10/07/2020") , service_time = 1 , id =1})">Thứ tư</a>
-                                <a class="dropdown-item" data-time="09/01/2020" href="@Url.Action("Home", new { date = date.ToString("10/08/2020") , service_time = 1 , id =1})">Thứ năm</a>
-                                <a class="dropdown-item" data-time="09/02/2020" href="@Url.Action("Home", new { date = date.ToString("10/09/2020") , service_time = 1 , id =1})">Thứ sáu</a>
-                                <a class="dropdown-item" data-time="09/03/2020" href="@Url.Action("Home", new { date = date.ToString("10/10/2020") , service_time = 1 , id =1})">Thứ bảy</a>
-                                <a class="dropdown-item" data-time="09/04/2020" href="@Url.Action("Home", new { date = date.ToString("10/11/2020") , service_time = 1 , id =1})">Chủ Nhật</a>
-                                <a class="dropdown-item" data-time="09/05/2020" href="@Url.Action("Home", new { date = date.ToString("10/12/2020") , service_time = 1 , id =1})">Thứ hai</a>
-                                <a class="dropdown-item" data-time="09/06/2020" href="@Url.Action("Home", new { date = date.ToString("10/13/2020") , service_time = 1 , id =1})">Thứ ba</a>
-                            </div>
+                        <div class="dropdown-menu" id="myInput">
+
+                            <a class="dropdown-item" data-time="10/11/2020" href="@Url.Action("Home", new { date = date.ToString("10/11/2020") , service_time = 1 , id =1})">Chủ Nhật</a>
+                            <a class="dropdown-item" data-time="10/12/2020" href="@Url.Action("Home", new { date = date.ToString("10/12/2020") , service_time = 1 , id =1})">Thứ hai</a>
+                            <a class="dropdown-item" data-time="10/13/2020" href="@Url.Action("Home", new { date = date.ToString("10/13/2020") , service_time = 1 , id =1})">Thứ ba</a>
+                            <a class="dropdown-item" data-time="10/07/2020" href="@Url.Action("Home", new { date = date.ToString("10/14/2020") , service_time = 1 , id =1})">Thứ tư</a>
+                            <a class="dropdown-item" data-time="10/08/2020" href="@Url.Action("Home", new { date = date.ToString("10/15/2020") , service_time = 1 , id =1})">Thứ năm</a>
+                            <a class="dropdown-item" data-time="10/09/2020" href="@Url.Action("Home", new { date = date.ToString("10/16/2020") , service_time = 1 , id =1})">Thứ sáu</a>
+                            <a class="dropdown-item" data-time="10/10/2020" href="@Url.Action("Home", new { date = date.ToString("10/17/2020") , service_time = 1 , id =1})">Thứ bảy</a>
+                        </div>
                         </div>
 
 
@@ -120,14 +116,12 @@
                                     {
                                         <div class="col-lg-6">
                                             <div class="menus d-flex ftco-animate">
-                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img)); width:150px;height:100px;"></div>
                                                 <div class="text d-flex">
-                                                    <div class="one-half">
-                                                        <h3 style="cursor:pointer;font-weight:700;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
-                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
-                                                    </div>
-                                                    <div class="one-forth">
-                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
+                                                    <div class="one-half" style="padding-left:5px;">
+                                                        <h3 style="cursor:pointer;font-weight:700;font-size:19px;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <div style=" white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.description)</div>
+                                                        <div class="price" style="font-size:19px;font-weight:600;padding-bottom:10px;">@Html.DisplayFor(modelItem => item.price) đ </div>
                                                         <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = @ViewBag.Dates, service_time = 1 })'">
                                                             Giỏ hàng
                                                             <i class="fa fa-cart-plus"></i>
@@ -158,15 +152,13 @@
 
                                         <div class="col-lg-6">
                                             <div class="menus d-flex ftco-animate">
-                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img)); width:150px;height:100px;"></div>
                                                 <div class="text d-flex">
-                                                    <div class="one-half">
-                                                        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
-                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
-                                                    </div>
-                                                    <div class="one-forth">
-                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
-                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                    <div class="one-half" style="padding-left:5px;">
+                                                        <h3 style="cursor:pointer;font-weight:700;font-size:19px;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <div style=" white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.description)</div>
+                                                        <div class="price" style="font-size:19px;font-weight:600;padding-bottom:10px;">@Html.DisplayFor(modelItem => item.price) đ </div>
+                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = @ViewBag.Dates, service_time = 1 })'">
                                                             Giỏ hàng
                                                             <i class="fa fa-cart-plus"></i>
                                                         </button>
@@ -196,15 +188,13 @@
 
                                         <div class="col-lg-6">
                                             <div class="menus d-flex ftco-animate">
-                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img))"></div>
+                                                <div class="menu-img" style="background-image: url(@Url.Content(item.img)); width:150px;height:100px;"></div>
                                                 <div class="text d-flex">
-                                                    <div class="one-half">
-                                                        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
-                                                        <p><span>@Html.DisplayFor(modelItem => item.description)</span></p>
-                                                    </div>
-                                                    <div class="one-forth">
-                                                        <span class="price" style="width:100px;display:flex;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.price) đ </span>
-                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = DateTime.Now.Date, service_time = 1 })'">
+                                                    <div class="one-half" style="padding-left:5px;">
+                                                        <h3 style="cursor:pointer;font-weight:700;font-size:19px;" onclick="location.href='@Url.Action("Index","ProductDetail", new { productID = item.id })'">@Html.DisplayFor(modelItem => item.name)</h3>
+                                                        <div style=" white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;padding-bottom:5px;">@Html.DisplayFor(modelItem => item.description)</div>
+                                                        <div class="price" style="font-size:19px;font-weight:600;padding-bottom:10px;">@Html.DisplayFor(modelItem => item.price) đ </div>
+                                                        <button type="button" class="btn btn-outline-info waves-effect" title="thêm vào giỏ hàng" onclick="location.href='@Url.Action("Add", new { productID = item.id, date = @ViewBag.Dates, service_time = 1 })'">
                                                             Giỏ hàng
                                                             <i class="fa fa-cart-plus"></i>
                                                         </button>

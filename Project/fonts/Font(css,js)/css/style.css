@@ -1,4 +1,4 @@
-/*!
+sl/*!
  * Bootstrap v4.1.0 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -1065,8 +1065,8 @@ pre {
   .col-lg-6 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%; }
+    flex: 0 0 33.33%;
+    max-width: 33.33%; }
   .col-lg-7 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 58.33333%;
@@ -7287,7 +7287,7 @@ h1, h2, h3, h4, h5,
   color: #ffb400 !important; }
 
 .ftco-navbar-light {
-    background: #000000 !important;
+    background: #0000009c !important;
     position: absolute;
     left: 0;
     right: 0;
@@ -7354,15 +7354,16 @@ h1, h2, h3, h4, h5,
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: .1em; }
-  .ftco-navbar-light.scrolled {
+.ftco-navbar-light.scrolled {
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
     margin-top: -130px;
-    background: #404044 !important;
+    background: #0000009c !important;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
     .ftco-navbar-light.scrolled .nav-item.active > a {
       color: #ffb400 !important; }
     @media (max-width: 991.98px) {
@@ -7571,7 +7572,9 @@ h1, h2, h3, h4, h5,
     display: inline-block; }
 
 .bg-light {
-    background-image: url("../../../image/120702177_1038031593292104_6144582756609734542_n.jpg")
+    background-image: url("../../../image/120702177_1038031593292104_6144582756609734542_n.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 .bg-primary {
@@ -7780,7 +7783,7 @@ h1, h2, h3, h4, h5,
   .dish-menu .menus .text {
     width: calc(100% - 100px); }
     .dish-menu .menus .text .one-half {
-      width: calc(100% - 80px); }
+      width: calc(100%); }
       .dish-menu .menus .text .one-half h3 {
         font-size: 18px; }
       .dish-menu .menus .text .one-half p {

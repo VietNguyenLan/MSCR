@@ -17,8 +17,16 @@
             <h1 style="margin-top:80px;font-weight:700;">Quét QR Code</h1>
         </div>
     </section>
-
-    <video id="preview"></video>
+    <div class="wrapper" style="margin-bottom:100px;">
+        <div >
+            <video id="preview" style="display:block;margin:auto"></video>
+        </div>
+        <div style="margin-top:50px;">
+            <button class="btn btn-success" style="display:block;margin:auto;"onclick="location.href='@Url.Action("Index","InputOrder")'">
+               Nhập thủ công
+            </button>
+        </div>
+    </div>
     <script>
         let scanner = new Instascan.Scanner(
             {
@@ -26,8 +34,8 @@
             }
         );
         scanner.addListener('scan', function (content) {
-            alert("Quét thành công");
-            window.open(content, "_blank");
+            //window.open(content, "_self");
+            location.href = content;
         });
         Instascan.Camera.getCameras().then(cameras => {
             if (cameras.length > 0) {

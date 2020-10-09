@@ -4,7 +4,7 @@
 
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
-<table class="table table-striped" id="t01">
+<table class="table table-striped table-bordered" id="t01">
     <tr>
         <th>
             Khách Hàng
@@ -37,7 +37,7 @@
 
 
 
-        <th></th>
+        <th style="width:100px;"></th>
     </tr>
 
     @foreach (var item in Model)
@@ -76,7 +76,7 @@
 
             <td>
 
-                <button>@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
+                <button class="btn btn-primary">@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>
 
 
             </td>

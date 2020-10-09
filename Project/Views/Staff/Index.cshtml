@@ -4,12 +4,12 @@
 <h2>Quản lí nhân viên</h2>
 <br><br>
 
-<button>
+<button class="btn btn-success">
     @Html.ActionLink("Tạo Mới", "Create")
 </button>
 <br><br>
 <link href="~/Style/Style.css" rel="stylesheet" />
-<table class="table table-striped" id="t01">
+<table class="table table-striped table-bordered" id="t01">
     <tr>
         <th>
            Tên đăng nhập
@@ -73,7 +73,7 @@
         <td>
 
 
-            <button>@Html.ActionLink("Xóa", "Edit", new { id = item.id })</button><br>
+            <button class="btn btn-danger">@Html.ActionLink("Xóa", "Edit", new { id = item.id })</button><br>
 
         </td>
     </tr>

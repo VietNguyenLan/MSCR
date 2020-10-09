@@ -35,12 +35,22 @@ namespace Project.StaffControllers
                 }
                 ViewBag.takeTime = time;
                 ViewBag.total = db.order_detail.Where(t => t.orderID == orderID).Select(i => i.total_price).Sum();
+                ViewBag.complete = "http://localhost:51293/CurrentOrderDetail/OrderCompeleted?oID=" + order.id;
+                ViewBag.cancel = "http://localhost:51293/CancelCurrentOrder/Index?oID=" + order.id;
                 List<order_detail> _Details = new List<order_detail>();
                 _Details = db.order_detail.Include(o => o.order).Include(a => a.product).Where(x => x.orderID == orderID).ToList();
                 //UpdateOrderStatus(order.id);
                 return View(_Details);
             }
         }
+
+        public ActionResult OrderCompeleted(int oID)
+        {
+            UpdateOrderStatus(oID);
+
+            return RedirectToAction("Index", "QRScanner");
+        }
+
 
         private void UpdateOrderStatus(int oID)
         {

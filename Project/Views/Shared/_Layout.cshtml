@@ -4,14 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSCR Manager</title>
- 
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Bootstrap CSS CDN -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    
+
     <link href="~/Style/sideBar.css" rel="stylesheet" />
+    <link href="~/fonts/Font(css,js)/COModal.css" rel="stylesheet" />
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -25,100 +27,102 @@
                 <strong>MS</strong>
             </div>
             <ul class="list-unstyled components">
-               
-                    <li>
-                        <a href="@Url.Action("Index", "Product")">
-                            <i class="fas fa-image"></i>
-                            Món Ăn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Category")">
-                            <i class="fas fa-image"></i>
-                            Phân Loại Món Ăn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Ingredient")">
-                            <i class="fas fa-image"></i>
-                            Thành phần món ăn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Menu")">
-                            <i class="fas fa-list"></i>
-                            Danh Sách Menu
-                        </a>
-                    </li>
+
+                <li>
+                    <a href="@Url.Action("Index", "Product")">
+                        <i class="fas fa-image"></i>
+                        Món Ăn
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Category")">
+                        <i class="fas fa-image"></i>
+                        Phân Loại Món Ăn
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Ingredient")">
+                        <i class="fas fa-image"></i>
+                        Thành phần món ăn
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Menu")">
+                        <i class="fas fa-list"></i>
+                        Danh Sách Menu
+                    </a>
+                </li>
 
 
-                    <li>
-                        <a href="@Url.Action("Index", "MenuDaily")">
-                            <i class="fas fa-align-left"></i>
-                            Menu Hàng Ngày
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "MenuDaily")">
+                        <i class="fas fa-align-left"></i>
+                        Menu Hàng Ngày
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="@Url.Action("Index", "Order")">
-                            <i class="fas fa-align-left"></i>
-                            Quản Lí Đơn Hàng
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "Order")">
+                        <i class="fas fa-align-left"></i>
+                        Quản Lí Đơn Hàng
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="@Url.Action("Index", "IngredientsReport")">
-                            <i class="fas fa-image"></i>
-                            Xem nguyên liệu cần chuẩn bị cho ngày mai
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "IngredientsReport")">
+                        <i class="fas fa-image"></i>
+                        Xem nguyên liệu cần chuẩn bị cho ngày mai
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="@Url.Action("Index", "ProductReport")">
-                            <i class="fas fa-image"></i>
-                            Xem những món ăn cần chuẩn bị cho ngày mai
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "ProductReport")">
+                        <i class="fas fa-image"></i>
+                        Xem những món ăn cần chuẩn bị cho ngày mai
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="@Url.Action("Index", "ReportIncome")">
-                            <i class="fas fa-align-left"></i>
-                            Báo Cáo Doanh Số
-                        </a>
-                    </li>
-
-
+                <li>
+                    <a href="@Url.Action("Index", "ReportIncome")">
+                        <i class="fas fa-align-left"></i>
+                        Báo Cáo Doanh Số
+                    </a>
+                </li>
 
 
-
-
-
-                    <li>
-                        <a href="@Url.Action("Index", "TopUPs")">
-                            <i class="fas fa-image"></i>
-                            Thẻ Thanh Toán
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "TopUPs")">
+                        <i class="fas fa-image"></i>
+                        Thẻ Thanh Toán
+                    </a>
+                </li>
 
 
 
-                    <li>
-                        <a href="@Url.Action("Index", "Feedbacks")">
-                            <i class="fas fa-image"></i>
-                            Phản Hồi Của Người Dùng
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "Feedbacks")">
+                        <i class="fas fa-image"></i>
+                        Phản Hồi Của Người Dùng
+                    </a>
+                </li>
 
 
-                    <li>
-                        <a href="@Url.Action("Index", "Staff")">
-                            <i class="fas fa-image"></i>
-                            Quản lý nhân viên
-                        </a>
-                    </li>
+                <li>
+                    <a href="@Url.Action("Index", "Staff")">
+                        <i class="fas fa-image"></i>
+                        Quản lý nhân viên
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "ConfirmAction")">
+                        <i class="fas fa-otp"></i>
+                       Mã xác thực
+                    </a>
+                </li>
 
 
-                
+
+
 
 
 
@@ -158,10 +162,6 @@
            
             <div class="container body-content">
                 @RenderBody()
-                <hr />
-                <footer>
-                    <p>MSCR_TienNM</p>
-                </footer>
             </div>
         </div>
     </div>
