@@ -21,7 +21,7 @@
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
-                    client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+                    client_id: '396129882283-m3goqck75af631ntsomfmn0ltetoqjp1.apps.googleusercontent.com',
                     cookiepolicy: 'single_host_origin',
                     // Request scopes in addition to 'profile' and 'email'
                     //scope: 'additional_scope'
@@ -34,12 +34,39 @@
             console.log(element.id);
             auth2.attachClickHandler(element, {},
                 function (googleUser) {
+                    console.log(googleUser);
+                    loginWithGamail(googleUser);
                     document.getElementById('name').innerText = "Signed in: " +
-                        googleUser.getBasicProfile().getName();
+                        googleUser.getBasicProfile().getName
                 }, function (error) {
-                    alert(JSON.stringify(error, undefined, 2));
+                    console.log(error);
+                    //alert(JSON.stringify(error, undefined, 2));
                 });
         }
+
+        function loginWithGamail(account) {
+            console.log("Account: ", account);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetInforFromGoogleAccount", "Login")',
+                data: "{'googleUser': '" + JSON.stringify(account) + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json", 
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                },
+                success: function (msg) {
+                    console.log(msg);
+                    const redirect = setInterval(function () {
+                        clearInterval(redirect);
+                        window.location.href = '/home/home';
+                    }, 2000);
+                }
+            });
+        }
+
     </script>
 </head>
 <body>

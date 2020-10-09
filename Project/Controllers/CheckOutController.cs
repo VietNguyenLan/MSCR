@@ -2,9 +2,11 @@
 using Project.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,7 +28,20 @@ namespace Project.Controllers
                 int uID = (Int32)(Session["id"]);
                 int total = (int)list.Sum(x => x.totalProduct);
                 ViewBag.totalPrice = total;
-                using(OrderSystemEntities2 db = new OrderSystemEntities2())
+
+                if (Session["fromGoogle"] != null)
+                {
+                    string url = "http://localhost:3000/payment/" + uID + "/" + total;
+                    WebRequest myReq = WebRequest.Create(url);
+                    myReq.Method = "GET";
+                    myReq.ContentType = "application/json; charset=UTF-8";
+                    myReq.Headers.Add("key", "9849F97A8C5546C9906A059D1DD3EC64");
+
+
+                    WebResponse wr = myReq.GetResponse();
+                }
+
+                using (OrderSystemEntities2 db = new OrderSystemEntities2())
                 {
                     user u = db.users.Where(x => x.id == uID).FirstOrDefault();
                     if(total > u.balance)
@@ -103,7 +118,7 @@ namespace Project.Controllers
         {
             
 
-            using (MailMessage mm = new MailMessage("nmtien2502@gmail.com", user.email))
+            using (MailMessage mm = new MailMessage("nguyenanhyoung@gmail.com", user.email))
             {
                 mm.Subject = "Đặt Hàng Thành Công";
 

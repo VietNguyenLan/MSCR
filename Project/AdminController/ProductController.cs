@@ -104,7 +104,8 @@ namespace Project.AdminController
             }
             catch
             {
-                return RedirectToAction("Error","Error");
+                ViewBag.dup = 1;
+                return RedirectToAction("Index");
             }
         }
 
