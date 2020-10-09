@@ -25,16 +25,20 @@ namespace Project.AdminController
                     exist_otp.create_time = DateTime.Now;
                     db.SaveChanges();
                 }
-
-                otp_table otp_ = new otp_table()
+                else
                 {
-                    uId = uID,
-                    create_time = DateTime.Now,
-                    otp = otp
-                };
-                db.otp_table.Add(otp_);
-                db.SaveChanges();
-                return View(otp);
+                    otp_table otp_ = new otp_table()
+                    {
+                        uId = uID,
+                        create_time = DateTime.Now,
+                        otp = otp
+                    };
+                    db.otp_table.Add(otp_);
+                    db.SaveChanges();
+                }
+
+                ViewBag.code = otp;
+                return View();
             }
             
         }

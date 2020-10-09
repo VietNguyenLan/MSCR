@@ -1,11 +1,13 @@
 ﻿@model PagedList.IPagedList<Project.EF.product>
 @using PagedList.Mvc;
 <link href="~/Style/Style.css" rel="stylesheet" />
-<h4>Món Ăn</h4><br/>
+<h4>Món Ăn</h4>
+<br />
 <button class="btn btn-success">
     @Html.ActionLink("Tạo Mới", "Create")
 </button>
-<br /><br />
+<br />
+<br />
 <div class="container" style="display:flex;">
     <div class="dropdown" style="margin-right:650px;">
         <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,7 +24,7 @@
     <div>
 
 
-        <form action="Product_By_Name_Search">
+        <form action="Product\Product_By_Name_Search">
             <p>
                 <input type="text" name="pname" style="width:200px;">
                 <input type="submit" value="Tìm kiếm" />
@@ -84,7 +86,7 @@
             </td>
             <td>
                 <div class="wrapper" style="margin-bottom: 15px; margin-top: 25px;">
-                    <div  style="margin:auto">
+                    <div style="margin:auto">
                         <button class="btn btn-success" style="margin-right:14px;">@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button>
                         <button class="btn btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
                     </div>
@@ -94,8 +96,8 @@
                 </div>
                 <div class="wrapper">
                     <button class="btn btn-primary" style="margin:auto">@Html.ActionLink("Xem Thành Phần", "Details_Ingredient", new { id = item.id })</button>
-                    </div>
-</td>
+                </div>
+            </td>
         </tr>
     }
 
@@ -106,7 +108,8 @@
 
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
     / @Model.PageCount
-<br><br>
+    <br>
+    <br>
 
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 

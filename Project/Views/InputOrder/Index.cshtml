@@ -26,12 +26,12 @@
                 <div style="display:block;width:600px;margin-left:270px;margin-right:270px;">
                     <div style="text-align:center;">
                         <label style="font-weight:600;font-size:25px;">Mã đơn hàng</label>
-                        
-                        @Html.EditorFor(model => model.id, new { htmlAttributes = new {@style="width:600px", @class = "form-control" } })
+
+                        @Html.EditorFor(model => model.id, new { htmlAttributes = new { @style = "width:600px", @class = "form-control" } })
                     </div>
                     <div style="text-align:center; margin-top:30px;">
                         <label style="font-weight:600;font-size:25px;">Mã xác nhận</label>
-                    
+
                         @Html.EditorFor(model => model.receive_code, new { htmlAttributes = new { @style = "width:600px", @class = "form-control" } })
                     </div>
                     <button style="width:150px;margin-left:225px;margin-right:225px;margin-top:30px;" id="myBtn" class="btn btn-lg btn-block btn-success" type="submit">Kiểm tra</button>

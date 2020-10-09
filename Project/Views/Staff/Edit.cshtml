@@ -7,7 +7,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>user</h4>
+        <h4>Vô hiệu hóa tài khoản</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
@@ -15,7 +15,7 @@
         
 
         <div class="form-group">
-            @Html.LabelFor(model => model.is_active, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.is_active, "Bỏ chọn để vô hiệu hóa tài khoản", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.is_active)
@@ -26,12 +26,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Vô hiệu hóa" class="btn btn-danger" style="margin-right:10px;" />
+                <button class="btn btn-secondary">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
