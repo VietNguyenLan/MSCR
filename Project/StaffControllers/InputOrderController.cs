@@ -124,7 +124,8 @@ namespace Project.StaffControllers
                     var today = time_now.Date;
                     if (_order.take_date != today || _order.take_time != service_time)
                     {
-                        return RedirectToAction("Index", "CurrentOrderDetail", new { orderID = _order.id, recieved_code = _order.receive_code });
+                        return RedirectToAction("Index", "InputOrder", new { order = _order });
+                        //return RedirectToAction("Index", "CurrentOrderDetail", new { orderID = _order.id, recieved_code = _order.receive_code });
 
                         //ViewBag.error = "Order was not for current time!";
                         //return RedirectToAction("Index", "InputOrder", new { order = _order });

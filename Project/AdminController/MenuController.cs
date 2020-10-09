@@ -62,7 +62,7 @@ namespace Project.AdminController
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

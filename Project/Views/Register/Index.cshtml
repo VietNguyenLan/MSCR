@@ -12,35 +12,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="~/fonts/Font(css,js)/Logincss.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <link href="~/fonts/Google/google.css" rel="stylesheet" />
-    <script>
-        var googleUser = {};
-        var startApp = function () {
-            gapi.load('auth2', function () {
-                // Retrieve the singleton for the GoogleAuth library and set up the client.
-                auth2 = gapi.auth2.init({
-                    client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-                    cookiepolicy: 'single_host_origin',
-                    // Request scopes in addition to 'profile' and 'email'
-                    //scope: 'additional_scope'
-                });
-                attachSignin(document.getElementById('customBtn'));
-            });
-        };
-
-        function attachSignin(element) {
-            console.log(element.id);
-            auth2.attachClickHandler(element, {},
-                function (googleUser) {
-                    document.getElementById('name').innerText = "Signed in: " +
-                        googleUser.getBasicProfile().getName();
-                }, function (error) {
-                    alert(JSON.stringify(error, undefined, 2));
-                });
-        }
-    </script>
 </head>
 <body>
     <div class="wrapper fadeInDown" style="padding-top:100px;">
@@ -89,14 +60,6 @@
                     </div>
                     <div class="bg">
                         <input class="btn btn-success btnsubmit" type="submit" name="commit" value="Đăng ký">
-                        <div id="gSignInWrapper">
-                            <div id="customBtn" class="customGPlusSignIn">
-                                <span class="icon"></span>
-                                <span class="buttonText">Google</span>
-                            </div>
-                        </div>
-                        <script>startApp();</script>
-                        <br />
                         <p>Đã có tài khoản @Html.ActionLink("đăng nhập", "Index", "Login")<p>
                         <p>Quên mật khẩu? @Html.ActionLink("đổi mật khẩu ngay", "Index", "ForgotPassword")</p>
                     </div>

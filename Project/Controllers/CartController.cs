@@ -106,8 +106,8 @@ namespace Project.Controllers
             List<CartItem> items = (List<CartItem>)Session["cart"];
             int index = isExist(items, product);
             items[index].Quantity++;
+            items[index].totalProduct = items[index].Product.price * items[index].Quantity;
 
-            
 
             Session["cart"] = items;
 
@@ -125,7 +125,8 @@ namespace Project.Controllers
             List<CartItem> items = (List<CartItem>)Session["cart"];
             int index = isExist(items, product);
             items[index].Quantity--;
-            if(items[index].Quantity == 0)
+            items[index].totalProduct = items[index].Product.price * items[index].Quantity;
+            if (items[index].Quantity == 0)
             {
                 items.Remove(items[index]);
 

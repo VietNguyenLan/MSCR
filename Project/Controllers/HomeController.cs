@@ -16,7 +16,7 @@ namespace Project.Controllers
         {
             if (date is null)
             {
-                date = DateTime.Now.Date;
+                date = DateTime.Now.Date.AddDays(1);
             }
 
             if (service_time is null)

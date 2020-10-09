@@ -23,7 +23,7 @@ namespace Project.AdminController
 
 
             int pageNumber = (page ?? 1);
-            var time = db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList().OrderBy(c => c.date_service);
+            var time = db.time_menu.Include(c => c.menu).Include(a => a.menu1).Include(b => b.menu2).ToList().OrderByDescending(c => c.date_service);
             return View(time.ToPagedList(pageNumber, pageSize));
 
         }
@@ -70,7 +70,7 @@ namespace Project.AdminController
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 
