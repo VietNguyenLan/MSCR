@@ -1,9 +1,6 @@
 ﻿@model PagedList.IPagedList<Project.EF.product>
 @using PagedList.Mvc;
 <link href="~/Style/Style.css" rel="stylesheet" />
-
-
-
 <h4>Món Ăn</h4><br/>
 <button class="btn btn-success">
     @Html.ActionLink("Tạo Mới", "Create")
@@ -86,9 +83,11 @@
                 @Html.DisplayFor(modelItem => item.category.name)
             </td>
             <td>
-                <div class="container" style="margin-bottom:15px;margin-top:25px;">
-                    <button class="btn btn-success" style="margin-right:14px;">@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button>
-                    <button class="btn btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
+                <div class="wrapper" style="margin-bottom: 15px; margin-top: 25px;">
+                    <div  style="margin:auto">
+                        <button class="btn btn-success" style="margin-right:14px;">@Html.ActionLink("Sửa", "Edit", new { id = item.id })</button>
+                        <button class="btn btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.id })</button>
+                    </div>
                 </div>
                 <div class="wrapper" style="margin-bottom:15px;">
                     <button class="btn btn-primary" style="margin:auto">@Html.ActionLink("Chi Tiết", "Details", new { id = item.id })</button>

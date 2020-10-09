@@ -16,35 +16,35 @@
         <div class="container">
             <a class="navbar-brand" href="~/home/Home">MSCR</a>
             <div>
-                <a class="fa fa-shopping-cart cart" style="font-size: 20px;color: white;margin-right:20px;"  href="~/Cart/cart"></a>
+                <a class="fa fa-shopping-cart cart" style="font-size: 20px;color: white;margin-right:20px;" href="~/Cart/cart"></a>
                 @if (Session["username"] == null)
                 {
                     <a class="btn btn-outline-info waves-effect" style="margin-right:5px;" href="~/Login">Đăng nhập</a>
                     <a class="btn btn-outline-danger waves-effect" href="~/Register">Đăng Ký</a>
                 }
                 else
-                {    
-            <div class="btn-group">
-                <div style="color:white;margin-right:20px;width:160px;font-weight:600;">Số dư : @{Project.EF.user user = (Project.EF.user)Session["user"];} @user.balance đ </div>
-                <div style="color:white;cursor:pointer;font-weight:600;" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @user.name
-                </div>
-                <div class="dropdown-menu">
-                    @if (Session["role"].Equals(3))
-                    {
-                        <a class="dropdown-item" href="~/Product">Trở về trang quản lý</a>
-                    }
-                    @if (Session["role"].Equals(2))
-                    {
-                        <a class="dropdown-item" href="~/InputOrder">Trở về trang nhân viên</a>
-                    }
-                    <a class="dropdown-item" href="~/UserDetail/UserDetail">Thông tin cá nhân</a>
-                    <a class="dropdown-item" href="~/TransactionHistory/History">Lịch sử giao dịch</a>
-                    <a class="dropdown-item" href="~/OrderList/Index">Lịch sử mua hàng</a>
-                    <a class="dropdown-item" href="~/TopUp/TopUp">Nạp tiền</a>
-                    <a class="dropdown-item" href="~/Login/LogOut">Đăng xuất</a>
-                </div>
-            </div>
+                {
+                    <div class="btn-group">
+                        <div style="color:white;margin-right:20px;width:160px;font-weight:600;">Số dư : @{Project.EF.user user = (Project.EF.user)Session["user"];} @user.balance đ </div>
+                        <div style="color:white;cursor:pointer;font-weight:600;" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @user.name
+                        </div>
+                        <div class="dropdown-menu">
+                            @if (Session["role"].Equals(3))
+                            {
+                                <a class="dropdown-item" href="~/Product">Trở về trang quản lý</a>
+                            }
+                            @if (Session["role"].Equals(2))
+                            {
+                                <a class="dropdown-item" href="~/InputOrder">Trở về trang nhân viên</a>
+                            }
+                            <a class="dropdown-item" href="~/UserDetail/UserDetail">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="~/TransactionHistory/History">Lịch sử giao dịch</a>
+                            <a class="dropdown-item" href="~/OrderList/Index">Lịch sử mua hàng</a>
+                            <a class="dropdown-item" href="~/TopUp/TopUp">Nạp tiền</a>
+                            <a class="dropdown-item" href="~/Login/LogOut">Đăng xuất</a>
+                        </div>
+                    </div>
 
                 }
 
@@ -53,8 +53,7 @@
         </div>
 
     </nav>
-
-    @RenderBody();
+    @RenderBody()
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
