@@ -95,20 +95,44 @@ namespace Project.Controllers
             return RedirectToAction("Cart");
         }
 
-
-
-        public ActionResult Remove(product product)
+        public ActionResult AddItem(int productID)
         {
 
+            product product = new product();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                product = db.products.Where(x => x.id == productID).FirstOrDefault();
+            }
+            List<CartItem> items = (List<CartItem>)Session["cart"];
+            int index = isExist(items, product);
+            items[index].Quantity++;
+
+            
+
+            Session["cart"] = items;
+
+            return RedirectToAction("Cart");
+        }
+
+        public ActionResult Remove(int productID)
+        {
+
+            product product = new product();
+            using (OrderSystemEntities2 db = new OrderSystemEntities2())
+            {
+                product = db.products.Where(x => x.id == productID).FirstOrDefault();
+            }
             List<CartItem> items = (List<CartItem>)Session["cart"];
             int index = isExist(items, product);
             items[index].Quantity--;
-            items[index].totalProduct = items[index].Product.price * items[index].Quantity;
-            if (items[index].Quantity == 0)
+            if(items[index].Quantity == 0)
             {
                 items.Remove(items[index]);
+
             }
+
             Session["cart"] = items;
+
             return RedirectToAction("Cart");
         }
 
